@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 1: Sending and Standard Out</title>
+  <link rel="icon" href="../favicon.png" type="image/x-icon" />
+
+  <link rel="stylesheet" type="text/css" href="../lesson.css" />
+</head>
+
+<body>
+  <div class="slide">
+    <h2>Say Hello</h2>
+
+    <p>There is a long-standing tradition in programming that your first program should say "Hello World". Here's the simplest rholang code to put that text on the screen.</p>
+
+    Include hello.rho here
+  </div>
+
+  <div class="slide">
+    <h2>Your turn</h2>
+    <p>Before I even explain anything, do some experimentation.</p>
+    <ul>
+      <li>Make the program print "Rholang rocks!" instead of "Hello World".</li>
+      <li>Try to change "stdout" to something else. Any results?.</li>
+      <li>We're casual here. Make th  program say "Sup World" on the screen.</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>WTH is "stdout"?</h2>
+
+    <figure class="left">
+      <img src="mailbox.png" alt="A mailbox"/>
+      <figvaption>Channels are like mailboxes for sending messages.</figvaption>
+    </figure>
+    <p>The heart of rholang is communication on channels. Channels are communication lines that you use to send and receive messages. To send a message on a channel, you use the <code>!</code> character.</p>
+
+    TODO `channelName!message` (Make this an annotated diagram)
+
+    <p><code>@"stdout"</code> is a special channel that is used to send text to "standard out" which usually just means your computer screen.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Using other channels</h2>
+
+    <figure class="right">
+      <img src="mailboxes.png" alt="many mailboxes in a row" />
+      <figcaption>Sent messages wait to be received here in "message purgatory"... JK, it's called the "tuplespace"</figcaption>
+    </figure>
+
+    <p>You can actually send messages on lots of channels, not just <code>@"stdout"</code>. But unlike <code>@"stdout"</code> they won't display on the screen.</p>
+
+    <p>So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".</p>
+
+    <p>Remember when you tried it a few slides ago? Try that again and make sure your message is sitting in the tuplespace.</p>
+
+    include tupleSpace.rho
+    include screenshot of looking at the tuplespace
+  </div>
+
+  <div class="slide">
+    <h2>Doing two things at once</h2>
+
+    <figure class="left">
+      <img src="cooking.png" alt="Adding all ingredients at once while cooking." />
+      <figcaption>Rather than following an ordered list, all ingredients are added concurrently.  Looks delicions.</figcaption>
+    </figure>
+
+    <p>In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently" or all at once.</p>
+
+    Include parallel.rho
+
+    <p>The <code>|</code> is pronounced "parallel", or "par" for short.</p>
+  </div>
+
+  <div class="slide">
+    <h2>Your turn again</h2>
+
+    <p>Now try this</p>
+    <ul>
+      <li>Send the message "1 large peperoni please" on a channel called "pizza shop".</li>
+      <li>Send "Hi Mom" on the channel "Mom's Phone".</li>
+      <li>Print two messages, "Rick" and "Morty", on the screen in one program.</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Quiz</h2>
+
+    <p>What will <code>@"stdout"!("Programming!")</code> print to the screen?</p>
+
+    <p>What channel does <code>@"what"!("Up")</code> send a message on?</p>
+
+    <p>Which does rholang do first in
+    ```
+    @"stdout"!("Dogs")
+    |
+    @"stdout"!("Cats")
+    ```
+    * Print Dogs
+    * Print Cats
+    * Trick Question</p>
+
+    <p>There is also a special channel called <code>@"stderr"</code>. Check out what happens when you send to it. <a href="https://en.wikipedia.org/wiki/Standard_streams" target="_blank">What's the difference?</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.slide {
+  width: 800px;
+  height: 600px;
+
+  background: grey;
+  border-radius: 5px;
+}
+
+figure {
+  width: 40%;
+  border: solid 1px black;
+}
+
+figure.right {float: right;}
+figure.left  {float: left;}

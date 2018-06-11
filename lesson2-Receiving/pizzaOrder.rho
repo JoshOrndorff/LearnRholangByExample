@@ -1,0 +1,5 @@
+@"pizzaShop"!("2 medium pies")
+|
+for(order <- @"pizzaShop"){
+  @"stdout"!("Order Received.")
+}

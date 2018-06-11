@@ -1,0 +1,7 @@
+contract @"coffeeShop"(order) = {
+  @"stdout"!("Coffee Order Received")
+}
+|
+@"coffeeShop"!("one hot chocolate")
+|
+@"coffeeShop"!("two large latte's please")
