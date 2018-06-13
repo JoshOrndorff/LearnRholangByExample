@@ -3,7 +3,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
   // Globals
-  var currentSlide = 1
+  var currentSlide = 0
   var prevButton = document.getElementById("prev-button")
   var nextButton = document.getElementById("next-button")
   var slides = document.getElementsByClassName("slide")
@@ -13,13 +13,13 @@ window.addEventListener("DOMContentLoaded", () => {
   prevButton.addEventListener("click", () => changeSlideBy(-1))
   nextButton.addEventListener("click", () => changeSlideBy(1))
   window.addEventListener("keyup", (e)=>{
-    var code = e.keyCode ? e.keyCode : e.which;
+    var code = e.keyCode ? e.keyCode : e.which
     if (code === 37) {changeSlideBy(-1)}
     else if (code === 39) {changeSlideBy(1)}
   })
 
   // Make first slide current
-  changeSlideBy(-1)
+  changeSlideBy(0)
 
   /**
    * Changes the currently visible slide by the number given.
@@ -36,15 +36,15 @@ window.addEventListener("DOMContentLoaded", () => {
     currentSlide = nextSlide
 
     // Enable or disable nav buttons
+    if (currentSlide > 0 && currentSlide < slides.length - 1){
+      nextButton.classList.remove("disabled")
+      prevButton.classList.remove("disabled")
+    }
     if (currentSlide === 0) {
       prevButton.classList.add("disabled")
     }
-    else if (currentSlide === slides.length - 1){
+    if (currentSlide === slides.length - 1){
       nextButton.classList.add("disabled")
-    }
-    else {
-      nextButton.classList.remove("disabled")
-      prevButton.classList.remove("disabled")
     }
 
     // Update the progress bar
