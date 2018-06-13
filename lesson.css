@@ -1,15 +1,97 @@
+/* BODY */
+body {
+  margin: 0;
+  background: radial-gradient(rgb(245, 245, 245), rgb(190, 190, 190));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 5%;
+}
+/* SLIDES */
 .slide {
+  display: none; /* becaue only the current slide should be shown */
   width: 800px;
   height: 600px;
+  margin: auto;
+  padding: 3%;
 
-  background: grey;
-  border-radius: 5px;
+  background: radial-gradient(rgb(145, 145, 145), rgb(140, 140, 140));
+  border-radius: 2%;
+
+  order: 1; /* flexbox */
 }
+
+.current {
+  display: block;
+}
+
+code {
+  line-height: 100%;
+  background-color: #bbb;
+  padding: 0.3em;
+  border-radius: .5em;
+}
+
+/* FIGURES */
 
 figure {
   width: 40%;
-  border: solid 1px black;
+  border: solid .1em black;
+  padding: 1ex;
+  border-radius: 1ex;
 }
 
-figure.right {float: right;}
-figure.left  {float: left;}
+figure.right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+figure.left {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+figure > img {
+  width: 100%;
+}
+
+/* NAVIGATION */
+.button {
+  width: 10%;
+  height: 100%;
+  background: orange;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 10em;
+  cursor: pointer;
+
+}
+
+.disabled {
+  opacity: .4;
+}
+
+#prev-button {
+  order: 0; /* flexbox */
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+#next-button {
+  order: 2; /* flexbox */
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+}
+
+#progress-bar {
+  position: absolute;
+  width: 100%;
+  height: 1em;
+  bottom: 0;
+}
+
+#completed {
+  background: blue;
+  height: 100%;
+  position: relative;
+  left: 0;
+}
