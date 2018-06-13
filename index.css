@@ -1,0 +1,24 @@
+body {
+  width: 520px; /*TODO*/
+  height: 100%;
+  margin: 0 auto;
+  background: radial-gradient(rgb(245, 245, 245), rgb(190, 190, 190));
+}
+
+#library {
+  width: 100%;
+  height: 25em;
+  background-image: url("library.png");
+  background-repeat: no-repeat;
+  padding-top: 10em;
+  padding-left: 2em;
+
+  position: relative; /* So bookshelf can be absolute */
+}
+
+#bookshelf {
+  width: 60%;
+  position: absolute;
+  left: 15%;
+  bottom: 0;
+}
