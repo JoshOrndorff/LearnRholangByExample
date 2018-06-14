@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 3: Telephone, Names, and Processes</title>
+  <link rel="icon" href="../favicon.png" type="image/x-icon" />
+
+  <link rel="stylesheet" type="text/css" href="../lesson.css" />
+  <script type="text/javascript" src="../slides.js"></script>
+</head>
+
+<body>
+  <div class="slide">
+    <h2>Message Relaying</h2>
+
+    <figure class="left">
+      <img src="telephone.png" />
+      <figcaption>
+        The game of telephone is perfect to simulate message forwarding in rholang.
+      </figcaption>
+    </figure>
+
+    <p>We've previously learned how to send a message to grandma or a pizza shop. But so far all those recipients have done is acknowledge the message by printing to standard output.</p>
+
+    <p>Now let's make them do something more interesting by passing the message along like in a child's telephone game</p>
+
+    include telephone3.rho here
+
+    <p>As the message says, you learn most when you experiment. So be sure to change thinds as you see fit.</p>
+  </div>
+
+  <div class="slide">
+    <h2>The More the Merrier</h2>
+
+    <figure class="right">
+      <img src="telephoneChangedMessage.png" />
+      <figcaption>
+        The message never seems to get there correctly. I blame Bob.
+      </figcaption>
+    </figure>
+
+    <p>That telephone game was fun, but it's always better the have more players. Go ahead and add a third player called Charlie. Instead of printing to stdout, bob will send the message along to Charlie. Then Charlie will print it to the screen.</p>
+
+    <p>If you've ever actually played telephone, you know that the message rarely arrives in tact. Bob decided to mix it up by passing along a false message. Change the program so Bob passes along a different message regardless of what he receives.</p>
+  </div>
+
+  <div class="slide">
+    <h2>WTH is That <code>*</code>?</h2>
+
+    <figure>
+      include julie drawing of inverse operators +- x/ *@
+    </figure>
+
+    <p>Did you notice the <code>*</code> in <code>@"Bob"!(*message)</code>? In rholang there are two kinds of things, "names" and "processes". There are also ways to convert between the two.</p>
+
+    <p>A "process" is just any piece of rholang code such as our telephone game, or our pizza shop order program. Processes can be big hundre-line programs or small on-liners. They can even be tiny pieces of code that are just values.  Here are some example processes.</p>
+    <ul>
+      <li><code>@"stdout"!("Sup Rholang?")</code> A common send</li>
+      <li><code>0</code> The smallest possible process. It literally means "do nothing".</li>
+      <li><code>for(msg &lt;- @"phone"){0}</code> A common receive that does nothing when a message arrives.</li>
+      <li><code>"Hello World"</code> Another small process that also does nothing. These are called "Ground Terms".</li>
+    </ul>
+
+    <p>A name is something that can be used as a channel to send messages over. In most programming languages, names are totally separate things that exist on their own. But in rholang, names come from "quoting processes" by putting the <code>@</code> sign before a process. Here are some example names.</p>
+    <ul>
+      <li><code>@"stdout"</code> Made by quoting the ground term "Hello World".</li>
+      <li><code>@0</code> The smallest possible name. Made by quoting the smalles possible process.</li>
+      <li><code>@(@"Alice"!("I like rholang, pass it on."))</code> Made by quoting a process from out telephone game</li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>Okay, but WTH WAS THAT <code>*</code>?</h2>
+
+    <figure class="right">
+      <img src="myNameIs.png" />
+      <figcaption>
+        What kind of name is that!? Did your parents just name you after some computer code?
+        This name is built by quoting the send process <code>@0!(0)</code>. What does that process do? It sends a smaller process, <code>0</code> on a name <code>@0</code>.
+      </figcaption>
+    </figure>
+
+    <p>We learned that we can package processes up to make names by quoting them with the <code>@</code> symbol. We can also turn names back into processes by "unquoting" them with the <code>*</code> symbol.</p>
+
+    <p>The big thing to remember is in rholang we <strong>Send processes and receive names</strong>. That's important so I'll say it again. You always <strong>send a process</strong> and on the other end, you <strong>receive a name</strong>.</p>
+
+    <p>When Alice receives our message with <code>for(message &lt;- @"Alice")</code> she is receiving, so message becomes a name. When she goes on to send to Bob she has to send a process, so she uses <code>*</code> to turn <code>message</code> back into a process with <code>@"Bob"!(*message)</code></p>
+  </div>
+
+  <div class="slide">
+    <h2>Quiz</h2>
+
+    What do we send?
+
+    What do we receive?
+
+    What is <code>@"stdout"</code>
+
+    What is <code>0</code>?
+
+    What is <code>@0</code>?
+
+    <code>*importantData</code> is a process, so what is <code>importantData</code>?
+
+    Which of these is equivalent to <code>"BobsPhone"</code>?
+    * *@"BobsPhone"
+    * @"BobsPhone"
+    * *"BobsPhone"
+    * @"stdout"!("BobsPhone")
+  </div>
+
+  <div class="slide">
+    <h2>One final exercise</h2>
+    <p>Instead of a linear telephone game where wach player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Elise.</p>
+
+    <p>Each branch can be as long as you want, but at the end of each branch, print the message to stdout.</p>
+
+    <figure>
+      Include diagram of forked telephone game.
+    </figure>
+  </div>
+
+
+
+  <div id="prev-button" class="button">&lt;</div>
+  <div id="next-button" class="button">&gt;</div>
+  <div id="progress-bar">
+    <div id="completed"></div>
+  </div>
+
+</body>
+</html>
