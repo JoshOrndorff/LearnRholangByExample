@@ -35,6 +35,7 @@ code {
 /* FIGURES */
 
 figure {
+  background: #cccccc;
   width: 40%;
   border: solid .1em black;
   padding: 1ex;
@@ -94,4 +95,5 @@ figure > img {
   height: 100%;
   position: relative;
   left: 0;
+  transition: width 0.5s;
 }
