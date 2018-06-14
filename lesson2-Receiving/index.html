@@ -8,9 +8,11 @@
 
   <link rel="stylesheet" type="text/css" href="../lesson.css" />
   <script type="text/javascript" src="../slides.js"></script>
+  <script type="text/javascript" src="quiz.js"></script>
 </head>
 
 <body>
+  <
   <div class="slide">
     <h1>Check for Messages</h1>
 
@@ -25,6 +27,13 @@
   <div class="slide">
     <h1>Comm Events</h1>
 
+    <figure class="right">
+      <img src="pizza.png" />
+      <figcaption>
+        Pizza shop can receive messages on its channel.
+      </figcaption>
+    </figure>
+
     <p>The following code sends a message on a channel for a pizza shop and the pizza shop receives it. The pizza shop acknowledges receiving the message by printing to stdout.</p>
 
     include pizzaOrder.rho
@@ -37,43 +46,60 @@
     <h1>Your turn</h1>
 
     <ul>
-      <li>Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first.</li>
+      <li>Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first. Give it a try!</li>
       <li>Send that message to a different channel like <code>@"coffeShop"</code>. Did the acknowledgement print? Is anything left in the tuplespace?</li>
     </ul>
+
+      <figure>
+        <img src="coffee.png" />
+        <figcaption>
+          Let's hit up the coffee shop.
+        </figcaption>
+      </figure>
 
   </div>
 
   <div class="slide">
     <h1>Receiving Before Sending</h1>
 
+    <figure class="left">
+      <img src="lookingForMessages.png" />
+      <figcaption>
+        Rather than the message appearing first, then someone receiving it, Greg is trying to receive first. Hopefully someone will send him a message so he can get his comm on!
+      </figcaption>
+    </figure>
+
     <p>When a send and a receive come together on a channel, it is called a communication event, or "comm event" for short.</p>
 
-    <p>Unlike normal mail where a message must be sent <em>then</em> received, the two can happen in either order in rholang. It is just as cceptible to receive a message, then send it. Whenever a send and receive come together, a comm event takes place.</p>
-
-    include some kind of fun Julie illustration here.
+    <p>Unlike normal mail where a message must be sent <em>then</em> received, the two can happen in either order or at the same time in rholang. It is just as cceptible to receive a message, then send it. Whenever a send and receive come together, a comm event takes place.</p>
 
   </div>
 
   <div class="slide">
     <h1>Contracts</h1>
 
-    <p>Out pizza shop example illustrates comm events nicely, but it isn't very realistic to expect the pizza shop to manually issue a new receive every time an incoming order consumes theirs from the tuplespace.</p>
+    <figure class="right">
+      <img src="pizzaBurning.png" />
+      <figcaption>
+        The poor chef is too busy making sure he can receive orders to take care of his pizza.
+      </figcaption>
+    </figure>
 
-    include Julie diagram of ordering a pizza tearing down the phone line or destroying the mailbox or something.
+    <p>Out pizza shop example illustrates comm events nicely, but it isn't very realistic to expect the pizza shop to manually issue a new receive every time an incoming order consumes theirs from the tuplespace.</p>
 
     <p>Luckily it's possible to deploy code once, and have it run <em>every</em> time it receives a message. This kind of thing is called a "smart contract". Let's look at some code for a coffee chop that is much superior to the pizza shop.</p>
 
-    include coffeeShop.rho here
+    include coffeeshop.rho here
   </div>
 
   <div class="slide">
     <h1>Your turn</h1>
 
     <ul>
-      <li>Order another drink</li>
+      <li>Order another drink from the coffee shop</li>
       <li>Change the acknowledgement message</li>
       <li>The channel is just named <code>@"coffeeShop"</code>. Change it to be named after a specific coffee shop of your choosing.</li>
-      <li>Write a similar contract for our pizzaShop. (Don't just copy paste this code. You'll remember the syntax more if you write it yourself.)</li>
+      <li>Write a similar contract for our pizzaShop. (You'll remember the syntax more if you write it yourself rather than copy-pasting.)</li>
     </ul>
 
 
@@ -81,7 +107,7 @@
 
   <div class="slide">
     <h1>Persistant For</h1>
-    <p>There are actually two dofferent styles of syntax in rholang to acheive this persistent behavior. We just learned about <code>contract</code>. The other option is called a "persistent for". Here is another way to write the coffee shop code.</p>
+    <p>There are actually two different styles of syntax in rholang to acheive this persistent behavior. We just learned about <code>contract</code>. The other option is called a "persistent for". Here is another way to write the coffee shop code.</p>
 
     include PersistentCoffeeShop.rho
 
@@ -92,21 +118,55 @@
     <h1>Quiz</h1>
 
     <p>Which of these things is not like the other?</p>
-    * <code>for (a &lt;- b){}</code>
-    * <code>contract b(a) = {}</code>
-    * <code>for (a &lt;= b){}</code>
+      <input type="radio" name="q1" id="q1a1" />
+      <label for="q1a1">
+        <code>for (a &lt;- b){}</code>
+      </label><br />
 
-    <p>Which send will produce a comm event with <code>for (message &lt;- @"grandmasSnapChat"){}</code></p>
-    * grandmasSnapChat!("Hi Grandma")
-    * @"grandmasSnapChat"!("Glad you're snapping Grandma")
-    * for("Here's a snap for you g'ma" &lt;- @"grandmasSnapChat")
+      <input type="radio" name="q1" id="q1a2" />
+      <label for="q1a2">
+        <code>contract b(a) = {}</code>
+      </label><br />
+
+      <input type="radio" name="q1" id="q1a3" />
+      <label for="q1a3">
+        <code>for (a &lt;= b){}</code>
+      </label><br />
+
+    <p>Which send will produce a comm event with <code>for (message &lt;- @"grandmasSnapChat"){}</code>?</p>
+      <input type="radio" name="q2" id="q2a1" />
+      <label for="q2a1"><code>
+        grandmasSnapChat!("Hi Grandma")
+      </code></label><br />
+
+      <input type="radio" name="q2" id="q2a2" />
+      <label for="q2a2"><code>
+        @"grandmasSnapChat"!("Glad you're snapping Grandma")
+      </code></label><br />
+
+      <input type="radio" name="q2" id="q2a3" />
+      <label for="q2a3"><code>
+        for("Here's a snap for you g'ma" &lt;- @"grandmasSnapChat")
+      </code></label><br />
 
     <p>Which should generally come first?</p>
-    * A send because that's how normal mail works.
-    * A receive because it's faster to run the code that way.
-    * Either a send of a receive can come first, or they can come together.
-    * A receive because rholang is concurrent.
-    * Neither. Just make a comm event directly.
+      <input type="radio" name="q3" id="q3a1" />
+      <label for="q3a1">A send because that's how normal mail works.</label><br />
+
+      <input type="radio" name="q3" id="q3a2" />
+      <label for="q3a2">A receive because it's faster to run the code that way.</label><br />
+
+      <input type="radio" name="q3" id="q3a3" />
+      <label for="q3a3">Either a send or a receive can come first, or they can come together.</label><br />
+
+      <input type="radio" name="q3" id="q3a4" />
+      <label for="q3a4">A receive because rholang is concurrent.</label><br />
+
+      <input type="radio" name="q3" id="q3a5" />
+      <label for="q3a5">Neither. Just make a comm event directly.</label><br />
+
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
 
   </div>
 
