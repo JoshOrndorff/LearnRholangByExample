@@ -12,7 +12,7 @@
 
 <body>
   <div class="slide">
-    <h2>Check for Messages</h2>
+    <h1>Check for Messages</h1>
 
     <p>We learned last time how to send a message. Now it's time to learn how to receive a message. The general syntax is:</p>
 
@@ -23,7 +23,7 @@
   </div>
 
   <div class="slide">
-    <h2>Comm Events</h2>
+    <h1>Comm Events</h1>
 
     <p>The following code sends a message on a channel for a pizza shop and the pizza shop receives it. The pizza shop acknowledges receiving the message by printing to stdout.</p>
 
@@ -34,7 +34,7 @@
   </div>
 
   <div class="slide">
-    <h2>Your turn</h2>
+    <h1>Your turn</h1>
 
     <ul>
       <li>Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first.</li>
@@ -44,7 +44,7 @@
   </div>
 
   <div class="slide">
-    <h2>Receiving Before Sending</h2>
+    <h1>Receiving Before Sending</h1>
 
     <p>When a send and a receive come together on a channel, it is called a communication event, or "comm event" for short.</p>
 
@@ -55,7 +55,7 @@
   </div>
 
   <div class="slide">
-    <h2>Contracts</h2>
+    <h1>Contracts</h1>
 
     <p>Out pizza shop example illustrates comm events nicely, but it isn't very realistic to expect the pizza shop to manually issue a new receive every time an incoming order consumes theirs from the tuplespace.</p>
 
@@ -67,7 +67,7 @@
   </div>
 
   <div class="slide">
-    <h2>Your turn</h2>
+    <h1>Your turn</h1>
 
     <ul>
       <li>Order another drink</li>
@@ -80,7 +80,7 @@
   </div>
 
   <div class="slide">
-    <h2>Persistant For</h2>
+    <h1>Persistant For</h1>
     <p>There are actually two dofferent styles of syntax in rholang to acheive this persistent behavior. We just learned about <code>contract</code>. The other option is called a "persistent for". Here is another way to write the coffee shop code.</p>
 
     include PersistentCoffeeShop.rho
@@ -89,7 +89,7 @@
   </div>
 
   <div class="slide">
-    <h2>Quiz</h2>
+    <h1>Quiz</h1>
 
     <p>Which of these things is not like the other?</p>
     * <code>for (a &lt;- b){}</code>
