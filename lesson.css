@@ -96,5 +96,6 @@ figure > img {
   height: 100%;
   position: relative;
   left: 0;
+  min-width: 1em;
   transition: width 0.5s;
 }

@@ -48,7 +48,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     // Update the progress bar
-    var x = (currentSlide + 1) * 100.0 / slides.length
+    var x = (currentSlide) * 100.0 / (slides.length - 1)
     completed.setAttribute("style", "width:" + x + "%;")
   }
 
