@@ -8,7 +8,7 @@ body {
 #library {
   width: 100%;
   height: 25em;
-  background-image: url("library.png");
+  background-image: url("../img/library.png"); /* Path relative to css. */
   background-repeat: no-repeat;
   padding-top: 10em;
   padding-left: 2em;
