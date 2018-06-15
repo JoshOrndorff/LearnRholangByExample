@@ -69,5 +69,4 @@ make these lessons part of my laera project which incentive aligns teachers
 and learners. I'd love to tell you more about it.
 
 ## License
-MIT
-See LICENSE.txt for details
+This project intends to be part of the [RTime model](https://github.com/glenbraun/CollaborativeLicense)
