@@ -6,9 +6,14 @@
   <title>Lesson 2: Receiving</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
-  <link rel="stylesheet" type="text/css" href="../css/lesson.css" />
-  <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="quiz.js"></script>
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/slides.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
 </head>
 
 <body>
@@ -36,7 +41,7 @@
 
     <p>The following code sends a message on a channel for a pizza shop and the pizza shop receives it. The pizza shop acknowledges receiving the message by printing to stdout.</p>
 
-    include pizzaOrder.rho
+    <div class="code">pizzaOrder</div>
 
 
 
@@ -89,7 +94,7 @@
 
     <p>Luckily it's possible to deploy code once, and have it run <em>every</em> time it receives a message. This kind of thing is called a "smart contract". Let's look at some code for a coffee chop that is much superior to the pizza shop.</p>
 
-    include coffeeshop.rho here
+    <div class="code">coffeeShop</div>
   </div>
 
   <div class="slide">
@@ -109,7 +114,7 @@
     <h1>Persistant For</h1>
     <p>There are actually two different styles of syntax in rholang to acheive this persistent behavior. We just learned about <code>contract</code>. The other option is called a "persistent for". Here is another way to write the coffee shop code.</p>
 
-    include PersistentCoffeeShop.rho
+    <div class="code">persistentCoffeeShop</div>
 
     <p>Notice this is different from a normal for because it has a double arrow <code>&lt;=</code> rather than a single arrow <code>&lt;-</code>. The only difference between the persistent for and a contract comes when we start talking about blockchains. For now you can think of them as the same thing.</p>
   </div>

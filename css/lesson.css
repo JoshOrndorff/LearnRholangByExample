@@ -25,11 +25,37 @@ body {
   display: block;
 }
 
-code {
+code { /* Inline code. Big blocks are in pre tags. See Below */
   line-height: 100%;
   background-color: #bbb;
   padding: 0.3em;
   border-radius: .5em;
+}
+
+/* CODE BLOCKS */
+.code {
+  display: inline-block;
+  min-width: 50%;
+}
+
+pre.prettyprint {
+  margin: 0;
+  padding: 1em 0;
+}
+
+#code-buttons {
+
+}
+
+#code-buttons > div {
+  cursor: pointer;
+  text-align: center;
+  height: 1.5em;
+  width: 7em;
+  float: right;
+  margin: .1em;
+  background-color: orange;
+  border-radius: 1em;
 }
 
 /* FIGURES */
