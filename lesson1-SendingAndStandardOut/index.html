@@ -6,7 +6,7 @@
   <title>Lesson 1: Sending and Standard Out</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
-  
+  <script type="text/javascript" src="quiz.js"></script>
   <script type="text/javascript" src="code.js"></script>
   <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="../js/insertcode.js"></script>
@@ -31,7 +31,7 @@
     <ul>
       <li>Make the program print "Rholang rocks!" instead of "Hello World".</li>
       <li>Try to change "stdout" to something else. Any results?.</li>
-      <li>We're casual here. Make th  program say "Sup World" on the screen.</li>
+      <li>We're casual here. Make the program say "Sup World" on the screen.</li>
     </ul>
   </div>
 
@@ -42,9 +42,9 @@
       <img src="mailbox.png" alt="A mailbox"/>
       <figvaption>Channels are like mailboxes for sending messages.</figvaption>
     </figure>
-    <p>The heart of rholang is communication on channels. Channels are communication lines that you use to send and receive messages. To send a message on a channel, you use the <code>!</code> character.</p>
+    <p>The heart of rholang is communicating on channels. Channels are communication lines that you use to send and receive messages. To send a message on a channel, you use the <code>!</code> character.</p>
 
-    TODO `channelName!message` (Make this an annotated diagram)
+    <img src="sendSyntax.png"  />
 
     <p><code>@"stdout"</code> is a special channel that is used to send text to "standard out" which usually just means your computer screen.</p>
   </div>
@@ -59,12 +59,17 @@
 
     <p>You can actually send messages on lots of channels, not just <code>@"stdout"</code>. But unlike <code>@"stdout"</code> they won't display on the screen.</p>
 
+    <div class="code">tuppleSpace</div>
+
     <p>So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".</p>
 
     <p>Remember when you tried it a few slides ago? Try that again and make sure your message is sitting in the tuplespace.</p>
 
-    <div class="code">tuppleSpace</div>
-    include screenshot of looking at the tuplespace
+    <figure class="left">
+      <img src="tupleSpace.png" />
+      <figcaption>You should find something like this highlighted text in your tuplespace.</figcaption>
+    </figure>
+
   </div>
 
   <div class="slide">
@@ -75,7 +80,7 @@
       <figcaption>Rather than following an ordered list, all ingredients are added concurrently.  Looks delicions.</figcaption>
     </figure>
 
-    <p>In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently" or all at once.</p>
+    <p>In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently," or all at once.</p>
 
     <div class="code">parallel</div>
 
@@ -97,20 +102,50 @@
     <h1>Quiz</h1>
 
     <p>What will <code>@"stdout"!("Programming!")</code> print to the screen?</p>
+      <input type="radio" name="q1" id="q1a1" />
+      <label for="q1a1">Programming!</label><br />
+
+      <input type="radio" name="q1" id="q1a2" />
+      <label for="q1a2">stdout!</label><br />
+
+      <input type="radio" name="q1" id="q1a3" />
+      <label for="q1a3">Nothing</label><br />
 
     <p>What channel does <code>@"what"!("Up")</code> send a message on?</p>
+      <input type="radio" name="q2" id="q2a1" />
+      <label for="q2a1"><code>
+        @"Up"
+      </code></label><br />
+
+      <input type="radio" name="q2" id="q2a2" />
+      <label for="q2a2"><code>
+        @"what"
+      </code></label><br />
+
+      <input type="radio" name="q2" id="q2a3" />
+      <label for="q2a3"><code>
+        what
+      </code></label><br />
 
     <p>Which does rholang do first in
     ```
     @"stdout"!("Dogs")
     |
     @"stdout"!("Cats")
-    ```
-    * Print Dogs
-    * Print Cats
-    * Trick Question</p>
+    ```</p>
+      <input type="radio" name="q3" id="q3a1" />
+      <label for="q3a1">prints "Dogs"</label><br />
 
-    <p>There is also a special channel called <code>@"stderr"</code>. Check out what happens when you send to it. <a href="https://en.wikipedia.org/wiki/Standard_streams" target="_blank">What's the difference?</a></p>
+      <input type="radio" name="q3" id="q3a2" />
+      <label for="q3a2">prints "Cats"</label><br />
+
+      <input type="radio" name="q3" id="q3a3" />
+      <label for="q3a3">Neither. They are concurrent</label><br />
+
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
+
+    <p>PS. There is also a special channel called <code>@"stderr"</code>. Check out what happens when you send to it. <a href="https://en.wikipedia.org/wiki/Standard_streams" target="_blank">What's the difference?</a></p>
   </div>
 
   <div id="prev-button" class="button">&lt;</div>
