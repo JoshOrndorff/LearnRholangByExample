@@ -1,3 +1,7 @@
+header img {
+  width: 100%;
+}
+
 body {
   width: 520px; /*TODO*/
   height: 100%;
@@ -10,15 +14,17 @@ body {
   height: 25em;
   background-image: url("../img/library.png"); /* Path relative to css. */
   background-repeat: no-repeat;
+  background-size: contain;
   padding-top: 10em;
   padding-left: 2em;
 
   position: relative; /* So bookshelf can be absolute */
 }
 
-#bookshelf {
-  width: 60%;
-  position: absolute;
-  left: 15%;
-  bottom: 0;
+a {
+  color: #F30092;
+}
+
+a:visited {
+  color: black;
 }
