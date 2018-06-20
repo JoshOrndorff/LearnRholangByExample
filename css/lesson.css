@@ -40,7 +40,7 @@ code { /* Inline code. Big blocks are in pre tags. See Below */
 
 pre.prettyprint {
   margin: 0;
-  padding: 1em 0;
+  padding: 1em 1em 1em 0;
 }
 
 #code-buttons {
