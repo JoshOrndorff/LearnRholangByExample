@@ -1,0 +1,12 @@
+new pizzaShop in {
+
+  // Same contract as before
+  contract pizzaShop(order) = {
+    @"stdout"!("Order Received.")
+  }
+  |
+  // Known customers can order because pizzaShop is bound here.
+  pizzaShop!("Extra bacon please")
+  |
+  pizzaShop!("Hawaiian Pizza to go")
+}
