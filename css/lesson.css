@@ -7,6 +7,15 @@ body {
   align-items: center;
   padding-top: 5%;
 }
+
+/* Return to Library */
+#back-to-lib {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+}
+
 /* SLIDES */
 .slide {
   display: none; /* becaue only the current slide should be shown */
@@ -110,6 +119,7 @@ figure > img {
   border-bottom-left-radius: 1em;
 }
 
+/* Progress Bar */
 #progress-bar {
   position: fixed;
   width: 100%;
