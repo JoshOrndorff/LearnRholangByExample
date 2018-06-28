@@ -18,7 +18,7 @@
 
 <body>
   <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
-  
+
   <div class="slide">
     <h1>Message Relaying</h1>
 
@@ -56,8 +56,9 @@
   <div class="slide">
     <h1>WTH is That <code>*</code>?</h1>
 
-    <figure>
-      include julie drawing of inverse operators +- x/ *@
+    <figure class="left">
+      <img src="inverse.png" alt="Pairs of inverse operators (+- x/ *@) as attracting particles." />
+      <figcaption>Opposites attract</figcaption>
     </figure>
 
     <p>Did you notice the <code>*</code> in <code>@"Bob"!(*message)</code>? In rholang there are two kinds of things, "names" and "processes". There are also ways to convert between the two.</p>
@@ -119,13 +120,16 @@
 
   <div class="slide">
     <h1>One final exercise</h1>
-    <p>Instead of a linear telephone game where wach player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Elise.</p>
+
+    <figure class="right">
+      <img src="telephoneFork.png" alt="A telephone game featuring a fork" />
+      <figcaption>This telephone game has a fork</figcaption>
+    </figure>
+
+    <p>Instead of a linear telephone game where each player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Elise.</p>
 
     <p>Each branch can be as long as you want, but at the end of each branch, print the message to stdout.</p>
 
-    <figure>
-      Include diagram of forked telephone game.
-    </figure>
   </div>
 
 
