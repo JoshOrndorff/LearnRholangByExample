@@ -6,7 +6,7 @@
   <title>Lesson 3: Telephone, Names, and Processes</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
-
+  <script type="text/javascript" src="quiz.js"></script>
   <script type="text/javascript" src="code.js"></script>
   <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="../js/insertcode.js"></script>
@@ -99,23 +99,66 @@
   <div class="slide">
     <h1>Quiz</h1>
 
-    What do we send?
+    <div class="Qradio">
+      <p>What do we send?</p>
+      <label class="correct">processes</label>
+      <label>names</label>
+    </div>
 
-    What do we receive?
+    <div class="Qradio">
+      <p>What do we receive?</p>
+      <label>processes</label>
+      <label class="correct">names</label>
+    </div>
 
-    What is <code>@"stdout"</code>
+    <div class="Qradio">
+      <p>What is <code>@"stdout"</code></p>
+      <label>process</label>
+      <label class="correct">name</label>
+      <label>invalid syntax</label>
+    </div>
 
-    What is <code>0</code>?
 
-    What is <code>@0</code>?
+    <div class="Qradio">
+      <p>What is <code>0</code>?</p>
+      <label class="correct">process</label>
+      <label>name</label>
+      <label>invalid syntax</label>
+    </div>
 
-    <code>*importantData</code> is a process, so what is <code>importantData</code>?
+    <div class="Qradio">
+      <p>What is <code>@0</code>?</p>
+      <label>process</label>
+      <label class="correct">name</label>
+      <label>invalid syntax</label>
+    </div>
 
-    Which of these is equivalent to <code>"BobsPhone"</code>?
-    * *@"BobsPhone"
-    * @"BobsPhone"
-    * *"BobsPhone"
-    * @"stdout"!("BobsPhone")
+
+    <div class="Qradio">
+      <p>What is <code>@@0</code>?</p>
+      <label>process</label>
+      <label>name</label>
+      <label class="correct">invalid syntax</label>
+    </div>
+
+    <div class="Qradio">
+      <p><code>*importantData</code> is a process, so what is <code>importantData</code>?</p>
+      <label>process</label>
+      <label class="correct">name</label>
+      <label>invalid syntax</label>
+    </div>
+
+    <div class="Qradio">
+      <p>Which of these is equivalent to <code>"BobsPhone"</code>?</p>
+      <label class="correct">*@"BobsPhone"</label>
+      <label>@"BobsPhone"</label>
+      <label>*"BobsPhone"</label>
+      <label>@"stdout"!("BobsPhone")</label>
+    </div>
+
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
+
   </div>
 
   <div class="slide">
