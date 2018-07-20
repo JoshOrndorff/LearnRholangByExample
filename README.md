@@ -6,23 +6,17 @@ results, change anything and everything you are curious about.
 
 This does not aim to be an exhaustive tour of everything there is to know about
 rholang, but rather a tour of the most common and important features of the
-language and a fast starting point for motivated learners. For more information
-check out the official rholang documentation at: https://developer.rchain.coop/documentation
+language and a fast starting point for motivated learners.
 
-This project is originally based on my [Learn Python by Example](https://github.com/JoshOrndorff/LearnPythonByExample)
-project
+View the lessons online at [https://joshorndorff.github.io/LearnRholangByExample](https://joshorndorff.github.io/LearnRholangByExample)
 
-Written by:
-Joshy Orndorff
+
 
 ## Target Audience
 This tutorial aims to be novice-friendly and introduce rholang from the ground
 up. If you've never ever programmed before, you may struggle at times, but
 if you know how to write a little python or javascript, you've got all the
 background I've assumed.
-
-At some point you may find it useful to listen to the epicenter podcast listed
-first under "More Resources".
 
 More background never hurts, and can only help, but I'm not expecting you to
 be familiar with process calculi, be a mast of any other languages, or be
@@ -45,28 +39,25 @@ environment setup.
 To begin a lesson, run it and observe its output. See if you can figure out
 why it runs the way it does, but if you can't don't worry.
 
-After you have run a program observed its operation, open it in your
-favorite text editor, or paste it into the online interpreter. The programs
-are heavily commented to explain each line of code.
-
 After reading through, and understanding the code, experiment by changing
 anything and everything you like. Don't worry about breaking anything; that's
-how you learn. You can always restore a previous version if you don't remember
+how you learn. You can always restore the original if you don't remember
 how to undo your changes.
-
-Complete the exercises at the bottom of each program to ensure you fully
-understand the lesson. And finally, as you work through each unit, complete
-the projects that accompany it.
 
 ## Additional Resources
 * [Epicenter Podcast](https://epicenter.tv/episode/221/)
 * [Rchain developers center](https://developer.rchain.coop/)
+* [Official Rholang documentation center](https://developer.rchain.coop/documentation)
+* [Official Rholang tutorial](https://developer.rchain.coop/tutorial/)
 
 ## Questions and Individual Attention
 Occasionally you may need additional help. You may contact me through
-[my website](https://joshyorndorff.com/contact). In the future I plan to
-make these lessons part of my laera project which incentive aligns teachers
-and learners. I'd love to tell you more about it.
+[my website](https://joshyorndorff.com/contact).
+
+## Author
+Joshy Orndorff
 
 ## License
-This project intends to be part of the [RTime model](https://github.com/glenbraun/CollaborativeLicense)
+This project intends to use the [RHours model](https://github.com/glenbraun/RHours)
+
+For now, you may freely learn from it, but may not profit from it without asking first.
