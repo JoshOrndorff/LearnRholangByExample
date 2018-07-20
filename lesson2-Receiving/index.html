@@ -6,8 +6,8 @@
   <title>Lesson 2: Receiving</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
-  <script type="text/javascript" src="quiz.js"></script>
   <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/quiz.js"></script>
   <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="../js/insertcode.js"></script>
   <script type="text/javascript" src="../js/prettify.js"></script>
@@ -123,53 +123,28 @@
   <div class="slide">
     <h1>Quiz</h1>
 
-    <p>Which of these things is not like the other?</p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">
-        <code>for (a &lt;- b){}</code>
-      </label><br />
+    <div class="Qradio">
+      <p>Which of these things is not like the other?</p>
+      <label class="correct"><code>for (a &lt;- b){}</code></label>
+      <label><code>contract b(a) = {}</code></label>
+      <label><code>for (a &lt;= b){}</code></label>
+    </div>
 
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">
-        <code>contract b(a) = {}</code>
-      </label><br />
+    <div class="Qradio">
+      <p>Which send will produce a comm event with <code>for (message &lt;- @"grandmasSnapChat"){}</code>?</p>
+      <label><code>grandmasSnapChat!("Hi Grandma")</code></label>
+      <label class="correct"><code>@"grandmasSnapChat"!("Glad you're snapping Grandma")</code></label>
+      <label><code>for("Here's a snap for you g'ma" &lt;- @"grandmasSnapChat")</code></label>
+    </div>
 
-      <input type="radio" name="q1" id="q1a3" />
-      <label for="q1a3">
-        <code>for (a &lt;= b){}</code>
-      </label><br />
-
-    <p>Which send will produce a comm event with <code>for (message &lt;- @"grandmasSnapChat"){}</code>?</p>
-      <input type="radio" name="q2" id="q2a1" />
-      <label for="q2a1"><code>
-        grandmasSnapChat!("Hi Grandma")
-      </code></label><br />
-
-      <input type="radio" name="q2" id="q2a2" />
-      <label for="q2a2"><code>
-        @"grandmasSnapChat"!("Glad you're snapping Grandma")
-      </code></label><br />
-
-      <input type="radio" name="q2" id="q2a3" />
-      <label for="q2a3"><code>
-        for("Here's a snap for you g'ma" &lt;- @"grandmasSnapChat")
-      </code></label><br />
-
-    <p>Which should generally come first?</p>
-      <input type="radio" name="q3" id="q3a1" />
-      <label for="q3a1">A send because that's how normal mail works.</label><br />
-
-      <input type="radio" name="q3" id="q3a2" />
-      <label for="q3a2">A receive because it's faster to run the code that way.</label><br />
-
-      <input type="radio" name="q3" id="q3a3" />
-      <label for="q3a3">Either a send or a receive can come first, or they can come together.</label><br />
-
-      <input type="radio" name="q3" id="q3a4" />
-      <label for="q3a4">A receive because rholang is concurrent.</label><br />
-
-      <input type="radio" name="q3" id="q3a5" />
-      <label for="q3a5">Neither. Just make a comm event directly.</label><br />
+    <div class="Qradio">
+      <p>Which should generally come first?</p>
+      <label>A send because that's how normal mail works.</label><br />
+      <label>A receive because it's faster to run the code that way.</label><br />
+      <label class="correct">Either a send or a receive can come first, or they can come together.</label><br />
+      <label>A receive because rholang is concurrent.</label><br />
+      <label>Neither. Just make a comm event directly.</label>
+    </div>
 
     <button id="submit">Check Answers</button>
     <p id="result"></p>

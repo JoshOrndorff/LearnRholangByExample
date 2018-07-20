@@ -6,8 +6,8 @@
   <title>Lesson 1: Sending and Standard Out</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
-  <script type="text/javascript" src="quiz.js"></script>
   <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/quiz.js"></script>
   <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="../js/insertcode.js"></script>
   <script type="text/javascript" src="../js/prettify.js"></script>
@@ -106,46 +106,31 @@
   <div class="slide">
     <h1>Quiz</h1>
 
-    <p>What will <code>@"stdout"!("Programming!")</code> print to the screen?</p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">Programming!</label><br />
+    <div class="Qradio">
+      <p>What will <code>@"stdout"!("Programming!")</code> print to the screen?</p>
+      <label class="correct">Programming!</label><br />
+      <label>stdout!</label><br />
+      <label>Nothing</label><br />
+    </div>
 
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">stdout!</label><br />
+    <div class="Qradio">
+      <p>What channel does <code>@"what"!("Up")</code> send a message on?</p>
+      <label><code>@"Up"</code></label><br />
+      <label class="correct"><code>@"what"</code></label><br />
+      <label><code>what</code></label><br />
+    </div>
 
-      <input type="radio" name="q1" id="q1a3" />
-      <label for="q1a3">Nothing</label><br />
-
-    <p>What channel does <code>@"what"!("Up")</code> send a message on?</p>
-      <input type="radio" name="q2" id="q2a1" />
-      <label for="q2a1"><code>
-        @"Up"
-      </code></label><br />
-
-      <input type="radio" name="q2" id="q2a2" />
-      <label for="q2a2"><code>
-        @"what"
-      </code></label><br />
-
-      <input type="radio" name="q2" id="q2a3" />
-      <label for="q2a3"><code>
-        what
-      </code></label><br />
-
-    <p>Which does rholang do first in
-    ```
-    @"stdout"!("Dogs")
-    |
-    @"stdout"!("Cats")
-    ```</p>
-      <input type="radio" name="q3" id="q3a1" />
-      <label for="q3a1">prints "Dogs"</label><br />
-
-      <input type="radio" name="q3" id="q3a2" />
-      <label for="q3a2">prints "Cats"</label><br />
-
-      <input type="radio" name="q3" id="q3a3" />
-      <label for="q3a3">Neither. They are concurrent</label><br />
+    <div class="Qradio">
+      <p>Which does rholang do first in
+      ```
+      @"stdout"!("Dogs")
+      |
+      @"stdout"!("Cats")
+      ```</p>
+      <label>prints "Dogs"</label><br />
+      <label>prints "Cats"</label><br />
+      <label class="correct">Neither. They are concurrent</label><br />
+    </div>
 
     <button id="submit">Check Answers</button>
     <p id="result"></p>

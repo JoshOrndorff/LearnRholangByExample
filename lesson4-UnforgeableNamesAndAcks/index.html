@@ -8,6 +8,7 @@
 
 
   <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/quiz.js"></script>
   <script type="text/javascript" src="../js/slides.js"></script>
   <script type="text/javascript" src="../js/insertcode.js"></script>
   <script type="text/javascript" src="../js/prettify.js"></script>
@@ -122,73 +123,52 @@
   <div class="slide">
     <h1>Quiz</h1>
 
-    <p>Which name is bound in <code>for(x &lt;- y){0}</code></p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">
-        <code>x</code>
-      </label><br />
+    <div class="Qradio">
+      <p>Which name is bound in <code>for(x &lt;- y){0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
 
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">
-        <code>y</code>
-      </label><br />
+    <div class="Qradio">
+      <p>Which name is bound in <code>new x in {0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
 
-      <input type="radio" name="q1" id="q1a3" />
-      <label for="q1a3">
-        <code>0</code>
-      </label><br />
-
-    <p>Which name is bound in <code>new x in {0}</code></p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">
-        <code>y</code>
-      </label><br />
-
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">
-        <code>x</code>
-      </label><br />
-
-      <input type="radio" name="q1" id="q1a3" />
-      <label for="q1a3">
-        <code>0</code>
-      </label><br />
-
-    <p>What code would a bad pizza shop have to write to intercept orders.</code></p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">
+    <div class="Qradio">
+      <p>What code would a bad pizza shop have to write to intercept orders?</code></p>
+      <label>
         <code>contract evilPizzaShop(interceptedMessage) = {0}</code>
       </label><br />
-
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">
-        <code>@"evilPizzaShot"!("pizzaShop")</code>
+      <label>
+        <code>@"evilPizzaShop"!("pizzaShop")</code>
       </label><br />
-
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">
+      <label>
         <code>@"pizzaShop"!("intercept")</code>
       </label><br />
+      <label class="correct">
+        <code>for (interceptedMessage <- @"pizzaShop"){...}</code>
+      </label><br />
+    </div>
 
-    <p>If <code>pizzzaShop</code> is a name, then what is <code>@pizzaShop</code>?</p>
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">A name</label><br />
+    <div class="Qradio">
+      <p>If <code>pizzzaShop</code> is a name, then what is <code>@pizzaShop</code>?</p>
+      <label>A name</label><br />
+      <label>A process</label><br />
+      <label class="correct">Invalid syntax</label><br />
+    </div>
 
-      <input type="radio" name="q1" id="q1a2" />
-      <label for="q1a2">A process</label><br />
-
-      <input type="radio" name="q1" id="q1a1" />
-      <label for="q1a1">Invalid syntax</label><br />
-
+    <div class="Qradio">
       <p>Why did the pizzaShopAck code send <code>"bob"</code> as an ack channel instead of <code>@"bob"</code>?</p>
-        <input type="radio" name="q1" id="q1a1" />
-        <label for="q1a1">No reason; it's just a style choice.</label><br />
+      <label>No reason; it's just a style choice.</label><br />
+      <label class="correct">Because @"bob" is a name, but we have to send processes.</label><br />
+      <label>That's special syntax for ack channels.</label><br />
+    </div>
 
-        <input type="radio" name="q1" id="q1a2" />
-        <label for="q1a2">Because @"bob" is a name, but we have to send processes.</label><br />
-
-        <input type="radio" name="q1" id="q1a1" />
-        <label for="q1a1">That's special syntax for ack channels.</label><br />
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
 
   </div>
 
