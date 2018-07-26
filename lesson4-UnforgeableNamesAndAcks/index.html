@@ -24,13 +24,13 @@
     <h1>Making Channels "Private"</h1>
 
     <figure class="right">
-      <img src="eavesdropping.png" />
+      TODO Sketch of stealing mail from a mailbox
       <figcaption>
         A competing pizza shop steals orders because the channel isn't secure.
       </figcaption>
     </figure>
 
-    <p>So far every channel we've sent on has been a public name like @"pizzaShop". Anyone can send a message to this channel (which is probably good for business) and anyone can receive a message on it (which is probably terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.</p>
+    <p>So far every channel we've sent on has been a public name like <code>@"pizzaShop"</code>. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.</p>
   </div>
 
   <div class="slide">
@@ -53,18 +53,20 @@
 
     <div class="code">newPizzaShop</div>
 
-    <p>First notice that <code>pizzaShop</code> is a name even though it doesn't start with <code>@</code>. That's because the new operator created it as a name directly rather than by quoting some written-down process. But it does still quote a process as you'll see in the exercises.</p>
+    <p>First notice that <code>pizzaShop</code> is a name even though it doesn't start with <code>@</code>. That's because the <code>new</code> operator created it as a name directly rather than by quoting some written-down process. But it does still quote a process as you'll see in the exercises.</p>
 
     <p>Second, notice that while this technique does prevent other pizza shops from consuming orders, it also prevents new customers from ordering. We'll solve this problem in the lesson on bundles.</p>
   </div>
 
   <div class="slide">
     <h1>Private vs Unforgeable</h1>
+
     <figure class="right">
-      <img src="privateNames.png" alt="Cardboard box labeled &quot;Private Names Don't Look!&quot;"/>
-      <figcaption>Insert some julie drawing here. Something about forgery or anti forgery.</figcaption>
+      <img src="eavesdropping.png" alt="eavesdropper listening in on private conversation"/>
+      <figcaption>Although the messages can no longer be stolen, they can still be eavesdropped on. You've been warned.</figcaption>
     </figure>
-    <p>Within the world of the rho calculus (<a href="https://www.sciencedirect.com/science/article/pii/S1571066105051893">learn more tangent</a>) these new names really are private. But remember that human programmers can look in to that world from the outside. That is especially true when working in a blockchain context.</p>
+
+    <p>Within the world of the rholang these new names really are private. But remember that human programmers can look in to that world from the outside. That is especially true when working in a blockchain context.</p>
 
     <p>So while a competing pizza shop can no longer consume pizza orders intended for our shop, they can still read the orders with a block explorer.</p>
 
@@ -77,7 +79,9 @@
       <figcaption>include Julie drawing of "roger that" or "I'll call you back"</figcaption>
     </figure>
 
-    <p>One very common use of unforgeable names is "acknowledgement channel". Instead of confirming orders by printing to the screen and disturbing everyone, the pizza shop should really just let the <em>customer</em> know that the order has been placed. To do that the pizza shop needs to know how to contact the customer. So the customer should supply an acknowledgement channel to be called back on. Traditionally such a channel is named <code>ack</code>.</p>
+    <p>One common use of unforgeable names is "acknowledgement channels". Instead of confirming orders by printing to the screen and disturbing <em>everyone</em>, the pizza shop should really just let the <em>customer</em> know that the order has been placed.</p>
+
+    <p>To do that the pizza shop needs to know how to contact the customer. So the customer should supply an acknowledgement channel to be called back on. Traditionally such a channel is named <code>ack</code>.</p>
 
     <div class="code">pizzaAck</div>
   </div>
@@ -118,6 +122,18 @@
     <p>If <code>new x in {}</code> makes <code>x</code> a name, then <code>*x</code> must be a process. We know processes can be printed. What happens when you print <code>*x</code>? How is this different from processesd we have printed?</p>
 
     <p>Now that you know the process (that hex code) You may think you can just quote it to get the same name back. Try to quote the process and see what happens.</p>
+
+    <p>Predict how this program will run (what it outputs and how it reduces in the tuplespace). Then run it to test your prediction.
+      <code>
+        new myChan in {
+          myChan!("Hi There")
+        }
+        |
+        for (msg &lt;- myChan) {@"stdout"!(*msg)}
+      </code>
+    </p>
+
+    <p>If your prediction for the previous exercise was wrong, modify the program so it actually does what you predicted it would.</p>
   </div>
 
   <div class="slide">
