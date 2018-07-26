@@ -54,10 +54,8 @@ how to undo your changes.
 Occasionally you may need additional help. You may contact me through
 [my website](https://joshyorndorff.com/contact).
 
-## Author
-Joshy Orndorff
+## Author and License
+Primarily written by Joshy Orndorff in support of the RChain cooperative.
+Illustrations by Julianne Coxe
 
-## License
-This project intends to use the [RHours model](https://github.com/glenbraun/RHours)
-
-For now, you may freely learn from it, but may not profit from it without asking first.
+Released under the Apache 2.0 license
