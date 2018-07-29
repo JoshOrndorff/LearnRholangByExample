@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 5: Join Operator</title>
+  <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+
+
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/slides.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+</head>
+
+<body>
+  <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
+
+  <div class="slide">
+    <h1>Multiple data sources</h1>
+
+    <figure class="right">
+      <img src="" alt="Pushup contest. One player has quit, one still going." />
+      <figcaption>
+        In general, the winner of this pushup competition can't be determined until both participants are finished.
+      </figcaption>
+    </figure>
+
+    <p>Occasionally a computation can only be made once data is retrieved (messages are received) from two or more different data sources. For example, you can't tell whether you won the lottery until you've got your ticket number and the winning number. You can't make change for a purchase until you know the price and the amount tendered.</p>
+
+    <p>Rholang has the join operator for exactly this situation.</p>
+
+    <div class="code">joinDemo</div>
+  </div>
+
+  <div class="slide">
+    <h1>Rocket Launch</h1>
+
+    <figure class="right">
+      <img src="" alt="Waiting to take any mail until both boxes have been delivered." />
+      <figcaption>
+        No use in grabbing just one set of mail. Might as well wait until the second set <em>joins</em> it.
+      </figcaption>
+    </figure>
+
+    <p>A space exploration company wants to make sure their rocket only launches when both of two flight engineers, Alice and Bob, give the launch command. As an example, Bob would give the go ahead by sending <code>@"BobLaunch"!("launch")</code>.</p>
+
+    <p>When both engineers give the command, the rocket can be launched. Consider how this code might be written using the join operator that you just learned about.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Launch Solution</h1>
+
+    <div class="code">launch</div>
+  </div>
+
+  <div class="slide">
+    <h1>The wrong way</h1>
+
+    <p>You may have been tempted to solve the rocket problem by first receiving one then the other.</p>
+
+    <div class="code">launchBad</div>
+
+    <p>The problem here is when Alice okay's the launch, but Bob hasn't yet. Alice should be able to change her mind, but she cannot. Imagine if she suddenly noticed a problem with the rocket, or received some bad news and wanted to abort the launch.</p>
+
+    <p>When using a join, she can still change her mind because the <code>for</code> won't consume her launch message until Bob's message also appears and is ready to be consumed.</p>
+
+    <p>EXERCISE: Write the code that Alice would need to "par in" and retract her launch command.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Retract Solution</h1>
+
+    <p> In the simplest case, Alice sould simply par in a receive to take her launch message out of the tupplespace.</p>
+    <code>for (x &lt;- @"AliceLaunch"){0}</code>
+
+    <p>The concept of joins is framed as the dining philosophers problem, and <a target="_blank" href="https://developer.rchain.coop/tutorial/#dining-philosophers-and-deadlock">explored further</a> in the official rholang tutorial.</p>
+
+    <p>Another way that Alcie could retract her launch command is by leaving herself an abort button when she actually sends the launch command. At the moment this solution may seem round-about compared to the previous solution. But once we learn about unforgeable names and object capabilities, it may make more sense.</p>
+
+    <div class="code">abortableLaunch</div>
+  </div>
+
+  <div class="slide">
+    <h1>Quiz</h1>
+
+    In <code>for (x &lt;- y; a &lt;- b){ 0 }</code>, which channel must be sent on first?
+    y, b, doesn't matter, they must be sent simultaneously.
+
+    In <code>for (x &lt;- y; a &lt;- b){ 0 }</code>, which message will be consumed first?
+    y, b, doesn't matter, they will be consumed simultaneously.
+
+    Why did alice have to send the message "abort"?
+    Because she was aborting the launch
+    Because the channel was called @"AliceAbort"
+    She didn't; any message would have done
+  </div>
+
+  <div class = "slide">
+    <h1>Exercise -- Patience Game</h1>
+    <p>There is a game where two players will each send a message on seperate channels. Whoever sends the first message, loses, and whoever sends the second message wins. Your task here is to write the game code that will tell which player won. To play the game, players should send messages like shown.</p>
+
+    <div class="code">patienceTemplate</div>
+  </div>
+
+  <div class = "slide">
+    <h1>Solution -- Patience Game</h1>
+    <p>In this case we actually don't want to double for because we care which player went first. Hope I didn't trick you ;)</p>
+
+    <div class="code">patienceSolution</div>
+
+    <p>Like the comment says, you should send the messages in both orders to make sure of who wins. The easiest way to do that right now is probably in the REPL. Another option is to have one player signal the other for when to go as shown below. We'll explore this concept further in the next unit.</p>
+
+    <div class="code">P1First</div>
+  </div>
+
+
+
+  <div id="prev-button" class="button">&lt;</div>
+  <div id="next-button" class="button">&gt;</div>
+  <div id="progress-bar">
+    <div id="completed"></div>
+  </div>
+
+</body>
+</html>
