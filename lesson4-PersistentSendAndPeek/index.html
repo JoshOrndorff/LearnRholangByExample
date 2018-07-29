@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 5: Persistent Sends and Peek</title>
+  <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+
+
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/quiz.js"></script>
+  <script type="text/javascript" src="../js/slides.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+</head>
+
+<body>
+  <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
+
+  <div class="slide">
+    <h1>Why send repeatedly?</h1>
+
+    <figure class="right">
+      <figcaption>
+        Some Julie illustration about broadcasting or repeated sends
+      </figcaption>
+    </figure>
+
+    <p>Our pizza and coffe shops were both interested in receiving many messages on the same reusable channel. We accomplished that with a persistent for <code>for (msg &lt;= chan){...}</code> or a contract <code>contract chan(msg){...}</code>.</p>
+
+    <p>An air traffic control tower may be interested in doing just the opposite -- sending the same message over and over. The controlers in the tower want to produce a message containing whether and active runway information once, and make it available for every pilot who needs it. Like the pizza shop, they are busy and can't be bothered to continually re-send the message every time a pilot consumes it.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Persistent send syntax</h1>
+
+    <p>The control tower just needs a minor adjustment in their code to make the send persistent. Rather than seding with a single <code>!</code>, they will use a double <code>!!</code>.</p>
+
+    <div class="code">persistentSend</div>
+
+    <p>Confirm for yourself that the original send is still in the tuplespace.</p>
+
+    <p>Modify the above code so that a second pilot also receives the information. Still, the send persists.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Double Checking a message</h1>
+
+    <p>Persistent sends and receives are very useful as we just showed. But often normal sends and receives are perfectly good too. Imagine that I send my grandmother a letter over a public channel, and she receives it.</p>
+
+    <div class="code">grandma</div>
+
+    <p>Now Imagine that I want to double check that I sent her the correct time. I could simply consume the message, but then it wouldn't be around for her to read anymore.</p>
+
+    <p>Using what you already know, you can acheive this by consuming the message, checking it yourself, and then sending the same message back to the old channel. Go ahead and give that a try.</p>
+
+  </div>
+
+  <div class="slide">
+    <h1>Answer to exercise</h1>
+
+    <div class="code">grandma-check</div>
+  </div>
+
+  <div class="slide">
+    <h1>Peek Syntax</h1>
+
+    <figure class="right">
+      <figcaption>
+        Illustration of someone peeking at a letter by steaming it open or looking with a flashlight or something.
+      </figcaption>
+    </figure>
+
+    <p>Rholang will have a special syntax for this sort of thing eventually. It isn't available right now, but I'll show you the syntax just so you're ready. To "peek" at what's on a channel without consuming it, use the `&lt;!` operator.</p>
+
+    <div class="code">peek</div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="slide">
+    <h1>Quiz</h1>
+
+    <div class="Qradio">
+      <p>Which name is bound in <code>for(x &lt;- y){0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
+
+    <div class="Qradio">
+      <p>Which name is bound in <code>new x in {0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
+
+    <div class="Qradio">
+      <p>What code would a bad pizza shop have to write to intercept orders?</code></p>
+      <label>
+        <code>contract evilPizzaShop(interceptedMessage) = {0}</code>
+      </label><br />
+      <label>
+        <code>@"evilPizzaShop"!("pizzaShop")</code>
+      </label><br />
+      <label>
+        <code>@"pizzaShop"!("intercept")</code>
+      </label><br />
+      <label class="correct">
+        <code>for (interceptedMessage <- @"pizzaShop"){...}</code>
+      </label><br />
+    </div>
+
+    <div class="Qradio">
+      <p>If <code>pizzzaShop</code> is a name, then what is <code>@pizzaShop</code>?</p>
+      <label>A name</label><br />
+      <label>A process</label><br />
+      <label class="correct">Invalid syntax</label><br />
+    </div>
+
+    <div class="Qradio">
+      <p>Why did the pizzaShopAck code send <code>"bob"</code> as an ack channel instead of <code>@"bob"</code>?</p>
+      <label>No reason; it's just a style choice.</label><br />
+      <label class="correct">Because @"bob" is a name, but we have to send processes.</label><br />
+      <label>That's special syntax for ack channels.</label><br />
+    </div>
+
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
+
+  </div>
+
+
+
+  <div id="prev-button" class="button">&lt;</div>
+  <div id="next-button" class="button">&gt;</div>
+  <div id="progress-bar">
+    <div id="completed"></div>
+  </div>
+
+</body>
+</html>

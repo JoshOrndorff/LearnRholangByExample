@@ -1,0 +1,10 @@
+# Create a Savings Account
+
+In this lesson we'll write code to model a simple savings account in rholang. It will have deposit and withdraw features.
+
+include code
+
+We don't want anyone making withdrawls without our permission, so we better use a new unforgeable name.
+
+# State Channels
+julie diagram -- variables are so 2015. It's all about state channels now.
