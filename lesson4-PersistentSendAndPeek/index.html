@@ -3,7 +3,7 @@
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
 
-  <title>Lesson 5: Persistent Sends and Peek</title>
+  <title>Lesson 4: Persistent Sends and Peek</title>
   <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
 
 
@@ -62,7 +62,7 @@
   <div class="slide">
     <h1>Answer to exercise</h1>
 
-    <div class="code">grandma-check</div>
+    <div class="code">grandmaCheck</div>
   </div>
 
   <div class="slide">
@@ -81,64 +81,35 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="slide">
     <h1>Quiz</h1>
 
     <div class="Qradio">
-      <p>Which name is bound in <code>for(x &lt;- y){0}</code></p>
-      <label class="correct"><code>x</code></label>
-      <label><code>y</code></label>
+      <p>Which syntax is used to peek at a message?</p>
+      <label class="correct"><code>for (x &lt;! y){...}</code></label>
+      <label><code>for (x &lt;= y){...}</code></label>
+      <label><code>x!!(y)</code></label>
+    </div>
+
+    <div class="Qradio">
+      <p>How many comms happen in <code>for (x &lt;- y) {0} | y!!(0)</code></p>
+      <label class="correct"><code>1</code></label>
+      <label><code>many</code></label>
       <label><code>0</code></label>
     </div>
 
     <div class="Qradio">
-      <p>Which name is bound in <code>new x in {0}</code></p>
-      <label class="correct"><code>x</code></label>
-      <label><code>y</code></label>
+      <p>How many comms happen in <code>for (x &lt;= y) {0} | y!!(0)</code></p>
+      <label><code>1</code></label>
+      <label class="correct"><code>many</code></label>
       <label><code>0</code></label>
     </div>
 
     <div class="Qradio">
-      <p>What code would a bad pizza shop have to write to intercept orders?</code></p>
-      <label>
-        <code>contract evilPizzaShop(interceptedMessage) = {0}</code>
-      </label><br />
-      <label>
-        <code>@"evilPizzaShop"!("pizzaShop")</code>
-      </label><br />
-      <label>
-        <code>@"pizzaShop"!("intercept")</code>
-      </label><br />
-      <label class="correct">
-        <code>for (interceptedMessage <- @"pizzaShop"){...}</code>
-      </label><br />
-    </div>
-
-    <div class="Qradio">
-      <p>If <code>pizzzaShop</code> is a name, then what is <code>@pizzaShop</code>?</p>
-      <label>A name</label><br />
-      <label>A process</label><br />
-      <label class="correct">Invalid syntax</label><br />
-    </div>
-
-    <div class="Qradio">
-      <p>Why did the pizzaShopAck code send <code>"bob"</code> as an ack channel instead of <code>@"bob"</code>?</p>
-      <label>No reason; it's just a style choice.</label><br />
-      <label class="correct">Because @"bob" is a name, but we have to send processes.</label><br />
-      <label>That's special syntax for ack channels.</label><br />
+      <p>How many comms happen in <code>for (x &lt;! y) {0} | y!!(0)</code></p>
+      <label class="correct"><code>1</code></label>
+      <label><code>many</code></label>
+      <label><code>0</code></label>
     </div>
 
     <button id="submit">Check Answers</button>

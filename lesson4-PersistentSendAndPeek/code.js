@@ -19,7 +19,7 @@ for (msg <- @"grandma"){
   @"stdout"!{"I got your message"}
 }`,
 
-grandma-check:
+grandmaCheck:
 `// I send the message
 @"grandma"!("Meet at the mall at 4:00")
 |
