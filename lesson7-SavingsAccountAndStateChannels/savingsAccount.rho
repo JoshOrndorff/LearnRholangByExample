@@ -1,5 +1,0 @@
-contract openSavingsAccount(initialDeposit, result) = {
-  new account in {
-    account!(*initialDeposit)
-  }
-}

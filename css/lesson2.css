@@ -1,0 +1,74 @@
+/***** BODY *****/
+body {
+  background: radial-gradient(rgb(245, 245, 245), rgb(190, 190, 190));
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/***** Exercises *****/
+.exercise {
+  background: pink;
+}
+
+/***** Questions *****/
+.question {
+  background: teal;
+}
+
+/***** CODE *****/
+code { /* Inline code. Big blocks are in pre tags. See Below */
+  line-height: 100%;
+  background-color: #bbb;
+  padding: 0.3em;
+  border-radius: .5em;
+}
+
+/***** CODE BLOCKS *****/
+.code {
+  display: inline-block;
+  min-width: 50%;
+}
+
+pre.prettyprint {
+  margin: 0;
+  padding: 1em 1em 1em 0;
+}
+
+#code-buttons {
+
+}
+
+#code-buttons > div {
+  cursor: pointer;
+  text-align: center;
+  height: 1.5em;
+  width: 7em;
+  float: right;
+  margin: .1em;
+  background-color: orange;
+  border-radius: 1em;
+}
+
+
+/***** FIGURES *****/
+
+figure {
+  background: #cccccc;
+  border: solid .1em black;
+  padding: 1ex;
+  border-radius: 1ex;
+  max-width: 40%;
+}
+
+figure.right {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+figure.left {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+figure > img {
+  width: 100%;
+}
