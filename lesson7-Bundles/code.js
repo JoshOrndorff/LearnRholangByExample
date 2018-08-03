@@ -50,8 +50,86 @@ new alice, bob, eve in {
       @"stdout"!(["Eve stole a message: ", stolenMail])
     }
   }
-}
-`,
+}`,
+
+fanmailAsk0:
+`// These channels are basically public names within
+// the file like rho:pubkey:whatever
+
+new alice, bob, eve in {
+
+  // Alice creates a write-only bundle
+  new aliceFanMail in {
+
+    // TODO Rather than publishing the channel,
+    // Alice should listen for fans to request it.
+    |
+
+    // Alice also reads fan mail
+    for (mail <- aliceFanMail) {
+      @"stdout"!("Alice received a fanmail")
+    }
+  }
+  |
+
+  // TODO Before Bob can send fan mail, he
+  // must ask Alice for the fan mail channel
+  |
+
+  // Eve tries to intercept a message, but cannot
+  // because Alice's channel is write-only
+  new return in {
+    alice!(*return) |
+    for (aliceFanMail <- return) {
+      for (@stolenMail <= aliceFanMail) {
+        @"stdout"!(["Eve stole a message: ", stolenMail])
+      }
+    }
+  }
+}`,
+
+fanmailAsk1:
+`// These channels are basically public names within
+// the file like rho:pubkey:whatever
+
+new alice, bob, eve in {
+
+  // Alice creates a write-only bundle
+  new aliceFanMail in {
+
+    // When a fan asks for the channel
+    for (return <= alice) {
+      // TODO Alice replies with a write-only bundle
+    }
+    |
+
+    // Alice also reads fan mail
+    for (mail <- aliceFanMail) {
+      @"stdout"!("Alice received a fanmail")
+    }
+  }
+  |
+
+  // When Bob wants to send fanmail he asks for the channel
+  // and then sends
+  new return in {
+    alice!(*return) |
+    // TODO Bob waits to receive the fan mail
+    // channel before sending his message
+  }
+  |
+
+  // Eve tries to intercept a message, but cannot
+  // because Alice's channel is write-only
+  new return in {
+    alice!(*return) |
+    for (aliceFanMail <- return) {
+      for (@stolenMail <= aliceFanMail) {
+        @"stdout"!(["Eve stole a message: ", stolenMail])
+      }
+    }
+  }
+}`,
 
 fanmailAsk:
 `// These channels are basically public names within
