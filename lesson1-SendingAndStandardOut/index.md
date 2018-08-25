@@ -8,7 +8,7 @@ There is a long-standing tradition in programming that your first program should
 
 [hello.rho](hello.rho)
 
-## Your turn</h1>
+## Your turn
 Before I even explain anything, do some experimentation.
 
 * Make the program print "Rholang rocks!" instead of "Hello World".
@@ -28,13 +28,13 @@ The heart of rholang is communicating on channels. Channels are communication li
 `stdout` is a special channel that is used to send text to "standard out" which usually just means your computer screen. Because it's special, we had to have that first line of code.
 
 
-## Using other channels</h1>
+## Using other channels
 
 ![Sent messages wait to be received here in "message purgatory"... JK, it's called the "tuplespace"](mailboxes.png)
 
 You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen.
 
-<div class="code">tuppleSpace
+[tupleSpace.rho](tuppleSpace.rho)
 
 So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
@@ -44,7 +44,7 @@ Remember when you tried it a few slides ago? Try that again and make sure your m
 
 
 
-## Doing two things at once</h1>
+## Doing two things at once
 ![Rather than following an ordered list, all ingredients are added concurrently.  Looks delicions](cooking.png)
 
 In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently," or all at once.
