@@ -1,7 +1,9 @@
-contract @"coffeeShop"(order) = {
-  @"stdout"!("Coffee Order Received")
+new stdout(`rho:io:stdout`) in {
+  contract @"coffeeShop"(order) = {
+    stdout!("Coffee Order Received")
+  }
+  |
+  @"coffeeShop"!("one hot chocolate")
+  |
+  @"coffeeShop"!("two large cappuccinos please")
 }
-|
-@"coffeeShop"!("one hot chocolate")
-|
-@"coffeeShop"!("two large latte's please")
