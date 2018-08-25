@@ -8,11 +8,11 @@ There is a long-standing tradition in programming that your first program should
 
 [hello.rho](hello.rho)
 
-## Your turn
-Before I even explain anything, do some experimentation.
+### Exercise
+Make the program print "Rholang rocks!" instead of "Hello World".
 
-* Make the program print "Rholang rocks!" instead of "Hello World".
-* Try to change "stdout" to something else. Any results?.
+### Exercise
+Try to change "stdout" to something else. Any results?.
 * Try this funny channel name `@"someChannel"`.
 * We're casual here. Make the program say "Sup World" on the screen.
 
