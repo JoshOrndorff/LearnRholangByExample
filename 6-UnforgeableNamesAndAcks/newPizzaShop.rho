@@ -1,8 +1,8 @@
-new pizzaShop in {
+new pizzaShop, stdout(`rho:io:stdout`) in {
 
   // Same contract as before
   contract pizzaShop(order) = {
-    @"stdout"!("Order Received.")
+    stdout!("Order Received.")
   }
   |
   // Known customers can order because pizzaShop is bound here.
@@ -10,3 +10,5 @@ new pizzaShop in {
   |
   pizzaShop!("Hawaiian Pizza to go")
 }
+
+// But we can't order from here, because pizzaShop doesn't exist
