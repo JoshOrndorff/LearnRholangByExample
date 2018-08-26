@@ -1,9 +1,0 @@
-new stdout(`rho:io:stdout`) in {
-  for (order <= @"coffeeShop") {
-    stdout!("Coffee Order Received")
-  }
-  |
-  @"coffeeShop"!("one hot chocolate")
-  |
-  @"coffeeShop"!("two large latte's please")
-}

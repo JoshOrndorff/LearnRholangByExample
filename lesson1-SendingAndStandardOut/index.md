@@ -54,14 +54,13 @@ In rholang we don't tell the computer to do one thing, then another, then a thir
 The `|` is pronounced "parallel", or "par" for short.
 
 
-## Your turn again
-
-Now try these few exercises
-
+### Exercise
 Send the message "1 large pepperoni please" on a channel called "pizza shop".
 
+### Exercise
 Send "Hi Mom" on the channel "Mom's Phone".
 
+### Exercise
 Print two messages, "Rick" and "Morty", on the screen in one program.
 
 

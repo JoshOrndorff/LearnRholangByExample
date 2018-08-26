@@ -28,6 +28,27 @@ Send that message to a different channel like `@"coffeShop"`. Did the acknowledg
 ### Exercise
 Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first. Give it a try!
 
+## Tuplespace Pollution
+<!-- TODO I really wasn't sure where to put this part -->
+If you're having trouble with old data sticking around and showing up later, you just need to clear your tuplespace. The easiest way to do that is to delete you data-directory which is usually called `.rnode`
+<!-- TODO I should write a script for this -->
+
+Clearing out your tuplespace that way can get old quickly. A better idea would be to keep it from getting polluted in the first place. We can do that by modifying the top line that says new.
+
+Rather than the old way
+```
+new stdout(`rho:io:stdout`) in {
+  @"world"!("Welcome to RChain")
+}
+```
+
+Try this
+```
+new world, stdout(`rho:io:stdout`) in {
+  world!("Welcome to RChain") // No more @ or " "
+}
+```
+We'll talk about how this works in our lesson on Unforgeable names. for now just enjoy not having to reset every time.
 
 ## Receiving Before Sending
 
@@ -51,7 +72,7 @@ Luckily it's possible to deploy code once, and have it run <em>every</em> time i
 
 
 ### Exercise
-Order another drink from the coffee shop
+Order a second drink from the coffee shop
 
 ### Exercise
 Change the acknowledgement message
@@ -64,7 +85,7 @@ Which should generally come first?
 - [ ] Neither. Just make a comm event directly.
 
 ### Exercise
-The channel is just named `@"coffeeShop"`. Change it to be named after a specific coffee shop of your choosing.
+The channel is just named `@"coffeeShop"`. Change it to be named after a specific coffee shop of your choosing. While you're at it, modify the code to use `new` like we recently learned.
 
 
 
@@ -82,8 +103,8 @@ Notice this is different from a normal `for` because it has a double arrow `<=` 
 
 ### Exercise
 The pizza shop could use a contract like the one the coffee shop had. Let's write it one but use a persistent for instead of a contract. Try to write the entire thing from scratch so you remember the syntax better.
-<!-- The solution is in persistentCoffeeShop.rho
-[persistentCoffeeShop.rho](persistentCoffeeShop.rho) -->
+<!-- The solution is in persistentPizzaShop.rho
+[persistentPizzaShop.rho](persistentPizzaShop.rho) -->
 
 
 Which of these things is not like the other?
