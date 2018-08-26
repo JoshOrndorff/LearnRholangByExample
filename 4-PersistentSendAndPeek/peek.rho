@@ -1,0 +1,15 @@
+// REMINDER: Peek is not yet implemented
+
+// I send the message
+@"grandma"!("Meet at the mall at 4:00")
+|
+// I double check the message
+for (msg <! @"grandma"){
+  0 // Do whatever you do to double check the time
+    // Message is still safely on the channel
+}
+|
+// Grandma receives it
+for (msg <- @"grandma"){
+  @"stdout"!{"I got your message"}
+}

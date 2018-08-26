@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 6: Unforgeable Names and Acks</title>
+  <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+
+
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/quiz.js"></script>
+  <script type="text/javascript" src="../js/slides.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+</head>
+
+<body>
+  <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
+
+  <div class="slide">
+    <h1>Making Channels "Private"</h1>
+
+    <figure class="right">
+      TODO Sketch of stealing mail from a mailbox
+      <figcaption>
+        A competing pizza shop steals orders because the channel isn't secure.
+      </figcaption>
+    </figure>
+
+    <p>So far every channel we've sent on has been a public name like <code>@"pizzaShop"</code>. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Bound and Free Names</h1>
+
+    <p>We learned how to receive messages with <code>for</code> and <code>contract</code> last time. Both of these constructs "bind" names. For example, order is a bound name within the coffee shop code.</p>
+
+    <div class="code">bound1</div>
+
+    <p>The same is true when we use contracts.</p>
+
+    <div class="code">bound2</div>
+
+    <p>A name is considered bound if it only exists inside a specific process and can't be accessed from outside. So the name order is bound in the coffee code.</p>
+
+    <p>TODO: Insert some questions or exercises here.</p>
+  </div>
+
+  <div class="slide">
+    <h1>The <code>new</code> Operator</h1>
+    <p><code>for</code> and <code>contract</code> are perfect for binding names inside of continuations. But what if we want to create a bound name to send messages on? For example, our pizza shop would prefer not to have its orders intercepted. We solve this with the new operator.</p>
+
+    <div class="code">newPizzaShop</div>
+
+    <p>First notice that <code>pizzaShop</code> is a name even though it doesn't start with <code>@</code>. That's because the <code>new</code> operator created it as a name directly rather than by quoting some written-down process. But it does still quote a process as you'll see in the exercises.</p>
+
+    <p>Second, notice that while this technique does prevent other pizza shops from consuming orders, it also prevents new customers from ordering. We'll solve this problem in the lesson on bundles.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Private vs Unforgeable</h1>
+
+    <figure class="right">
+      <img src="eavesdropping.png" alt="eavesdropper listening in on private conversation"/>
+      <figcaption>Although the messages can no longer be stolen, they can still be eavesdropped on. You've been warned.</figcaption>
+    </figure>
+
+    <p>Within the world of the rholang these new names really are private. But remember that human programmers can look in to that world from the outside. That is especially true when working in a blockchain context.</p>
+
+    <p>So while a competing pizza shop can no longer consume pizza orders intended for our shop, they can still read the orders with a block explorer.</p>
+
+  </div>
+
+  <div class="slide">
+    <h1>Acknowledgement Channels</h1>
+    <figure class="right">
+      <img />
+      <figcaption>include Julie drawing of "roger that" or "I'll call you back"</figcaption>
+    </figure>
+
+    <p>One common use of unforgeable names is "acknowledgement channels". Instead of confirming orders by printing to the screen and disturbing <em>everyone</em>, the pizza shop should really just let the <em>customer</em> know that the order has been placed.</p>
+
+    <p>To do that the pizza shop needs to know how to contact the customer. So the customer should supply an acknowledgement channel to be called back on. Traditionally such a channel is named <code>ack</code>.</p>
+
+    <div class="code">pizzaAck</div>
+  </div>
+
+  <div class="slide">
+    <h1>Sending Names Gives Permission</h1>
+    <figure class="right">
+      <img />
+      <figcaption>include Julie drawing of hungry customer who received a fake ack.</figcaption>
+    </figure>
+
+    <p>We just saw how the customer can give the shop an ack channel to receive order confirmation. It turns out we can do even better. With our previous code, anyone could contact the customer on the ack channel. That means anyone could send a forged ack making the customer think the order was placed when really it wasn't.</p>
+
+    <div class="code">privateAck</div>
+
+    <p>The solution is to create a new unforgeable name, and give a copy of it to the pizza shop so that only they can call you back. Even though the pizza shop is <em>outside</em> of the <code>new alice</code>, it can still send on the channel because alice gave it the channels name. This is a wonderful way to delegate priveledges.</p>
+
+    <p>In this example we trust the shop to only <em>send</em> on the ack channel, but notice that it could also receive if it wanted to. We'll learn later how to give out only some of those permissions in the lesson on bundles.</p>
+  </div>
+
+  <div class="slide">
+    <h1><code>stdoutAck</code> and <code>stderrAck</code></h1>
+
+    <p>Now that you understand ack channels, you should know about two other ways to print to the screen. They are channels called <code>@"stdoutAck"</code> and <code>@"stderrAck"</code>. They work just like their cousins from lesson 1, but they take an ack channel.</p>
+
+    <div class="code">stdoutAck</div>
+
+    <p>By the way, did you ever notice the handful of stuff that always starts in a fresh tuplespace? Four of those things are the built-in receives for the screen-printing channels. (The others are for cryptography. We'll discuss them later.)</p>
+
+  </div>
+
+  <div class="slide">
+    <h1>Exercises</h1>
+
+    <code>@"stdout"!("1")|@"stdout"!("2")|@"stdout"!("3")</code>
+    <p>Notice that this program does not print the numbers in any particular order. The calls happen concurrently (although some implementations may have an order). Imagine we really need these lines to print in order. Modify the code to use ack channels and ensure that the numbers get printed in order.</p>
+
+    <p>If <code>new x in {}</code> makes <code>x</code> a name, then <code>*x</code> must be a process. We know processes can be printed. What happens when you print <code>*x</code>? How is this different from processesd we have printed?</p>
+
+    <p>Now that you know the process (that hex code) You may think you can just quote it to get the same name back. Try to quote the process and see what happens.</p>
+
+    <p>Predict how this program will run (what it outputs and how it reduces in the tuplespace). Then run it to test your prediction.
+      <code>
+        new myChan in {
+          myChan!("Hi There")
+        }
+        |
+        for (msg &lt;- myChan) {@"stdout"!(*msg)}
+      </code>
+    </p>
+
+    <p>If your prediction for the previous exercise was wrong, modify the program so it actually does what you predicted it would.</p>
+  </div>
+
+  <div class="slide">
+    <h1>Quiz</h1>
+
+    <div class="Qradio">
+      <p>Which name is bound in <code>for(x &lt;- y){0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
+
+    <div class="Qradio">
+      <p>Which name is bound in <code>new x in {0}</code></p>
+      <label class="correct"><code>x</code></label>
+      <label><code>y</code></label>
+      <label><code>0</code></label>
+    </div>
+
+    <div class="Qradio">
+      <p>What code would a bad pizza shop have to write to intercept orders?</code></p>
+      <label>
+        <code>contract evilPizzaShop(interceptedMessage) = {0}</code>
+      </label><br />
+      <label>
+        <code>@"evilPizzaShop"!("pizzaShop")</code>
+      </label><br />
+      <label>
+        <code>@"pizzaShop"!("intercept")</code>
+      </label><br />
+      <label class="correct">
+        <code>for (interceptedMessage <- @"pizzaShop"){...}</code>
+      </label><br />
+    </div>
+
+    <div class="Qradio">
+      <p>If <code>pizzzaShop</code> is a name, then what is <code>@pizzaShop</code>?</p>
+      <label>A name</label><br />
+      <label>A process</label><br />
+      <label class="correct">Invalid syntax</label><br />
+    </div>
+
+    <div class="Qradio">
+      <p>Why did the pizzaShopAck code send <code>"bob"</code> as an ack channel instead of <code>@"bob"</code>?</p>
+      <label>No reason; it's just a style choice.</label><br />
+      <label class="correct">Because @"bob" is a name, but we have to send processes.</label><br />
+      <label>That's special syntax for ack channels.</label><br />
+    </div>
+
+    <button id="submit">Check Answers</button>
+    <p id="result"></p>
+
+  </div>
+
+  <p>TODO Tired of resetting your tuplespace every time? Just don't use any public names that might interfere with other code. Instead restrict all of your names using new.</p>
+
+
+
+  <div id="prev-button" class="button">&lt;</div>
+  <div id="next-button" class="button">&gt;</div>
+  <div id="progress-bar">
+    <div id="completed"></div>
+  </div>
+
+</body>
+</html>

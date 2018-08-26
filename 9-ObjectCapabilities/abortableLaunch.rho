@@ -1,0 +1,24 @@
+// Maybe this cheezy one could be a get-the-taste thing up front
+
+// TODO: Figure this out.
+new aliceLaunch, aliceAbort, bobLaunch, bobAbort, stdout(`rho:io:stdout`) in {
+
+  // When giving the launch command, Alice also makes an abort button.
+  @"AliceLaunch"!("launch")
+  |
+  for (abortMessage <- @"AliceAbort"){
+    // When a message comes on @"AliceAbort", the launch command is immediately consumed.
+    for (junkMessage <- @"AliceLaunch"){
+      0
+    }
+  }
+  |
+  // If she decides to abort, she just sends a message
+  @"AliceAbort"!("abort")
+}
+
+
+    Why did Alice have to send the message "abort"?
+    Because she was aborting the launch
+    Because the channel was called @"AliceAbort"
+    She didn't; any message would have done

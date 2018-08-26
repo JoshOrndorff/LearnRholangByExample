@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 7: Bundles</title>
+  <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+
+
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson2.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+</head>
+
+<body>
+  <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
+
+  <h1>Stolen Messages</h1>
+
+  <figure class="right">
+    <img src="../img/none.jpg" alt="A celebrity on stage with fans surrounding her."/>
+    <figcaption>Alice's fans love her and want to send lots of mail to her.</figcaption>
+  </figure>
+  <p> Alice is a rising celebrity who receives mail from her fans. They used to send mail directly to her on a public name.</p>
+
+  <div class="code">fanmailBad</div>
+
+  <p>But as she became more popular, her jealous competitor Eve began stealing her mail.</p>
+
+  <div class="exercise">
+    Write the code for a competitor to steal the mail
+    <div class="code">fanmailEve</div>
+  </div>
+
+  <p>The problem is that the competitors can listen on the same channel Alice can. So what she really needs is for her fans to have a "write-only bundle"</p>
+
+  <div class="code">fanmailPublish</div>
+
+  <h1>Subscriptions</h1>
+  <p>The bundle solution above does prevent Eve from stealing mail, which is good. But it also has the unfortunate side effect that Alice has to pay to send her fanmail address. Blockchain fees work a little like postage.</p>
+
+  <figure>
+    <img src="../img/none.jpg" alt="Sending a pre-stamped return envelope"/>
+    <figcaption>The sender includes a return envelope already posted to himself.</figcaption>
+  </figure>
+
+  <div class="exercise">
+    Alice can save postage by making fans request the fanmail address from her. Then they will have to pay the transaction costs. A bit like sending a return envelope with a stamp already on it.
+
+    Complete Alice's code so that she can get Bob the address he needs.
+
+    Here's the answer:
+    <div class="code">fanmailAsk</div>
+  </div>
+
+  <p>Astute readers will notice that Eve can now just intercept messages asking for the fanmail address. Good observation. As a bonus exercise, you could write Eve's new code. (hint: it's the same as the old code). The solution to this problem involves public key cryptography and the registry. We'll learn about that in a later lesson.</p>
+
+  <div class="exercise">Our pizza shop back in lesson 2 had a similar problem to Alice. Rework that code so they can easily take on new customers.</div>
+
+  <h1>Jackpot</h1>
+
+  <figure>
+    <img src="../img/none.jpg" alt="Children playing jackpot"/>
+    <figcaption>A single "thrower" throws a ball for one of many catchers to catch.</figcaption>
+  </figure>
+
+  <p>I used to play a game called jackpot as a kid. One player would throw the ball and yell a number. The other players would all try to catch the ball and whoever caught it would receive that number of points.</p>
+
+  <p>Playing jackpot is just the opposite of sending fanmail. Before there were many fans all sending to one celebrity. Now there is one thrower, sending to one of many recipients</p>
+
+  <div class="code">jackpot</div>
+
+  <div class="question">
+    <p>Who will catch the ball in the jackpot code?</p>
+    * Bill because his catch code is first.
+    * Bill because his catch code is closest to the throw code.
+    * Paige because her catch code is last.
+    ** We don't know; it is nondeterminate.
+  </div>
+
+  <div class="exercise">
+    <p>Exercise: Use stdoutAck to display how many points each person actually gets when they catch the ball.</p>
+    <div class="code solution">jackpotNicePrinting</div>
+  </div>
+
+  <p>Most programming languages will allow you to join or "concatenate" two strings together. Rholang will do that eventually, but it isn't ready yet, so we had to use that trick with stdoutAck. Another option is to print out a list of things. Try <code>@"stdout"!(["Bill caught it. Points earned: ", *points])</code> out.</p>
+
+  <div class="question">
+    <p>How is this game in rholang different than the real game where one ball is throw repeatedly?</p>
+    * It is a very accurate simulation
+    ** In rholang all balls are thrown at once and caught in any order
+    * In rholang the balls are caught in the reverse order from what they are thrown.
+    * In rholang Bill makes all his catches, then Paige makes all her catches.
+  </div>
+
+  <h1>Imposter throws</h1>
+  <figure>
+    <img src="../img/none.jpg" alt="An imposter throws a fake ball into the  jackpot game"/>
+    <figcaption>The catchers now have more balls to catch and there are more points than the thrower intended. The thrower has lost control of the game.</figcaption>
+  </figure>
+
+  <p>Notice that anyone can come along and mess up this game by throwing fake balls.</p>
+
+  <div class="exercise">
+    Write the code that Eve would have to par in to throw a ball worth 100 points.
+    <div class="code">jackpotEve</div>
+  </div>
+
+  <p>We solve this problem by making sure that the public can only read from the throw channel, but not write to it.</p>
+
+  <div class="code">jackpot</div>
+
+  <p>Like before, this code requires the game host to pay for everyone who get's the bundle from him. It could be refactored so players have to subscribe to the game like we did with Alice and her fan mail.</p>
+
+  <h1>Public Key Crypto</h1>
+
+  <figure class="left">
+    <img src="privateNames.png" alt="A box labeled 'private names, don't look'"/>
+    <figcaption>This bundle is sealed within the blockchain world, but totaly openable to anyone outside.</figcaption>
+  </figure>
+
+  <p>In some ways, read-only bundles duplicate the signing features of <a href="https://en.wikipedia.org/wiki/Public-key_cryptography" target="_blank">public-key cryptography</a>. The jackpot catchers here are sure that the balls came from the thrower because only he can send on the throw channel. One difference is that the sender maintains deniability. Whil the catcher knows that she received a genuine throw, she cannot prove it to third parties.</p>
+
+  <p>In some ways write-only bundles duplicate the encryption features of public-key cryptography. Only Alice can receive messages sent on her fan mail channel. One <strong>very important differnce</strong> is that the messages send here are 100% visible from outside the blockchain! So while write-only bundles are an effective way to communicate unforgeable names, they are not a good way to plot a heist, or evade government survailence. <strong>Be Careful!</strong></p>
+
+  <h1>More Bundles</h1>
+
+  <p>In addition to read- and write-only bundles, there are two other types. The other bundle types are less common, but still useful. We'll explore thm as the need arises. To read more, check out [TODO need link to refernce doc once one is written.]</p>
+
+  <table>
+    <tr>
+      <th>Syntax</th>
+      <th>Can Read</th>
+      <th>Can Write</th>
+    </tr>
+    <tr>
+      <td><code>bundle- {Process}</code></td>
+      <td>YES</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td><code>bundle+ {Process}</code></td>
+      <td>NO</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td><code>bundle {Process}</code></td>
+      <td>NO</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td><code>bundle {Process}</code></td>
+      <td>YES</td>
+      <td>YES</td>
+    </tr>
+  </table>
+
+
+
+</body>
+</html>

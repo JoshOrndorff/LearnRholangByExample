@@ -1,0 +1,3 @@
+contract @"coffeeShop"(order) = {
+  @"stdout"!("Coffee Order Received")
+}

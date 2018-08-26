@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+
+  <title>Lesson 8: State Channels</title>
+  <link rel="icon" href="../img/favicon.png" type="image/x-icon" />
+
+
+  <script type="text/javascript" src="code.js"></script>
+  <script type="text/javascript" src="../js/insertcode.js"></script>
+  <script type="text/javascript" src="../js/prettify.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../css/lesson2.css" />
+  <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
+</head>
+
+<body>
+  <a href="../index.html"><img id="back-to-lib" src="../img/backToLibrary.png" alt="Back to the Library"/></a>
+
+  <h1>Holding on to data</h1>
+
+  <figure class="left">
+    <img src="../img/none.jpg" alt="Cool kids saying 'variables are so 2015. It's all about state channels now."/>
+    <figcaption>Do you even know how to state channel bro?</figcaption>
+  </figure>
+
+  <p>By now you're good at sending data to the tuplespace, and receiving data from the tuplespace. But whenever you're computing, you occasionally need to set data aside to be used later. Almost every programming language has a concept of variables.</p>
+
+  <p>Another way in which rholang is unique is that it doesn't have traditional variables. Instead, we can just use the tuplespace to store our data. Whenever you want to set something aside, just send it on some channel and receive it back later.</p>
+
+  <div class="code">box</div>
+
+  <div class="question">
+    What data is left in <code>@"somePublicBox"</code>?
+    * 0
+    * box
+    ** 42
+    * It is empty
+  </div>
+
+  <div class="question">
+    What data is left in box?
+    * 0
+    * @"somePublicBox"
+    * 42
+    ** It is empty
+  </div>
+
+  <h1>Persisting Data</h1>
+  <p>If we were to check the box again, we would not get a result. Because once we recieve the message, it gets consumed from the tuplespace. We briefly discussed the solution back in our lesson on persistant sends and peeks.</p>
+
+  <div class="code">persistentBox</div>
+
+  <div class="question">
+    What data is left in <code>@"somePublicBox"</code>?
+    * 0
+    * box
+    ** 42
+    * It is empty
+  </div>
+
+  <div class="question">
+    What data is left in box?
+    * 0
+    * @"somePublicBox"
+    ** 42
+    * It is empty
+  </div>
+
+  Moved in from lesson 5: Another solution to the patience game
+  new P1, P2, stdout(`rho:io:stdout`) in {
+    // active gets its own scope so players can't change its value.
+    new active in {
+      active!(true)
+      |
+      for(_ <- active; _ <- P1) {
+        stdout!("P2 Wins")
+      }
+      |
+      for(_ <- active; _ <- P2) {
+        stdout!("P1 Wins")
+      }
+    }
+    |
+    P1!(0)
+    |
+    P2!(0)
+  }
+  what happens when the same person goes twice, or more than two turns are taken? Only one of the `stdout` sends can run because there is no content left on the `active` channel.
+
+  <h1>Objects and methods</h1>
+  //TODO does the method stuff really go here?
+
+  <figure class="right">
+    <img src="../img/none.jpg" alt="A click-style counter"/>
+    <figcaption>Do you even know how to state channel bro?</figcaption>
+  </figure>
+
+  <p>In "Object Oriented Programming" languages such as java, we can model real-world objects by encapsulating some data and some methods that we can perform on that data. The same thing is possible in rholang.</p>
+
+  <p>In this example, we'll create an object that represents a basic click counter. The ingredients are:</p>
+  <ul>
+    <li>State Channels: currentCount</li>
+    <li>Methods: increase, reset</li>
+  </ul>
+
+  <div class="code">counter</div>
+
+  <h1>Method exercises</h1>
+  <div class="exercise">
+    It is inconvenient to manually replace the counter value each time I check it. Instead we should have a method for that.
+
+    <div class="code">checkMethod</div>
+  </div>
+
+  <div class="exercise">
+    Now that it's easier and safer to check the counter, let's write some better tests that actually check all the methods.
+
+    <div class="code">counterTests</div>
+  </div>
+
+  <h1>Savings Account</h1>
+  <p>In this example we'll write code to model a simple savings account in rholang. It will have deposit, withdraw, and check methods.</p>
+
+  <p>Unlike with our counter, a svaings account needs to be secure. We don't want just anyone knowing our balance, or wrose, withdrawing it. Therefore, these methods are sometimes known as capabilities.</p>
+
+  <p>Here is some starter code to consider</p>
+  <div class="code">savingsStarter</div>
+
+  <div class="exercise">Fill in the remaining methods in the account.</div>
+
+  <p>Our current savings account allows negative balances, but probably it shouldn't. Think about how you might try to solve that issue. We'll learn the proper tool to do that in our next unit on pattern matching.</p>
+
+  <h1>Stealing Funds</h1>
+  <p>Try to write the code Eve would need to par in to steal Sarah's funds. I bet you can't think of any. That's because only Sarah has access to the unforgeable names that control the account.</p>
+
+  <p>In our next lesson we'll learn more about making the capability channel and the object capability design pattern.</p>
+
+  <div class="question">
+    <p>If Sarah wanted to allow anyone to deposit into her bank account, but not check or withdraw, how should she create her account?</p>
+    * openAccount!(10, *"sarahDeposit", *sarahWithdraw, *sarahCheck)
+    ** openAccount!(10, @"sarahDeposit", *sarahWithdraw, *sarahCheck)
+    * openAccount!(10, @"sarahDeposit", @"sarahWithdraw", @"sarahCheck")
+    * openAccount!(10, *sarahDeposit, @"sarahWithdraw", @"sarahCheck")
+  </div>
+</body>
+</html>
