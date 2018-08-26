@@ -1,0 +1,19 @@
+new throw, stdout(`rho:io:stdout`) in {
+  // Throw the ball worth five points
+  throw!(5)
+  |
+
+  // Throw the ball several more times
+  throw!(4) |
+  throw!(2) |
+  throw!(6) |
+
+  // Bill and Paige both try to catch
+  for (points <= throw){
+    stdout!("Bill caught it")
+  }
+  |
+  for (points <= throw){
+    stdout!("Paige caught it")
+  }
+}

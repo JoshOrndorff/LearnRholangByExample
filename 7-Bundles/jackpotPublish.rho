@@ -1,0 +1,24 @@
+new gameCh, stdout(`rho:io:stdout`) in {
+  new throw in {
+
+    //Give out read-only access
+    gameCh!!(bundle- {*throw})
+    |
+    // Now actually make all the throws
+    throw!(4) |
+    throw!(2) |
+    throw!(6)
+  }
+  |
+  // Bill and Paige join the game
+  for (throw <- gameCh){
+    for (points <= throw){
+      stdout!(["Bill caught it. Points: ", *points])
+    }
+  }
+  |
+  // Eve tries to throw a fake, but can't
+  for (throw <- gameCh){
+    throw!(100)
+  }
+}

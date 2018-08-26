@@ -1,0 +1,10 @@
+for (points <= @throw){
+  new ack in {
+    stdoutAck!("Bill caught it. Points earned: ", *ack)
+    |
+    for( _ <- ack){
+      stdout!(*points)
+    }
+  }
+}
+// Do the same for Paige

@@ -1,0 +1,3 @@
+for (@stolenMail <= alice) {
+  stdout!("Eve stole a message")
+}

@@ -1,13 +1,13 @@
 // These channels are basically public names within
 // the file like rho:pubkey:whatever
 
-new alice, bob, eve in {
+new alice, bob, eve, stdout(`rho:io:stdout`) in {
 
   // Alice get a lot of fan mail, so she
   // creates a new write only bundle and publishes it.
   new aliceFanMail in {
 
-    // Alice gives fanmail channel to any fan that asks for it
+    // Alice returns fanmail channel to any fan that asks
     for (return <= alice) {
       return!(bundle+ {*aliceFanMail})
     }
@@ -15,7 +15,7 @@ new alice, bob, eve in {
 
     // Alice also reads fan mail
     for (mail <- aliceFanMail) {
-      @"stdout"!("Alice received a fanmail")
+      stdout!("Alice received a fanmail")
     }
   }
   |
@@ -36,7 +36,7 @@ new alice, bob, eve in {
     alice!(*return) |
     for (aliceFanMail <- return) {
       for (@stolenMail <= aliceFanMail) {
-        @"stdout"!(["Eve stole a message: ", stolenMail])
+        stdout!(["Eve stole a message: ", stolenMail])
       }
     }
   }
