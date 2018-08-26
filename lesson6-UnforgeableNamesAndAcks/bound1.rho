@@ -1,3 +1,0 @@
-for (order <= @"coffeeShop") {
-  @"stdout"!("Coffee Order Received")
-}

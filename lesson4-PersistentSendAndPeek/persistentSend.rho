@@ -1,7 +1,0 @@
-// ATC sends the info
-@"airportInfo"!!("No wind; Runway 11")
-|
-// Pilot receives the info
-for (info <- @"airportInfo") {
-  0 // Pilot just listens, doesn't do anything
-}

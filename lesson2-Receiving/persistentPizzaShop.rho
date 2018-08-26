@@ -1,9 +1,0 @@
-new pizzaShop, stdout(`rho:io:stdout`) in {
-  for (order <= pizzaShop) {
-    stdout!("Pizza Order Received")
-  }
-  |
-  pizzaShop!("one hot chocolate")
-  |
-  pizzaShop!("two large latte's please")
-}

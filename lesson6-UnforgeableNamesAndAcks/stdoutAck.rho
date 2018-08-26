@@ -1,7 +1,0 @@
-new myAckChannel in {
-  @"stdoutAck"!("Print some words.", *myAckChannel)
-  |
-  for (acknowledgement <- myAckChannel) {
-    @"stdout"!("Received an acknowledgement.")
-  }
-}

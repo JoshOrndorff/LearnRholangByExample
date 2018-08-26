@@ -1,5 +1,0 @@
-new stdout(`rho:io:stdout`) in {
-  stdout!("I'm on the screen")
-  |
-  @"chan1"!("I'm in the tupplespace")
-}

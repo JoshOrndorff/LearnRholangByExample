@@ -1,9 +1,0 @@
-new grandma, stdout(`rho:io:stdout`) in {
-  // I send the message
-  grandma!("Meet at the mall at 4:00")
-  |
-  // Grandma receives it
-  for (msg <- grandma){
-    stdout!("I got your message")
-  }
-}
