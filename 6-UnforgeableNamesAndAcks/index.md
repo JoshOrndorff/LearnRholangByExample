@@ -5,7 +5,6 @@
 ![A competing pizza shop steals orders because the channel isn't secure.](stealing.png)
 
 
-
 So far every channel we've sent on has been a public name like `@"pizzaShop"`. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it too (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.
 
 What code would a bad pizza shop have to write to intercept orders?`
@@ -86,6 +85,10 @@ We learned that all names quote processes. So what process does the `pizzaShop` 
 
 So while a competing pizza shop can no longer _consume_ pizza orders intended for our shop, they can still read the orders with a block explorer. Occasionally programmers call `new` names "private", but a better term is "unforgeable", which explains the answer to the previous question.
 
+We've previously used `new` to prevent tuplespace pollution. Why did using unforgeable names prevent us from having to clear the tuplespace after each contract run?
+- [ ] Because `new` makes free names
+- [x] Because `new` creates unforgeable names that can't be accessed by outside code
+- [ ] Because `new` automatically clears the tuplespace
 
 ## Acknowledgement Channels
 
