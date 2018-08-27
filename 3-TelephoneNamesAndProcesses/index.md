@@ -74,13 +74,13 @@ What do we send?
 - [ ] names
 
 
-<div class="Qradio">
-  What do we receive?
+
+What do we receive?
 - [ ] processes
 - [x] names
 
 
-<div class="Qradio">
+
   What is `@"registration"`
 - [ ] process
 - [x] name
@@ -88,40 +88,41 @@ What do we send?
 
 
 
-<div class="Qradio">
-  What is `0`?
+
+What is `0`?
 - [x] process
 - [ ] name
 - [ ] invalid syntax
 
 
-<div class="Qradio">
-  What is `@0`?
+
+What is `@0`?
 - [ ] process
 - [x] name
 - [ ] invalid syntax
 
 
 
-<div class="Qradio">
-  What is `@@0`?
+
+What is `@@0`?
 - [ ] process
 - [ ] name
 - [x] invalid syntax
 
 
-<div class="Qradio">
-  `*importantData` is a process, so what is `importantData`?
+
+`*importantData` is a process, so what is `importantData`?
 - [ ] process
 - [x] name
 - [ ] invalid syntax
 
 
-<div class="Qradio">
+
   Which of these is equivalent to `"BobsPhone"`?
 - [x] `*@"BobsPhone"`
 - [ ] `@"BobsPhone"`
 - [ ] `*"BobsPhone"`
+- [ ] `@*BobsPhone`
 - [ ] `stdout!("BobsPhone")`
 
 
