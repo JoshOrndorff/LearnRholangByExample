@@ -34,7 +34,7 @@ The heart of rholang is communicating on channels. Channels are communication li
 
 You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen.
 
-[tupleSpace.rho](tuppleSpace.rho)
+[tupleSpace.rho](tupleSpace.rho)
 
 So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
