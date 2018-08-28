@@ -22,9 +22,10 @@ The `bundle+ {*aliceFanMail}` is a channel just like `aliceFanMail` except it ca
 ## Subscriptions
 The bundle solution above does prevent Ewritten onve from stealing mail, which is good. But in the blockchain context it also has the unfortunate side effect that Alice has to pay to send her fanmail address. Blockchain fees work a little like postage.
 
-[The sender includes a return envelope already posted to himself](returnAddress.png)
+![The sender includes a return envelope already posted to himself](returnEnvelope.png)
 
 ### Exercise
+
 Alice can save postage by making fans request the fanmail address from her. Then they will have to pay the transaction costs. A bit like sending a return envelope with a stamp already on it.
 
 Complete Alice's code so that she can get Bob the address he needs.
