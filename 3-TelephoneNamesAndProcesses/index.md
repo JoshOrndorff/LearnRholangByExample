@@ -11,7 +11,7 @@ We've previously learned how to send a message to grandma or a pizza shop. But s
 
 Now let's make them do something more interesting by passing the message along like in a child's telephone game
 
-[telephone2.rho](telephone2.rho)
+[telephone3.rho](telephone3.rho)
 
 As the message says, you learn most when you experiment. So be sure to change things as you see fit.
 
