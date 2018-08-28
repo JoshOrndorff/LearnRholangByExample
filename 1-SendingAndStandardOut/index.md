@@ -92,4 +92,4 @@ Which does rholang do first in
 
 PS. There is also a special channel called `stderr`. Check out what happens when you send to it.
 
-<a href="https://en.wikipedia.org/wiki/Standard_streams" target="_blank">What's the difference?</a>
+[what's the difference?](https://en.wikipedia.org/wiki/Standard_streams)
