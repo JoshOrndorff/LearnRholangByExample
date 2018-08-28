@@ -51,7 +51,7 @@ How many comms happen in `for (x <= y) {0} | y!!(0)`
 
 ## Answer to Exercise
 
-[grandmaCheck.rho](grandmaCheck)
+[grandmaCheck.rho](grandmaCheck.rho)
 
 
 ## Peek Syntax
