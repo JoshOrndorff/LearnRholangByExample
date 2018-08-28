@@ -1,0 +1,31 @@
+new openAccount in {
+  // This contract registers a new account and creates its methods.
+  contract openAccount(initialDeposit, deposit, withdraw, check) = {
+    new balance in {
+      balance!(*initialDeposit)
+      |
+
+      // Withdraw Contract
+      contract withdraw(amount, ack) = {
+        for (old <- balance) {
+          balance!(*old - *amount) |
+          ack!(0)
+        }
+      }
+
+      // Deposit Contract
+
+      // Check contract
+    }
+  }
+  |
+
+  // Customer Sarah creates an uses an account
+  new sarahDeposit, sarahWithdraw, sarahCheck, ack in {
+    openAccount!(10, *sarahDeposit, *sarahWithdraw, *sarahCheck) |
+    sarahWithdraw!(3, *ack) |
+    for (_ <- ack) {
+      0// TODO check balance here
+    }
+  }
+}

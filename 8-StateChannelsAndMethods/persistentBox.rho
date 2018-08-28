@@ -1,0 +1,14 @@
+new boxCh in {
+  // To save data we just put it in the box
+  boxCh!(42)
+  |
+
+  // To check the value without consuming it
+  for (data <- boxCh) {
+    // We send a copy back to the box
+    boxCh!(*data)
+    |
+    // The do whatever with it
+    @"somePublicChannel"!(*data)
+  }
+}

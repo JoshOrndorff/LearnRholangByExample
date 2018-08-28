@@ -1,0 +1,31 @@
+new counterFactory, stdout(`rho:io:stdout`) in {
+  contract counterFactory(increase, reset) = {
+    new currentCount in {
+      // Start the counter at zero
+      currentCount!(0) |
+
+      // Method to increase counter (returns the old value)
+      contract increase(ack) = {
+        for (old <- currentCount) {
+          currentCount!(*old + 1) |
+          ack!(*old)
+        }
+      }
+      |
+
+      // Method to reset the counter (returns the old value)
+      contract reset(ack) = {
+        for(old <- currentCount){
+          currentCount!(0) |
+          ack!(*old)
+        }
+      }
+    }
+  }
+  |
+
+  new ack, myIncrease, myReset in {
+    // Demo using the counter here
+    0
+  }
+}

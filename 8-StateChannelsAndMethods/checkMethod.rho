@@ -1,0 +1,7 @@
+// Method to check the counter
+contract check(return) = {
+  for(count <- currentCount){
+    currentCount!(*count) |
+    return!(*count)
+  }
+}
