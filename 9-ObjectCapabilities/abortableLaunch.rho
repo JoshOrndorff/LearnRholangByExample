@@ -1,24 +1,40 @@
-// Maybe this cheezy one could be a get-the-taste thing up front
+new rocketFactory in {
 
-// TODO: Figure this out.
-new aliceLaunch, aliceAbort, bobLaunch, bobAbort, stdout(`rho:io:stdout`) in {
+  // When a new rocket is setup, a launch capability for each for each operator is passed in
+  contract rocketFactory(aliceLaunch, bobLaunch, ack) = {
+    new aliceReadyCh, bobReadyCh in {
+      // Start out neither ready
+      aliceReadyCh!(false)|
+      bobReadyCh!(false)|
 
-  // When giving the launch command, Alice also makes an abort button.
-  @"AliceLaunch"!("launch")
-  |
-  for (abortMessage <- @"AliceAbort"){
-    // When a message comes on @"AliceAbort", the launch command is immediately consumed.
-    for (junkMessage <- @"AliceLaunch"){
-      0
+      contract aliceLaunch(ack) = {
+        new aliceAbort in {
+          for (_ <- aliceReadyCh) {
+            aliceReadyCh!(true)
+          }
+          |
+          contract aliceAbort(ack) = {
+            for(_ <- aliceReadyCh) {
+              aliceReadyCh!(false)
+              |
+              ack!(0)
+            }
+          }
+          |
+          ack!(*aliceAbort)
+        }
+      }
+      |
+      0 // Bob contract goes here
+      | ack!(0)
     }
   }
   |
-  // If she decides to abort, she just sends a message
-  @"AliceAbort"!("abort")
+  // Make a new rocket to test
+  new aliceLaunch, bobLaunch, ack in {
+    rocketFactory!(*aliceLaunch, *bobLaunch, *ack)|
+    for (_ <- ack){
+      0 // Tests go here
+    }
+  }
 }
-
-
-    Why did Alice have to send the message "abort"?
-    Because she was aborting the launch
-    Because the channel was called @"AliceAbort"
-    She didn't; any message would have done

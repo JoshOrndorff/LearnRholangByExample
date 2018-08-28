@@ -1,0 +1,37 @@
+
+new stationFactory, stdout(`rho:io:stdout`) in {
+  contract stationFactory(initialMessage, getInfo, setInfo) = {
+    new currentMessage in {
+      // Populate the initial message
+      currentMessage!(*initialMessage)
+      |
+
+      // Owner can update the message anytime
+      contract setInfo(newMessage) = {
+        for (msg <- currentMessage) {
+          currentMessage!(*newMessage)
+        }
+      }
+      |
+
+      // User tunes in for latest message
+      contract getInfo(return) = {
+        for (msg <- currentMessage){
+          return!(*msg)
+          |
+          currentMessage!(*msg)
+        }
+      }
+    }
+  }
+  |
+
+  // Controllers create new station with private set capability
+  // and public get capability
+  new set in {
+    stationFactory!("Weather is nice", "airportInfo", *set)
+  }
+  |
+  // Listener tunes in to receive latest message
+  @"airportInfo"!(*stdout)
+}

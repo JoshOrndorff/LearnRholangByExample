@@ -1,14 +1,14 @@
 new openAccount in {
   // This contract registers a new account and creates its methods.
   contract openAccount(initialDeposit, deposit, withdraw, check) = {
-    new balance in {
-      balance!(*initialDeposit)
+    new balanceCh in {
+      balanceCh!(*initialDeposit)
       |
 
       // Withdraw Contract
       contract withdraw(amount, ack) = {
-        for (old <- balance) {
-          balance!(*old - *amount) |
+        for (old <- balanceCh) {
+          balanceCh!(*old - *amount) |
           ack!(0)
         }
       }
