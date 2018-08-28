@@ -6,7 +6,7 @@ var fs = require('fs')
 
 
 /////////////////////////
-renderer.link = function (href, title, text) {
+renderer.link = function(href, title, text) {
 
   if (text.substring(text.length - 4) !== ".rho"){
     return `<a href="${href}">${text}</a>`
@@ -14,7 +14,11 @@ renderer.link = function (href, title, text) {
   var code = fs.readFileSync(href)
 
 
-  return `<code class="rholang-file">${code}</code>`
+  return `<pre class="rholang-file">${code}</pre>`
+}
+
+renderer.code = function(code, language, escaped){
+  return `<pre class="inline-code">${code}</pre>`
 }
 
 
