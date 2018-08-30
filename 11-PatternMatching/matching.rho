@@ -1,0 +1,21 @@
+new patternMatcher, stdout(`rho:io:stdout`) in {
+
+  for (x <= patternMatcher) {
+   match *x {
+    0                => stdout!("You sent the stopped process")
+    {_!(_)}          => stdout!("You sent a send")
+    {for(_ <- _){_}} => stdout!("You sent a receive")
+    {_ | _}          => stdout!("You sent a par")
+    _                => stdout!("You sent something else")
+   }
+  }
+  |
+
+  // Make sure the pattern matcher works
+  patternMatcher!({for(@0 <- @0){0}}) // Can't get this one to match a receive
+                                      // Asked for ideas on discord
+  |
+  patternMatcher!({@"world"!("hello")})
+  |
+  patternMatcher!({0|"hello"})
+}

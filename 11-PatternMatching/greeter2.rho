@@ -1,0 +1,16 @@
+
+new greeter in {
+  contract greeter(name, return) = {
+    return!("Hello there, " ++ *name)
+  }
+  |
+  // Default case where there is no name
+  contract greeter(return) = {
+    return!("Hello there, world")
+  }
+  |
+  new stdout(`rho:io:stdout`) in {
+    greeter!("Joshy", *stdout)|
+    greeter!("Tom", *stdout)
+  }
+}
