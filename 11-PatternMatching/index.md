@@ -58,27 +58,6 @@ How could we rewrite the first `match` example above to use `if`/`else`?
 - [ ] Start with `if (x == a|b)`
 - [x] We can't because that example matches patterns more complex than just `true` and `false`
 
-## Boolean Operators
-Rholang also has the classic Boolean operators AND, OR, and NOT. The syntax is
-
-* `a and b` true when both `a` and `b` are true
-* `a or b` true when either `a` or `b` is true
-* `not a` true when `a` is false
-
-What would `stdout!(true and true)` output?
-- [x] true
-- [ ] false
-- [ ] neither; that's invalid syntax
-
-What would `stdout!(not true)` output?
-- [ ] true
-- [x] false
-- [ ] neither; that's invalid syntax
-
-What would `stdout!((not not true) or false)` output?
-- [x] true
-- [ ] false
-- [ ] neither; that's invalid syntax
 
 ## A Nicer Greeter
 Let's make a nicer greeter that still says hello even if we don't tell it our name. The key here is that we have two different contracts listening on the exact same `greeter` channel.

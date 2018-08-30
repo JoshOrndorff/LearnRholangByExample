@@ -1,0 +1,24 @@
+new c2f, f2c in {
+
+  /**
+   * Converts Celcius temperatures to Farenheit. The conversion
+   * multiply by 9/5 and add 32
+   */
+  contract c2f(celcius, return) = {
+    return!((*celcius * 9 / 5) + 32)
+  }
+  |
+
+  contract f2c(farenheit, return) = {
+    0 // TODO you complete this contract
+  }
+  |
+
+  new stdout(`rho:io:stdout`) in {
+    // 0 C should be 32 F
+    c2f!(0, *stdout)
+    |
+    // 100 C should be 212 F
+    c2f!(100, *stdout)
+  }
+}
