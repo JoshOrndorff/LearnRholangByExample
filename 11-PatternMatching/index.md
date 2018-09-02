@@ -10,7 +10,9 @@ The most obvious place that rholang uses pattern matching is in its `match` cons
 
 [matching.rho](matching.rho)
 
-In this code any masseage `x` that is received on the `patternMatcher` channel represents a quoted process. We compare that process (unquoted) to several patterns below and report back what pattern matches. The underscore is just a fill-in-the-blank and matches any pattern at all. You'll often see a single underscore as the final pattern in a `match` construct to ensure that there is a default case if nothing else matches.
+In this code any massage `x` that is received on the `patternMatcher` channel represents a quoted process. We compare that process (unquoted) to several patterns below and report back what pattern matches. The underscore is just a fill-in-the-blank and matches any pattern at all. You'll often see a single underscore as the final pattern in a `match` construct to ensure that there is a default case if nothing else matches.
+
+<!--![Receives that use pattern matching are much pickier than the ones we have used before.](lookingForMessagesPatternMatching.png)-->
 
 Pattern matching can also be used when receiving messages with `for` or `contract`. In order for a message to be received, the message that was sent, must match the pattern that is to be received. We'll see an example of this usage shortly.
 
