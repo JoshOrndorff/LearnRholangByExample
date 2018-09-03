@@ -1,15 +1,6 @@
 # Learn Rholang By Example
 
-This tutorial teaches the basics of rholang by example and experimentation.
-The tutorials are meant to be run, read, modified and completed. For best
-results, change anything and everything you are curious about.
-
-This does not aim to be an exhaustive tour of everything there is to know about
-rholang, but rather a tour of the most common and important features of the
-language and a fast starting point for motivated learners.
-
-View the lessons online at [https://joshorndorff.github.io/LearnRholangByExample](https://joshorndorff.github.io/LearnRholangByExample)
-
+Learn rholang by example and experimentation. The examples and exercises are meant to be run, read, modified and completed. For best results, change anything and everything you are curious about. This tutorial is a tour of the most common and important features of rholang and a fast starting point for motivated learners.
 
 
 ## Target Audience
