@@ -3,7 +3,7 @@
 
 ![In general, the winner of this pushup competition can't be determined until both participants are finished.](pushups.png)
 
-Occasionally a computation can only be made once data is retrieved (messages are received) from two or more different data sources. For example, you can't tell whether you won the lottery until you've got your ticket number and the winning number. You can't make change for a purchase until you know the price and the amount tendered. You can't tell who wins a pushup contest until you know mow many pushups each competitor completed.
+Occasionally a computation can only be made once data is retrieved (messages are received) from two or more different data sources. For example, you can't tell whether you won the lottery until you've got your ticket number and the winning number. You can't make change for a purchase until you know the price and the amount tendered. You can't tell who wins a pushup contest until you know how many pushups each competitor completed.
 
 Rholang has the join operator for exactly this situation. To perform a join, just use the `;` character.
 
@@ -20,7 +20,7 @@ for (p1Pushups <- @"player1"; p2Pushups <- @"player2") {
 A space exploration company wants to make sure their rocket only launches when both of two flight engineers, Alice and Bob, give the launch command. As an example, Bob would give the go ahead by sending `BobLaunch!("launch")`. When both engineers give the command, the rocket can be launched.
 
 ### Exercise
-Consider how this code might be written using the join operator that we just learned discussed.
+Consider how this code might be written using the join operator that we just discussed.
 
 
 ## The wrong way
