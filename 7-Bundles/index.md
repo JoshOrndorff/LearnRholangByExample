@@ -17,10 +17,10 @@ The problem is that the competitors can listen on the same channel Alice can. So
 
 [fanmailPublish.rho](fanmailPublish.rho)
 
-The `bundle+ {*aliceFanMail}` is a channel just like `aliceFanMail` except it can only be snet on, not received.
+The `bundle+ {*aliceFanMail}` is a channel just like `aliceFanMail` except it can only be sent on, not received.
 
 ## Subscriptions
-The bundle solution above does prevent Ewritten onve from stealing mail, which is good. But in the blockchain context it also has the unfortunate side effect that Alice has to pay to send her fanmail address. Blockchain fees work a little like postage.
+The bundle solution above does prevent Eve from stealing mail, which is good. But in the blockchain context it also has the unfortunate side effect that Alice has to pay to send her fanmail address. Blockchain fees work a little like postage.
 
 ![The sender includes a return envelope already posted to himself](returnEnvelope.png)
 
@@ -93,9 +93,9 @@ In some ways, read-only bundles duplicate the signing features of [public-key cr
 
 In some ways write-only bundles duplicate the encryption features of public-key cryptography. Only Alice can receive messages sent on her fan mail channel. One **very important difference** is that the messages sent here are 100% visible from outside the blockchain! So while write-only bundles are an effective way to communicate unforgeable names, they are not a good way to plot a heist, or evade government surveillance. **Be Careful!**
 
-## More Bundles
+## More About Bundles
 
-In addition to read- and write-only bundles, there are two other types. The other bundle types are less common, but still useful. We'll explore them as the need arises, but I'll summarize them briefly here.
+In addition to read- and write-only bundles, there are two other types that are also useful.
 
 | Syntax | Can Read | Can Write |
 | ------ | -------- | --------- |
@@ -103,3 +103,5 @@ In addition to read- and write-only bundles, there are two other types. The othe
 | `bundle+ {proc}`  | NO  | YES |
 | `bundle {proc}`   | NO  |  NO |
 | `bundle {proc}`   | YES | YES |
+
+You may be wondering why a bundle on which you can neither send nor receive would ever be useful. Given what we've learned so far, that's a wonderful question. When we discuss pattern matching next unit, we'll see that bundles do more than restrict read- and write- capabilities. They also prevent taking compound names apart to look inside.
