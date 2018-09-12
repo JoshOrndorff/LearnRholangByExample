@@ -11,7 +11,7 @@ What code would a bad pizza shop have to write to intercept orders?`
 - [ ] `contract evilPizzaShop(interceptedMessage) = {0}`
 - [ ] `@"evilPizzaShop"!("pizzaShop")`
 - [ ] `@"pizzaShop"!("intercept")`
-- [x] `for (interceptedMessage &lt;- @"pizzaShop"){...}`
+- [x] `for (interceptedMessage <- @"pizzaShop"){...}`
 
 ## Bound and Free Names
 
@@ -27,12 +27,12 @@ A name is considered bound if it only exists inside a specific process and can't
 
 State whether `x` is bound or free in each of the following code snippets.
 
-`for (x &lt;- y){0}`
+`for (x <- y){0}`
 - [x] Bound
 - [ ] Free
 - [ ] Neither
 
-`for (y &lt;- x){0}`
+`for (y <- x){0}`
 - [ ] Bound
 - [x] Free
 - [ ] Neither
@@ -52,7 +52,7 @@ State whether `x` is bound or free in each of the following code snippets.
 - [ ] Free
 - [ ] Neither
 
-`for (y &lt;- @"x"){0}`
+`for (y <- @"x"){0}`
 - [ ] Bound
 - [ ] Free
 - [x] Neither
@@ -143,7 +143,7 @@ new myChan in {
   myChan!("Hi There")
 }
 |
-for (msg &lt;- myChan) {stdout!(*msg)}
+for (msg <- myChan) {stdout!(*msg)}
 `
 
 If your prediction for the previous exercise was wrong, modify the program so it actually does what you predicted it would.
@@ -152,7 +152,7 @@ If your prediction for the previous exercise was wrong, modify the program so it
 
 ## Quiz
 
-Which name is bound in `for(x &lt;- y){0}`
+Which name is bound in `for(x <- y){0}`
 - [x] `x`
 - [ ] `y`
 - [ ] `0`
