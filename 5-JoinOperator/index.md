@@ -76,7 +76,7 @@ In this case we actually don't want to use join because we care which player wen
 
 [patienceSolution.rho](patienceSolution.rho)
 
-Like the comment says, you should send the messages in both orders to make sure of who wins. The easiest way to do that right now is probably in the REPL. Another option is to have one player signal the other for when to go as shown below. We'll explore this concept further in the next unit.
+Like the comment says, you should send the messages in both orders to make sure of who wins. The easiest way to do that right now is probably interactively in the REPL as discussed in lesson zero. Another option is to have one player signal the other for when to go as shown below. We'll explore this concept further in the next unit.
 
 [P1First.rho](P1First.rho)
 
