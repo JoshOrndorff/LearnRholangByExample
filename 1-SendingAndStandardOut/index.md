@@ -38,9 +38,12 @@ You can actually send messages on lots of channels, not just `stdout`. But unlik
 
 So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
-Remember when you tried it a few slides ago? Try that again and make sure your message is sitting in the tuplespace.
+Make sure your message is sitting in the tuplespace. You should see some text like this.
 
-![You should find something like this highlighted text in your tuplespace.](tupleSpace.png)
+```
+Storage Contents:
+ @{"RandoChannel"}!("This won't be on the screen") | for( x0, x1 <= @{Unforgeable(0x01)} ) { Nil } | for( x0, x1, x2, x3 <= @{"secp256k1Verify"} ) { Nil } | for( x0, x1 <= @{"sha256Hash"} ) { Nil } | for( x0, x1 <= @{Unforgeable(0x03)} ) { Nil } | for( x0, x1, x2, x3 <= @{"ed25519Verify"} ) { Nil } | for( x0, x1 <= @{"blake2b256Hash"} ) { Nil } | for( x0 <= @{Unforgeable(0x02)} ) { Nil } | for( x0 <= @{Unforgeable(0x00)} ) { Nil } | for( x0, x1 <= @{"keccak256Hash"} ) { Nil }
+```
 
 
 
