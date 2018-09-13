@@ -17,7 +17,7 @@ new P1, P2, stdout(`rho:io:stdout`) in {
     }
   }
   |
-  P1!(0)
+  P1!(Nil)
   |
-  P2!(0)
+  P2!(Nil)
 }

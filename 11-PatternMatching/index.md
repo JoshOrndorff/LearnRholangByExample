@@ -21,13 +21,13 @@ We've already used the underscore occasionally. For example I often write `for (
 
 We also used pattern matching in the previous lesson when we learned how to receive processes. When we write `for (@p <- x)` it means receive any message that matches the pattern of a quoted process, and bind that quoted process to the  p.
 
-What would the variable `p` be bound to in `x!("hello") | for(@p <- x){0}`
+What would the variable `p` be bound to in `x!("hello") | for(@p <- x){Nil}`
 - [ ] `@"hello"`
 - [x] `"hello"`
 - [ ] `hello`
 - [ ] `4`
 
-What would the variable `p` be bound to in `x!("hello" | 4) | for(@{"hello" | p} <- x){0}`
+What would the variable `p` be bound to in `x!("hello" | 4) | for(@{"hello" | p} <- x){Nil}`
 - [ ] `@"hello"`
 - [ ] `"hello"`
 - [ ] `hello`
@@ -75,7 +75,7 @@ You can do cool things with pattern matching like `for(@{x!(P)} <- y){ Q }` whic
 
 [sendASend.rho](sendASend.rho)
 
-Will `x!("hello") | for ({P | Q} <- x){0}` cause a comm event?
+Will `x!("hello") | for ({P | Q} <- x){Nil}` cause a comm event?
 - [ ] Yes because the send and receive are on the same channel
 - [ ] Yes because the send and receive are on the same channel AND the pattern matches
 - [ ] No because the send and receive are on different channels

@@ -17,7 +17,7 @@ new rocketFactory in {
             for(_ <- aliceReadyCh) {
               aliceReadyCh!(false)
               |
-              ack!(0)
+              ack!(Nil)
             }
           }
           |
@@ -25,8 +25,8 @@ new rocketFactory in {
         }
       }
       |
-      0 // Bob contract goes here
-      | ack!(0)
+      Nil // Bob contract goes here
+      | ack!(Nil)
     }
   }
   |
@@ -34,7 +34,7 @@ new rocketFactory in {
   new aliceLaunch, bobLaunch, ack in {
     rocketFactory!(*aliceLaunch, *bobLaunch, *ack)|
     for (_ <- ack){
-      0 // Tests go here
+      Nil // Tests go here
     }
   }
 }

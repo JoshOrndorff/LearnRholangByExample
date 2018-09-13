@@ -5,11 +5,11 @@ new log(`rho:io:stdout`), register in {
   }
   |
 
-  register!(@"name"!(0))
+  register!(@"name"!(Nil))
   |
-  register!(@"age"!(0))
+  register!(@"age"!(Nil))
   |
-  register!(@"name"!(0) | @"age"!(0))
+  register!(@"name"!(Nil) | @"age"!(Nil))
   |
-  register!(@"name"!(0) | @"age"!(0) | @"height"!(175))
+  register!(@"name"!(Nil) | @"age"!(Nil) | @"height"!(175))
 }

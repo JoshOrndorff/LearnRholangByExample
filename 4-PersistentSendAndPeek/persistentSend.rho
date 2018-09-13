@@ -3,5 +3,5 @@
 |
 // Pilot receives the info
 for (info <- @"airportInfo") {
-  0 // Pilot just listens, doesn't do anything
+  Nil // Pilot just listens, doesn't do anything
 }

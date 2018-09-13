@@ -40,15 +40,15 @@ Did you notice the `*` in `@"Bob"!(*message)`? In rholang there are two kinds of
 A "process" is any piece of rholang code such as our telephone game, or our pizza shop order program. Processes can be big hundred-line programs or small on-liners. They can even be tiny pieces of code that are just values.  Here are some example processes.
 
  - `stdout!("Sup Rholang?")` A common send
- - `0` The smallest possible process. It literally means "do nothing".
- - `for(msg <- @"phone"){0}` A common receive that does nothing when a message arrives.
+ - `Nil` The smallest possible process. It literally means "do nothing".
+ - `for(msg <- @"phone"){Nil}` A common receive that does nothing when a message arrives.
  - `"Hello World"` Another small process that also does nothing. These are called "Ground Terms".
 
 
 A name is something that can be used as a channel to send messages over. In most programming languages, names are totally separate things that exist on their own. But in rholang, names come from "quoting processes" by putting the `@` sign before a process. Here are some example names.
 
  - `@"Hello World"` Made by quoting the ground term "Hello World".
- - `@0` The smallest possible name. Made by quoting the smallest possible process.
+ - `@Nil` The smallest possible name. Made by quoting the smallest possible process.
  - `@(@"Alice"!("I like rholang, pass it on."))` Made by quoting a process from our telephone game
 
 
@@ -89,14 +89,14 @@ What do we receive?
 
 
 
-What is `0`?
+What is `Nil`?
 - [x] process
 - [ ] name
 - [ ] invalid syntax
 
 
 
-What is `@0`?
+What is `@Nil`?
 - [ ] process
 - [x] name
 - [ ] invalid syntax
@@ -104,7 +104,7 @@ What is `@0`?
 
 
 
-What is `@@0`?
+What is `@@Nil`?
 - [ ] process
 - [ ] name
 - [x] invalid syntax

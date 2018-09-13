@@ -42,20 +42,20 @@ When using a join, she can still change her mind because the `for` won't consume
 What code would Alice need to "par in" to retract her launch command.
 - [ ] `@"AliceCancel"!("cancelZ")`
 - [ ] `@"AliceLaunch"!("cancel")`
-- [x] `for (x <- @"AliceLaunch"){0}`
+- [x] `for (x <- @"AliceLaunch"){Nil}`
 
 
 The concept of joins is framed as the dining philosophers problem, and [https://developer.rchain.coop/tutorial/#dining-philosophers-and-deadlock"](explored further) in the concise rholang tutorial.
 
 
 
-In `for (x <- y; a <- b){ 0 }`, which channel must be sent on first?
+In `for (x <- y; a <- b){ Nil }`, which channel must be sent on first?
 - [ ] y
 - [ ] b
 - [x] doesn't matter
 - [ ] they must be sent simultaneously
 
-In `for (x <- y; a <- b){ 0 }`, which message will be consumed first?
+In `for (x <- y; a <- b){ Nil }`, which message will be consumed first?
 - [ ] x
 - [ ] a
 - [ ] doesn't matter

@@ -23,7 +23,7 @@ Modify the above code so that a second pilot also receives the information. Stil
 
 By the way, did you notice that we don't need `new stdout(...) in {}` when we don't actually use `stdout`.
 
-How many comms happen in `for (x <- y) {0} | y!!(0)`
+How many comms happen in `for (x <- y) {Nil} | y!!(Nil)`
 - [x] `1`
 - [ ] `many`
 - [ ] `0`
@@ -43,7 +43,7 @@ Using what you already know, you can achieve this by consuming the message, chec
 Give that a try on your own first. The solution is listed below.
 
 
-How many comms happen in `for (x <= y) {0} | y!!(0)`
+How many comms happen in `for (x <= y) {Nil} | y!!(Nil)`
 - [ ] `1`
 - [x] `many`
 - [ ] `0`
@@ -74,7 +74,7 @@ Which syntax is used to peek at a message?
 
 
 
-How many comms happen in `for (x <! y) {0} | y!!(0)`
+How many comms happen in `for (x <! y) {Nil} | y!!(Nil)`
 - [x] `1`
 - [ ] `many`
 - [ ] `0`

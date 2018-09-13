@@ -58,10 +58,10 @@ In nearly every programming language the program's behavior can vary depending o
 
 ```
 if ( /* condition */ ) {
-  0 // Do this if condition is true
+  Nil // Do this if condition is true
 }
 else {
-  0 // Do this if condition is false
+  Nil // Do this if condition is false
 }`
 ```
 
@@ -120,4 +120,4 @@ What would `stdout!((not not true) or false)` output?
 Write a contract that tells a caller whether they are eligible to vote. In order to vote you must be a certain age and of a certain country. You can pick the age and country. To use the contract, I would par in `@"canIVote!("Nigeria", 30)"`.
 
 ### Exercise
-The contract above only works for one specific country. Use what we learned about factories to enable creating many of these eligibility checkers. To create a new checker for Canada, where the voting age is 18 par in `@"checkerFactory"!(canadaChecker, "Canada", 18)`. Then a 41-year0old Estonian would check whether he can vote in Canada with `canadaChecker!("Estonia", 41)`. Spoiler alert: He cannot vote in Canada.
+The contract above only works for one specific country. Use what we learned about factories to enable creating many of these eligibility checkers. To create a new checker for Canada, where the voting age is 18 par in `@"checkerFactory"!(canadaChecker, "Canada", 18)`. Then a 41-year-old Estonian would check whether he can vote in Canada with `canadaChecker!("Estonia", 41)`. Spoiler alert: He cannot vote in Canada.

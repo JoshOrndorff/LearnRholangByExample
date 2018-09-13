@@ -5,7 +5,7 @@
 |
 // I double check the message
 for (msg <! @"grandma"){
-  0 // Do whatever you do to double check the time
+  Nil // Do whatever you do to double check the time
     // Message is still safely on the channel
 }
 |

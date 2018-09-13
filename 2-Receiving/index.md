@@ -112,7 +112,7 @@ Which of these things is not like the other?
 - [ ] `contract b(a) = {}`
 - [ ] `for (a <= b){}`
 
-Which send will produce a comm event with `for (message <- @"grandmasSnapChat"){0}`?
+Which send will produce a comm event with `for (message <- @"grandmasSnapChat"){Nil}`?
 - [ ] `grandmasSnapChat!("Hi Grandma")`
 - [x] `@"grandmasSnapChat"!("Glad you're snapping Grandma")`
 - [ ] `for("Here's a snap for you g'ma" <- @"grandmasSnapChat")`

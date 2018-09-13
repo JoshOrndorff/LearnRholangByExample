@@ -8,7 +8,7 @@
 So far every channel we've sent on has been a public name like `@"pizzaShop"`. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it too (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.
 
 What code would a bad pizza shop have to write to intercept orders?`
-- [ ] `contract evilPizzaShop(interceptedMessage) = {0}`
+- [ ] `contract evilPizzaShop(interceptedMessage) = {Nil}`
 - [ ] `@"evilPizzaShop"!("pizzaShop")`
 - [ ] `@"pizzaShop"!("intercept")`
 - [x] `for (interceptedMessage <- @"pizzaShop"){...}`
@@ -27,12 +27,12 @@ A name is considered bound if it only exists inside a specific process and can't
 
 State whether `x` is bound or free in each of the following code snippets.
 
-`for (x <- y){0}`
+`for (x <- y){Nil}`
 - [x] Bound
 - [ ] Free
 - [ ] Neither
 
-`for (y <- x){0}`
+`for (y <- x){Nil}`
 - [ ] Bound
 - [x] Free
 - [ ] Neither
@@ -42,17 +42,17 @@ State whether `x` is bound or free in each of the following code snippets.
 - [ ] Free
 - [ ] Neither
 
-`contract x(y) = { 0 }`
+`contract x(y) = { Nil }`
 - [ ] Bound
 - [x] Free
 - [ ] Neither
 
-`contract y(x) = { 0 }`
+`contract y(x) = { Nil }`
 - [x] Bound
 - [ ] Free
 - [ ] Neither
 
-`for (y <- @"x"){0}`
+`for (y <- @"x"){Nil}`
 - [ ] Bound
 - [ ] Free
 - [x] Neither
@@ -138,13 +138,13 @@ Notice that this program does not print the numbers in any particular order. The
 
 ### Exercise
 Predict how this program will run (what it outputs and how it reduces in the tuplespace). Then run it to test your prediction.
-`
+```
 new myChan in {
   myChan!("Hi There")
 }
 |
 for (msg <- myChan) {stdout!(*msg)}
-`
+```
 
 If your prediction for the previous exercise was wrong, modify the program so it actually does what you predicted it would.
 
@@ -152,16 +152,16 @@ If your prediction for the previous exercise was wrong, modify the program so it
 
 ## Quiz
 
-Which name is bound in `for(x <- y){0}`
+Which name is bound in `for(x <- y){Nil}`
 - [x] `x`
 - [ ] `y`
-- [ ] `0`
+- [ ] `Nil`
 
 
-Which name is bound in `new x in {0}`
+Which name is bound in `new x in {Nil}`
 - [x] `x`
 - [ ] `y`
-- [ ] `0`
+- [ ] `Nil`
 
 
 If `pizzzaShop` is a name, then what is `@pizzaShop`?

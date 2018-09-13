@@ -26,6 +26,6 @@ new counterFactory, stdout(`rho:io:stdout`) in {
 
   new ack, myIncrease, myReset in {
     // Demo using the counter here
-    0
+    Nil
   }
 }

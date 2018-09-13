@@ -10,7 +10,7 @@ new c2f, f2c in {
   |
 
   contract f2c(farenheit, return) = {
-    0 // TODO you complete this contract
+    Nil // TODO you complete this contract
   }
   |
 

@@ -9,7 +9,7 @@ new openAccount in {
       contract withdraw(amount, ack) = {
         for (old <- balanceCh) {
           balanceCh!(*old - *amount) |
-          ack!(0)
+          ack!(Nil)
         }
       }
 
@@ -25,7 +25,7 @@ new openAccount in {
     openAccount!(10, *sarahDeposit, *sarahWithdraw, *sarahCheck) |
     sarahWithdraw!(3, *ack) |
     for (_ <- ack) {
-      0// TODO check balance here
+      Nil// TODO check balance here
     }
   }
 }
