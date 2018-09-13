@@ -10,7 +10,7 @@ The most obvious place that rholang uses pattern matching is in its `match` cons
 
 [matching.rho](matching.rho)
 
-In this code any massage `x` that is received on the `patternMatcher` channel represents a quoted process. We compare that process (unquoted) to several patterns below and report back what pattern matches. The underscore is just a fill-in-the-blank and matches any pattern at all. You'll often see a single underscore as the final pattern in a `match` construct to ensure that there is a default case if nothing else matches.
+In this code any massage `x` that is received on the `patternMatcher` channel represents a quoted process. We compare that process (unquoted) to several patterns below and report back what pattern matches. The underscore is just a fill-in-the-blank and matches any pattern at all. It is called a "wildcard", and you'll often see it as the final pattern in a `match` construct to ensure that there is a default case if nothing else matches.
 
 <!--![Receives that use pattern matching are much pickier than the ones we have used before.](lookingForMessagesPatternMatching.png)-->
 
@@ -19,9 +19,9 @@ Pattern matching can also be used when receiving messages with `for` or `contrac
 ## Two cases we've seen
 We've already used the underscore occasionally. For example I often write `for (_ <- ack)` which means, receive a message matching _any_ pattern on the `ack` channel. It is standard practice to use the underscore when you only care that you _have_ received a message, but not _what_ message.
 
-We also used pattern matching in the previous lesson when we learned how to receive processes. When we write `for (@p <- x)` it means receive any message that matches the pattern of a quoted process, and bind that quoted process to the variable p.
+We also used pattern matching in the previous lesson when we learned how to receive processes. When we write `for (@p <- x)` it means receive any message that matches the pattern of a quoted process, and bind that quoted process to the  p.
 
-What would the variable `p` be bound to in `x!("hello") | for(@p){0}`
+What would the variable `p` be bound to in `x!("hello") | for(@p <- x){0}`
 - [ ] `@"hello"`
 - [x] `"hello"`
 - [ ] `hello`
@@ -81,4 +81,42 @@ Will `x!("hello") | for ({P | Q} <- x){0}` cause a comm event?
 - [ ] No because the send and receive are on different channels
 - [x] No because the send and receive are on the same channel, but the pattern doesn't match
 
-<!-- TODO What is this all about? https://github.com/rchain/rchain/blob/dev/rholang/examples/tut-rcon-or.rho ? -->
+## Unions and Intersections
+
+There may be times when you want to match either of two patterns, or you want to match both a two patterns. These operations feel similar to the Booleans we discussed in the last lesson, but we use different operators when pattern matching.
+
+To match any one of several patterns you use the "union" operator, `\/`
+
+[union.rho](union.rho)
+
+To match both of two patterns you use the "intersection" operator, `/\`. In this example we are verifying that registration data is valid. A registrant must supply their name and age, and may supply any amount of additional data. By the way, this technique for storing key-value data is often known as "RHOCore".
+
+[intersection.rho](intersection.rho)
+
+### Exercise
+The union example here is pretty basic. Expand it so it can math more languages and more words. Also write tests that show what happens when only the default pattern is matched.
+
+The logical connectives discussed in this section have some subtle behavior related to binding that is beyond the scope of this tutorial. I encourage you to experiment with example programs, and refer to the Rholang manual when it becomes available.
+
+## More About Bundles
+Several lessons ago we discussed how bundles can be used to make read- or write-only channels. But we haven't yet discussed their namesake feature. Bundles can be used to "bundle up" compound names so that they can't be taken apart by pattern matching.
+
+In this example code an army has a missile and they maintain control of launching the missile by building the capability on an unforgeable name. Because of diplomatic relationships, the army will allow the public to inspect the missile for safety, but certainly not launch it.
+
+[missileUnsafe.rho](missileUnsafe.rho)
+
+### Exercise
+The army has made a terrible mistake here and anyone can launch their missile. Try to think of a way that an outside could launch this missile.
+
+Answer:
+[missileAttack.rho](missileAttack.rho)
+
+In order to solve the problem the army simply gives out a bundled version of the compound name so that it cannot be taken apart by pattern matching.
+
+[missileSafe.rho](missileSafe.rho)
+
+What will be output when the attack is run on the safe code?
+- [ ] "launching..."
+- [ ] "inspecting..."
+- [ ] "failed to launch..."
+- [x] nothing

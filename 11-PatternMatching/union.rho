@@ -1,0 +1,12 @@
+new log(`rho:io:stdout`), binderChecker in {
+  contract binderChecker(@data, return) = {
+    match data {
+      "nombre" \/ "name" => return!("name-like")
+      _ => return!("not name-like")
+    }
+  }
+  |
+  binderChecker!("name", *log)
+  |
+  binderChecker!("nombre", *log)
+}

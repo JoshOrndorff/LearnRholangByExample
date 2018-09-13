@@ -1,0 +1,15 @@
+new log(`rho:io:stdout`), missile in {
+
+  contract @(*missile, "launch")(_) = {
+    log!("launching...")
+  }
+  |
+  contract @(*missile, "inspect")(_) = {
+    log!("inspecting...")
+  }
+  |
+
+  contract @"getInspectionChannel"(return) = {
+    return!(bundle+{(*missile, "inspect")})
+  }
+}

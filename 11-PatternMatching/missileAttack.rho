@@ -1,0 +1,6 @@
+new ack in {
+  @"getInspectionChannel"!(*ack)|
+  for(@(missile, "inspect") <- ack){
+    @(missile, "launch")!(Nil)
+  }
+}
