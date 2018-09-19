@@ -7,7 +7,7 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 
 ### Unit 1
 
-* [lesson 1 -- Sending and Standard Out](1-SendingAnsStandardOut/)
+* [lesson 1 -- Sending and Standard Out](1-SendingAndStandardOut/)
 * [lesson 2 -- Receiving](2-Receiving/)
 * [lesson 3 -- Telephone, Names, and Processes](3-TelephoneNamesAndProcesses/)
 * [lesson 4 -- Persistent Send and Peek](4-PersistentSendAndPeek/)
