@@ -12,7 +12,7 @@ new alice, bob, eve, stdout(`rho:io:stdout`) in {
     |
 
     // Alice also reads fan mail
-    for (mail <- aliceFanMail) {
+    for (mail <= aliceFanMail) {
       stdout!("Alice received a fanmail")
     }
   }
