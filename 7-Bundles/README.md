@@ -101,7 +101,7 @@ In addition to read- and write-only bundles, there are two other types that are 
 | ------ | -------- | --------- |
 | `bundle- {proc}`  | YES |  NO |
 | `bundle+ {proc}`  | NO  | YES |
-| `bundle {proc}`   | NO  |  NO |
+| `bundle0 {proc}`   | NO  |  NO |
 | `bundle {proc}`   | YES | YES |
 
 You may be wondering why a bundle on which you can neither send nor receive would ever be useful. Given what we've learned so far, that's a wonderful question. When we discuss pattern matching next unit, we'll see that bundles do more than restrict read- and write- capabilities. They also prevent taking compound names apart to look inside.

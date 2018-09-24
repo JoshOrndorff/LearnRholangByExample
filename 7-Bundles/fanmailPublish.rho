@@ -7,12 +7,12 @@ new alice, bob, eve, stdout(`rho:io:stdout`) in {
   // creates a new write only bundle and publishes it.
   new aliceFanMail in {
 
-    // Alice gives fanmail channel publically
+    // Alice gives fanmail channel publicly
     alice!!(bundle+ {*aliceFanMail})
     |
 
     // Alice also reads fan mail
-    for (mail <- aliceFanMail) {
+    for (mail <= aliceFanMail) {
       stdout!("Alice received a fanmail")
     }
   }
