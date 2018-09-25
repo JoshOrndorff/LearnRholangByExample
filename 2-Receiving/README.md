@@ -1,4 +1,10 @@
-# Receiving
+# Receiving and communicating 
+
+![Rather than the message appearing first, then someone receiving it, Greg is trying to receive first. Hopefully someone will send him a message so he can have a comm event.](lookingForMessages.png)
+
+When a send and a receive come together on a channel, it is called a communication event, or "comm event" for short.
+
+Unlike normal mail where a message must be sent <em>then</em> received, the two can happen in either order or at the same time in rholang. It is just as acceptable to receive a message, then send it. Whenever a send and receive come together, a comm event takes place.
 
 ## Check for Messages
 
@@ -10,9 +16,7 @@ We learned last time how to send a message. Now it's time to learn how to receiv
 
 BTW, lines that start with `//` are called comments. They're just there for human coders and don't affect the way the program runs at all. They're a good idea, and you should use them! Anyone who reads your code (including your future self) will appreciate them.
 
-
-
-## Comm Events
+## Pizza time!
 
 ![Pizza shop can receive messages on its channel.](pizza.png)
 
@@ -20,13 +24,27 @@ The following code sends a message on a channel for a pizza shop and the pizza s
 
 [pizzaOrder](pizzaOrder.rho)
 
-### Exercise
-Send that message to a different channel like `@"coffeShop"`. Did the acknowledgement print? Is anything left in the tuplespace?
+## Contracts
 
-![Let's hit up the coffee shop.](coffee.png)
+![The poor chef is too busy making sure he can receive orders to take care of his pizza.](pizzaBurning.png)
 
-### Exercise
-Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first. Give it a try!
+Our pizza shop example illustrates comm events nicely, but it isn't very realistic to expect the pizza shop to manually issue a new receive every time an incoming order. This consumes theirs from the tuplespace.
+
+Luckily it's possible to deploy code once, and have it run <em>every</em> time it receives a message. This kind of thing is called a "smart contract". Let's look at some code for a coffee shop that is much superior to the pizza shop.
+
+[coffeeShop.rho](coffeeShop.rho)
+
+## Persistent For
+There are actually two different styles of syntax in rholang to achieve this persistent behavior. We just learned about `contract`. The following snippets are equivalent.
+
+```rholang
+contract @"coffeeShop"(order) = {
+```
+
+```rholang
+for(order <= @"coffeeShop") {
+```
+Notice this is different from a normal `for` because it has a double arrow `<=` rather than a single arrow `<-`. The only difference between the persistent for and a contract comes when we start talking about blockchains. For now you can think of them as the same thing.
 
 ## Tuplespace Pollution
 <!-- TODO I really wasn't sure where to put this part -->
@@ -50,26 +68,13 @@ new world, stdout(`rho:io:stdout`) in {
 ```
 We'll talk about how this works in our lesson on Unforgeable names. for now just enjoy not having to reset every time.
 
-## Receiving Before Sending
+### Exercise
+Send that message we used in [pizzaOrder](pizzaOrder.rho) to a different channel like `@"coffeShop"`. Did the acknowledgement print? Is anything left in the tuplespace?
 
-![Rather than the message appearing first, then someone receiving it, Greg is trying to receive first. Hopefully someone will send him a message so he can have a comm event.](lookingForMessages.png)
+![Let's hit up the coffee shop.](coffee.png)
 
-When a send and a receive come together on a channel, it is called a communication event, or "comm event" for short.
-
-Unlike normal mail where a message must be sent <em>then</em> received, the two can happen in either order or at the same time in rholang. It is just as acceptable to receive a message, then send it. Whenever a send and receive come together, a comm event takes place.
-
-
-
-## Contracts
-
-![The poor chef is too busy making sure he can receive orders to take care of his pizza.](pizzaBurning.png)
-
-Our pizza shop example illustrates comm events nicely, but it isn't very realistic to expect the pizza shop to manually issue a new receive every time an incoming order consumes theirs from the tuplespace.
-
-Luckily it's possible to deploy code once, and have it run <em>every</em> time it receives a message. This kind of thing is called a "smart contract". Let's look at some code for a coffee shop that is much superior to the pizza shop.
-
-[coffeeShop.rho](coffeeShop.rho)
-
+### Exercise
+Remember, in rholang things don't happen in order, they happen concurrently. The pizza shop code will work just as well if we put the receive first. Give it a try!
 
 ### Exercise
 Order a second drink from the coffee shop
@@ -86,20 +91,6 @@ Which should generally come first?
 
 ### Exercise
 The channel is just named `@"coffeeShop"`. Change it to be named after a specific coffee shop of your choosing. While you're at it, modify the code to use `new` like we recently learned.
-
-
-
-## Persistent For
-There are actually two different styles of syntax in rholang to achieve this persistent behavior. We just learned about `contract`. The following snippets are equivalent.
-
-```rholang
-contract @"coffeeShop"(order) = {
-```
-
-```rholang
-for(order <= @"coffeeShop") {
-```
-Notice this is different from a normal `for` because it has a double arrow `<=` rather than a single arrow `<-`. The only difference between the persistent for and a contract comes when we start talking about blockchains. For now you can think of them as the same thing.
 
 ### Exercise
 The pizza shop could use a contract like the one the coffee shop had. Let's write it one but use a persistent for instead of a contract. Try to write the entire thing from scratch so you remember the syntax better.
