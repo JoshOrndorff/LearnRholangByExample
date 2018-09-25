@@ -8,8 +8,7 @@ Members of the RChain community provide a public web-based [online rholang inter
 ## Local Node
 The tried and true way to run rholang code is by starting up your own local RNode and using its rholang interpreter. First you'll have to [install RNode](https://rchain.atlassian.net/wiki/spaces/CORE/pages/428376065/User+guide+for+running+RNode) for your platform.
 
-## Setup guide for novice learners
-For a step by step tutorial on setting up a node using [AWS](https://blog.rchain.coop/running-rnode-0-5-3-on-amazon-ec2/) or [Docker](https://blog.rchain.coop/running-rnodev-0-6-x-with-docker/).
+For novice learners there are step-by-step guides on setting up a node using [AWS](https://blog.rchain.coop/running-rnode-0-5-3-on-amazon-ec2/) or [Docker](https://blog.rchain.coop/running-rnodev-0-6-x-with-docker/).
 
 Once RNode is installed, you can run a basic standalone node
 ```
