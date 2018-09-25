@@ -3,10 +3,13 @@
 ## Say Hello
 
 !["Person waiving hello"](helloWorld.png)
+ 
 
 There is a long-standing tradition in programming that your first program should say "Hello World". Here's the simplest rholang code to put that text on the screen.
 
 [hello.rho](hello.rho)
+
+
 
 ### Exercise
 Make the program print "Rholang rocks!" instead of "Hello World".
