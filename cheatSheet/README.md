@@ -21,9 +21,48 @@ Attention **Graphical Designers** I need you to make this cheat sheet look like 
 Name <---\*--
 ```
 
+## Patterns
+
+* A free variable
+* `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
+* `[ Head ... Tail ]` `Set( Head ... Tail )` where `Tail` is a variable
+* `ProcessPattern /\ ProcessPattern` Logical AND
+* `ProcessPattern \/ ProcessPattern` Logical OR
+* `~ ProcessPattern` Logical NOT
+
+Examples:
+* `@x` matches to a name and binds `x` to the quoted process.
+* `[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of the
+list.
+* `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
+* `@{Bool}` matches to both `@true` and `@false`
+* `~ Nil` matches to any process __except__ `Nil`.
+
 ## Pattern Matching
 
-TODO @Derek, can you do this part?
+* The patterns in:
+    * `for( Pattern <- Name ){ Body }`
+    * `for( Pattern <= Name ){ Body }`
+    * `contract Name(Pattern){ Body }`
+
+    Match against the processes in:
+    * `Name!(Process)`
+    * `Name!!(Process)`
+
+* Each `Pattern_i` in:
+    * `for( Pattern_1 <- Name_1 ; ... ; Pattern_N <- Name_N ){ Body }`
+    * `for( Pattern_1 <= Name_1 ; ... ; Pattern_N <= Name_N ){ Body }`
+
+    Matches against a `Process_i` in:
+    * `Name_1!(Process_1) | ... | Name_N!(Process_N)`
+    * `Name_1!!(Process_1) | ... | Name_N!!(Process_N)`
+
+* Tries to match `Process` against each `Pattern_i` until you find a match (or don't):
+    * `match Process {
+        Pattern_1 => { Body_1 }
+        ...
+        Pattern_N => { Body_N }
+      }`
 
 ## Arithmetic
 `+ - / *` (hopefully % coming soon)
