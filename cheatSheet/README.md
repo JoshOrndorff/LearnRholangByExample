@@ -33,6 +33,8 @@ A pattern can be of the form:
 
 Examples:
 * `@x` matches to a name and binds `x` to the quoted process.
+* `@[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of the
+list.
 * `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
 * `@{Bool}` matches to both `@true` and `@false`
 * `@{ ~ Nil }` matches to any name that does __not__ quote `Nil`.
