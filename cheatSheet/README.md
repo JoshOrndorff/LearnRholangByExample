@@ -25,7 +25,7 @@ Name <---\*--
 
 * A free variable
 * `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
-* `[ Head ... Tail ]` `Set( Head ... Tail )` where `Tail` is a variable
+* `[ Head ... Tail ]` `Set( Head ... Tail )` `{ Key : Value ... Tail }` where `Tail` is a variable
 * `ProcessPattern /\ ProcessPattern` Logical AND
 * `ProcessPattern \/ ProcessPattern` Logical OR
 * `~ ProcessPattern` Logical NOT
@@ -57,7 +57,7 @@ list.
     * `Name_1!(Process_1) | ... | Name_N!(Process_N)`
     * `Name_1!!(Process_1) | ... | Name_N!!(Process_N)`
 
-* Tries to match `Process` against each `Pattern_i` until you find a match (or don't):
+* Tries to match `Process` against each `Pattern_i` until it finds a match (or doesn't):
     * `match Process {
         Pattern_1 => { Body_1 }
         ...
