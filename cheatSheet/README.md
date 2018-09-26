@@ -23,21 +23,21 @@ Name <---\*--
 
 ## Pattern Syntax
 
-A pattern can be of the form:
-* `Process` Just a regular process
+A pattern is a Name or a Process where processes are substituted with any combination of:  
+* A free variable
 * `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
 * `[ Head ... Tail ]` `Set( Head ... Tail )` where `Tail` is a variable
-* `Pattern /\ Pattern` Logical AND
-* `Pattern \/ Pattern` Logical OR
-* `~ Pattern` logical NOT
+* `ProcessPattern /\ ProcessPattern` Logical AND
+* `ProcessPattern \/ ProcessPattern` Logical OR
+* `~ ProcessPattern` Logical NOT
 
 Examples:
 * `@x` matches to a name and binds `x` to the quoted process.
-* `@[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of the
+* `[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of the
 list.
 * `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
 * `@{Bool}` matches to both `@true` and `@false`
-* `@{ ~ Nil }` matches to any name that does __not__ quote `Nil`.
+* `~ Nil` matches to any process __except__ `Nil`.
 
 ## Pattern Matching
 
