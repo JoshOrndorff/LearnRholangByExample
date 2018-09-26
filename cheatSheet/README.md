@@ -31,6 +31,12 @@ A pattern can be of the form:
 * `Pattern \/ Pattern` Logical OR
 * `~ Pattern` logical NOT
 
+Examples:
+* `@x` matches to a name and binds `x` to the quoted process.
+* `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
+* `@{Bool}` matches to both `@true` and `@false`
+* `@{ ~ Nil }` matches to any name that does __not__ quote `Nil`.
+
 ## Pattern Matching
 
 * The patterns in:
