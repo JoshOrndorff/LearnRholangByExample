@@ -21,9 +21,41 @@ Attention **Graphical Designers** I need you to make this cheat sheet look like 
 Name <---\*--
 ```
 
+## Pattern Syntax
+
+A pattern can be of the form:
+* `Process` Just a regular process
+* `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
+* `[ Head ... Tail ]` `Set( Head ... Tail )` where `Tail` is a variable
+* `Pattern /\ Pattern` Logical AND
+* `Pattern \/ Pattern` Logical OR
+* `~ Pattern` logical NOT
+
 ## Pattern Matching
 
-TODO @Derek, can you do this part?
+* The patterns in:
+    * `for( Pattern <- Name ){ Body }`
+    * `for( Pattern <= Name ){ Body }`
+    * `contract Name(Pattern){ Body }`
+
+    Match against the processes in:
+    * `Name!(Process)`
+    * `Name!!(Process)`
+
+* Each `Pattern_i` in:
+    * `for( Pattern_1 <- Name_1 ; ... ; Pattern_N <- Name_N ){ Body }`
+    * `for( Pattern_1 <= Name_1 ; ... ; Pattern_N <= Name_N ){ Body }`
+
+    Matches against a `Process_i` in:
+    * `Name_1!(Process_1) | ... | Name_N!(Process_N)`
+    * `Name_1!!(Process_1) | ... | Name_N!!(Process_N)`
+
+* Tries to match `Process` against each `Pattern_i` until you find a match (or don't):
+    * `match Process {
+        Pattern_1 => { Body_1 }
+        ...
+        Pattern_N => { Body_N }
+      }`
 
 ## Arithmetic
 `+ - / *` (hopefully % coming soon)
