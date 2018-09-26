@@ -1,0 +1,77 @@
+# Rholang Cheat Sheet
+
+Attention **Graphical Designers** I need you to make this cheat sheet look like the photo or like examples in [jquery](http://www.cheat-sheets.org/saved-copy/jquery12_colorcharge.png) and [python](http://sixthresearcher.com/wp-content/uploads/2016/12/Python3_reference_cheat_sheet_front.png)
+
+![Mockup of rendered cheat sheet](whiteboard.jpg)
+
+## Sends and Receives
+* `x!(P)` Send process P on name x
+* `x!!(P)` Persistent send
+* `for (y <- chan){P}` Receive name y on chan
+* `for (@Q <- chan){P}` Receive Process Q (see pattern matching)
+* `for(y <= chan){P}` Persistent receive
+* `contract chan(y) = {P}` Alternate persistent receive
+* `for(y <! chan){P}` Peek at y on chan
+
+## Names and Processes
+"Send processes, receive names"
+```
+     --@-- Process
+   /         /  
+Name <---\*--
+```
+
+## Pattern Matching
+
+TODO @Derek, can you do this part?
+
+## Arithmetic
+`+ - / *` (hopefully % coming soon)
+
+## Unforgeable Names and Bundles
+`new x, y, z in { P }`
+
+|        | Can Read | Can Write |
+| ------ | -------- | --------- |
+| `bundle- {proc}`  | YES |  NO |
+| `bundle+ {proc}`  | NO  | YES |
+| `bundle {proc}`   | NO  |  NO |
+| `bundle {proc}`   | YES | YES |
+
+## Data Structures
+All data structures have `toByteArray()`
+
+### Strings
+* `"Hello " ++ "World"` concatenation
+* `"${greeting} World" %% {"greeting": "Hello"}` interpolation
+* `"Hello World".slice(2, 8)"` "llo Wo"
+* `"A402B6".hexToBytes()` interpret hex string
+
+### Lists
+* `[1, 2, Nil, "Hi"]`
+* `list.nth(2)` Nil
+* `list.length()` 4
+* `list.slice(1, 3)` [2, Nil]
+
+### Tuples
+* `(1, 2, Nil, "Hi")`
+* `tuple.nth(2)` Nil
+
+### Sets
+Sets have no order or duplicates
+* `Set(1, 2, Nil, "Hi")`
+* `set.union(Set(1, 4))` Set(1, 2, 4, Nil, "Hi")
+* `set.delete(2)` Set(1, Nil, "Hi")
+* `set.contains(5)` false
+* `set.size()` 4
+
+### Maps
+* `{"a": 1, "b": 2}`
+* `map.union({"c": 3})` {"a": 1, "b": 2, "c": 3}
+* `map.delete("b")` {"a": 1}
+* `map.contains("c")` false
+* `map.get("b")` 2
+* `map.getOrElse("d", "fail")` fail
+* `map.set("b", 4)` {"a": 1, "b": 4}
+* `map.keys()` Set("a", "b")
+* `map.size()` 2
