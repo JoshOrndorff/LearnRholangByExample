@@ -21,7 +21,7 @@ Attention **Graphical Designers** I need you to make this cheat sheet look like 
 Name <---\*--
 ```
 
-## Pattern Syntax
+## Patterns
 
 A pattern is a Name or a Process where some (or no) processes that make up components are
 substituted with any combination of:  
