@@ -23,8 +23,6 @@ Name <---\*--
 
 ## Patterns
 
-A pattern is a Name or a Process where some (or no) processes that make up components are
-substituted with any combination of:  
 * A free variable
 * `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
 * `[ Head ... Tail ]` `Set( Head ... Tail )` where `Tail` is a variable
