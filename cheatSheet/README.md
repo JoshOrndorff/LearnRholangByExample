@@ -1,8 +1,15 @@
-# Rholang Cheat Sheet
+# Rholang Cheat Sheet Mockups
 
-Attention **Graphical Designers** I need you to make this cheat sheet look like the photo or like examples in [jquery](http://www.cheat-sheets.org/saved-copy/jquery12_colorcharge.png) and [python](http://sixthresearcher.com/wp-content/uploads/2016/12/Python3_reference_cheat_sheet_front.png)
+[jquery example](http://www.cheat-sheets.org/saved-copy/jquery12_colorcharge.png)
+[python example](http://sixthresearcher.com/wp-content/uploads/2016/12/Python3_reference_cheat_sheet_front.png)
 
-![Mockup of rendered cheat sheet](whiteboard.jpg)
+Original mockup with more detail
+![Original mockup](whiteboard.jpg)
+
+New mockup with proper ordering
+![New mockup](whiteboard2.jpg)
+
+# Content
 
 ## Sends and Receives
 * `x!(P)` Send process P on name x
@@ -13,7 +20,7 @@ Attention **Graphical Designers** I need you to make this cheat sheet look like 
 * `contract chan(y) = {P}` Alternate persistent receive
 * `for(y <! chan){P}` Peek at y on chan
 
-## Names and Processes
+## Quoting and Unquoting
 "Send processes, receive names"
 ```
      --@-- Process
@@ -21,19 +28,35 @@ Attention **Graphical Designers** I need you to make this cheat sheet look like 
 Name <---\*--
 ```
 
+## Unforgeable Names
+* `new x, y, z in { P }` binds x, y, z in P
+* ```new print(`rho:io:stdout\`)``` use system powerbox
+
+## Arithmetic
+`+` addition
+`-` substraction
+`/` division
+`*` multiplication
+`%` **hopefully** mod coming soon
+
+----------------------------------------------------------------------
+
+## Conditionals
+* `if (x) { P }` run process P iff x is `true`
+* `else { Q }`   (optional) run process Q iff x is `false`
+
 ## Patterns
 
 * A free variable
     * `x` binds with anything, while `@x` matches to a name and binds `x` to the quoted process.
 * `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
     * `@{Bool}` matches to both `@true` and `@false`
-* `[ Head ... Tail ]` `Set( Subset ... Tail )` `{ Key : Value ... Tail }` where `Tail` is a variable
-    * `[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of
-    the list.
+* `[ Head ... Tail ]` `Set( Subset ... Tail )` `{ Key : Value ... Tail }`
+    * `[ 1 , 2 ... x ]` matches any list starting with `1, 2` and binds `x` to the remainder
 * `ProcessPattern /\ ProcessPattern` Logical AND
     * `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
 * `ProcessPattern \/ ProcessPattern` Logical OR
-    * `@"age"!(21 \/ 22)` matches to both `@"age"!(21)` and `@"age"!(22)`
+    * `@"age"!(21 \/ 22)` matches to both `@"age"!(21)` and `@"age"!(22)`, **binds nothing**
 * `~ ProcessPattern` Logical NOT
     * `~ Nil` matches to any process __except__ `Nil`
 
@@ -63,11 +86,9 @@ Name <---\*--
         Pattern_N => { Body_N }
       }`
 
-## Arithmetic
-`+ - / *` (hopefully % coming soon)
 
-## Unforgeable Names and Bundles
-`new x, y, z in { P }`
+##  Bundles
+Cannot be destructured by pattern matching
 
 |        | Can Read | Can Write |
 | ------ | -------- | --------- |
@@ -76,8 +97,10 @@ Name <---\*--
 | `bundle {proc}`   | NO  |  NO |
 | `bundle {proc}`   | YES | YES |
 
+
+----------------------------------------------------------------------
+
 ## Data Structures
-All data structures have `toByteArray()`
 
 ### Strings
 * `"Hello " ++ "World"` concatenation
@@ -113,3 +136,6 @@ Sets have no order or duplicates
 * `map.set("b", 4)` {"a": 1, "b": 4}
 * `map.keys()` Set("a", "b")
 * `map.size()` 2
+
+
+*All data structures have `toByteArray()`
