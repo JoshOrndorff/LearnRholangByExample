@@ -24,19 +24,18 @@ Name <---\*--
 ## Patterns
 
 * A free variable
+    * `x` binds with anything, while `@x` matches to a name and binds `x` to the quoted process.
 * `Bool` `Int` `String` `Uri` `ByteArray` Type patterns
-* `[ Head ... Tail ]` `Set( Head ... Tail )` `{ Key : Value ... Tail }` where `Tail` is a variable
+    * `@{Bool}` matches to both `@true` and `@false`
+* `[ Head ... Tail ]` `Set( Subset ... Tail )` `{ Key : Value ... Tail }` where `Tail` is a variable
+    * `[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of
+    the list.
 * `ProcessPattern /\ ProcessPattern` Logical AND
+    * `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
 * `ProcessPattern \/ ProcessPattern` Logical OR
+    * `@"age"!(21 \/ 22)` matches to both `@"age"!(21)` and `@"age"!(22)`
 * `~ ProcessPattern` Logical NOT
-
-Examples:
-* `@x` matches to a name and binds `x` to the quoted process.
-* `[ 1 , 2 ... x ]` matches to any list starting with `1` and `2` and binds `x` to the rest of the
-list.
-* `@{x /\ 100}` matches to `@100` and binds `x` to `100`.
-* `@{Bool}` matches to both `@true` and `@false`
-* `~ Nil` matches to any process __except__ `Nil`.
+    * `~ Nil` matches to any process __except__ `Nil`
 
 ## Pattern Matching
 
