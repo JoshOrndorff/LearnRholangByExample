@@ -1,0 +1,15 @@
+new tCh, print(`rho:io:stdout`) in {
+
+  tCh!!((3, 4, 5))|
+
+  // Test nth
+  for (@t <- tCh){
+    print!(["Test nth. Expected: 5. Got ", t.nth(2)])
+  }
+  |
+
+  // Test toByteArray
+  for (@t <- tCh){
+    print!(["toByteArray test. Got: ", t.toByteArray()])
+  }
+}
