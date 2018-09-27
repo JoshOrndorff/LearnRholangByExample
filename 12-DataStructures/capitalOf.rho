@@ -1,0 +1,26 @@
+new capitalOf, print(`rho:io:stdout`) in {
+  new mapCh in {
+
+    // Use a persistent send instead of peeking later
+    mapCh!!({"Canada": "Ottawa",
+             "Nigeria": "Abuja",
+             "Germany": "Berlin",
+             "Antarctica": Nil,
+             "China": "Beijing",
+             "Ecuador": "Quito",
+             "Australia": "Canberra"})
+    |
+    contract capitalOf(@country, return) = {
+      for (@map <- mapCh) {
+        return!(map.getOrElse(country, "I don't know"))
+      }
+    }
+  }
+  |
+  new answerCh in {
+    capitalOf!("Canada", *answerCh)|
+    for (@cap <- answerCh) {
+      print!("Capital of ${cntry} is ${cap}." %% {"cntry": "Canada", "cap": cap})
+    }
+  }
+}

@@ -1,0 +1,46 @@
+new sCh, print(`rho:io:stdout`) in {
+
+  sCh!!(Set(3, 4, 5))|
+
+  // Test toByteArray
+  for (@s <- sCh){
+    print!(["Test toByteArray. Got: ", s.toByteArray()])
+  }
+  |
+
+  // Test Add
+  for (@s <- sCh){
+    print!(["Test add. Expected Set(3, 4, 5, 6), Got: ", s.add(6)])
+  }
+  |
+
+  // Test Diff
+  for (@s <- sCh){
+    print!(["Test diff. Expected: Set(5) Got: ", s.diff(Set(3, 4))])
+  }
+  |
+
+  // Test Union
+  for (@s <- sCh){
+    print!(["Test union. Expected: Set(1, 2, 3, 4, 5). Got: ", s.union(Set(1, 2))])
+  }
+  |
+
+  // Test Delete
+  for (@s <- sCh){
+    print!(["Test delete. Expected: Set(3, 4). Got: ", s.delete(5)])
+  }
+  |
+
+  // Test Contains
+  for (@s <- sCh){
+    print!(["Test contains. Expected: true. Got:", s.contains(5)])|
+    print!(["Test contains. Expected: false. Got: ", s.contains(6)])
+  }
+  |
+
+  // Test Size
+  for (@s <- sCh){
+    print!("Test size. Expected 3. Got: ${ans}" %% {"ans": s.size()})
+  }
+}

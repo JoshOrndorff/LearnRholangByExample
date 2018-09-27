@@ -1,0 +1,59 @@
+new mCh, print(`rho:io:stdout`) in {
+
+  mCh!!({"a": 3, "b": 4, "c": 5})|
+
+  // Test toByteArray
+  for (@m <- mCh){
+    print!(["Test toByteArray. Got: ", m.toByteArray()])
+  }
+  |
+
+  // Test Union
+  for (@m <- mCh){
+    print!(["Test union. Expected: {a: 3, b: 4, c: 5, d: 6}. Got: ", m.union({"d": 6})])
+  }
+  |
+
+  // Test Delete
+  for (@m <- mCh){
+    print!(["Test delete. Expected: {a: 3, b: 4}. Got: ", m.delete("c")])
+  }
+  |
+
+  // Test Contains
+  for (@m <- mCh){
+    print!(["Test contains. Expected: true. Got: ", m.contains("c")])|
+    print!(["Test contains. Expected: false. Got: ", m.contains("d")])
+  }
+  |
+
+  // Test Get
+  for (@m <- mCh){
+    print!(["Test get. Expected: 4. Got: ", m.get("b")])
+  }
+  |
+
+  // Test GetOrElse
+  for (@m <- mCh){
+    print!(["getOrElseSuccessful. Expected: 4. Got: ", m.getOrElse("b", "?")])|
+    print!(["getOrElseFailed. Expected: ?. Got: ", m.getOrElse("d", "?")])
+  }
+  |
+
+  // Test Set
+  for (@m <- mCh){
+    print!(["Test set. Expected {a: 3, b: 2, c: 5}. Got: ", m.set("b", 2)])
+  }
+  |
+
+  // Test Keys
+  for (@m <- mCh){
+    print!(["Test keys. Expected Set(a, b, c)). Got: ", m.keys()])
+  }
+  |
+
+  // Test Size
+  for (@m <- mCh){
+    print!(["Test size. Expected 3. Got: ", m.size()])
+  }
+}
