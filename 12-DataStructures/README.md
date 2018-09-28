@@ -111,6 +111,12 @@ Starting from the example code above, make a Countries and Capitals quiz game wh
 
 To learn how to use this game interactively with a nice user interface, check out some dapp development examples such as the [nth caller game](https://github.com/JoshOrndorff/nth-caller-game)
 
+## Exercise
+Map's `diff` method takes another map as an argument. What happens if the diff map has some of the same keys but with different values associated. For example:
+```
+{"a": "A", "b": "B", "c": "C"}.diff({"a": 25})
+```
+
 
 ## Method Summary Table
 
@@ -121,7 +127,7 @@ Method       | Tuple |  List |  Map  |  Set
 nth          |   x   |   x   |       |
 toByteArray  |   x   |   x   |   x   |   x
 union        |       |       |   x   |   x
-diff         |       |       |       |   x
+diff         |       |       |   x   |   x
 add          |       |       |       |   x
 delete       |       |       |   x   |   x
 contains     |       |       |   x   |   x
