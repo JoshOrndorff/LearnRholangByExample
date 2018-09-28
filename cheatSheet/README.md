@@ -94,7 +94,7 @@ Cannot be destructured by pattern matching
 | ------ | -------- | --------- |
 | `bundle- {proc}`  | YES |  NO |
 | `bundle+ {proc}`  | NO  | YES |
-| `bundle {proc}`   | NO  |  NO |
+| `bundle0 {proc}`   | NO  |  NO |
 | `bundle {proc}`   | YES | YES |
 
 
