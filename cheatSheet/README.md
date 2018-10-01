@@ -30,7 +30,7 @@ Name <---\*--
 
 ## Unforgeable Names
 * `new x, y, z in { P }` binds x, y, z in P
-* ```new print(`rho:io:stdout\`)``` use system powerbox
+* ```new print(`rho:io:stdout`)``` use system powerbox
 
 ## Arithmetic
 `+` addition
