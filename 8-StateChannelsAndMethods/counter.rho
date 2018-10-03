@@ -1,6 +1,6 @@
 new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
   
-  // starting the counter at 0
+  // Starting the counter at 0
   currentCount!(0) |
 
   // Method to increase counter (returns the old value)
@@ -17,15 +17,6 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
       currentCount!(0) |
       ack!(*old)
     }
-  } |
-
-
-  // Method to check the value of the counter 
-  contract check(ack) = {
-    for(oldCount <- ack; count <- currentCount) {
-      currentCount!(*count) |
-      stdout!(["New count is: ", *count, "Old count was:", *oldCount])
-    }
 
   } |
   new ack in {
@@ -35,9 +26,12 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
       for(_ <- ack) {
         increase!(*ack) |
         for(_ <- ack) {
-        increase!(*ack) |
-        check!(*ack)
-        }
+          increase!(*ack) |
+          for(oldCount <- ack; count <- currentCount) {
+            currentCount!(*count) |
+            stdout!(["New count is: ", *count, "Old count was:", *oldCount])
+          }
+        } 
       }
     }
   }
