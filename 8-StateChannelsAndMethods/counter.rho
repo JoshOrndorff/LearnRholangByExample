@@ -20,7 +20,7 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
 
   } |
 
-  // Inccrease the value three times
+  // Increase the value three times
   new ack in {
     increase!(*ack) |
     for(_ <- ack) {
