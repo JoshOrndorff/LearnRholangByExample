@@ -1,38 +1,41 @@
-new currentCount, increase, reset, stdout(`rho:io:stdout`) in {
-
-  // Start the counter at zero
+new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
+  
+  // Starting the counter at 0
   currentCount!(0) |
 
   // Method to increase counter (returns the old value)
   contract increase(ack) = {
-    for (old <- currentCount) {
+    for(old <- currentCount) {
       currentCount!(*old + 1) |
       ack!(*old)
     }
-  }
-  |
+  } |
 
   // Method to reset the counter (returns the old value)
   contract reset(ack) = {
-    for(old <- currentCount){
+    for(old <- currentCount) {
       currentCount!(0) |
       ack!(*old)
     }
-  }
-  |
 
-  // Demo using the counter
-  // This part gets deeply nested because it is sequential
+  } |
+
+  // Inccrease the value three times
   new ack in {
+    increase!(*ack) |
+    for(_ <- ack) {
+      increase!(*ack) |
+      for(_ <- ack) {
+        increase!(*ack) |
+        for(_ <- ack) {
+          increase!(*ack) |
 
-    // Increase the counter three times
-    increase!(*ack) |
-    increase!(*ack) |
-    increase!(*ack) |
-
-    // And check it's value afterward
-    for(_ <- ack; count <- currentCount) {
-      stdout!(*count)
+          // And check it's value afterwards
+          for(_ <- ack; count <- currentCount) {
+            stdout!(*count)
+          }
+        } 
+      }
     }
   }
 }
