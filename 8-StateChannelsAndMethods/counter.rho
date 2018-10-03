@@ -19,6 +19,8 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
     }
 
   } |
+
+  // Inccrease the value three times
   new ack in {
     increase!(*ack) |
     for(_ <- ack) {
@@ -27,9 +29,10 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
         increase!(*ack) |
         for(_ <- ack) {
           increase!(*ack) |
-          for(oldCount <- ack; count <- currentCount) {
-            currentCount!(*count) |
-            stdout!(["New count is: ", *count, "Old count was:", *oldCount])
+          
+          // And check it's value afterward
+          for(_ <- ack; count <- currentCount) {
+            stdout!(*count)
           }
         } 
       }
