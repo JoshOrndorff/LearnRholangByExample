@@ -29,8 +29,8 @@ new currentCount, increase, reset, check, stdout(`rho:io:stdout`) in {
         increase!(*ack) |
         for(_ <- ack) {
           increase!(*ack) |
-          
-          // And check it's value afterward
+
+          // And check it's value afterwards
           for(_ <- ack; count <- currentCount) {
             stdout!(*count)
           }
