@@ -16,7 +16,7 @@ New mockup with proper ordering
 * `x!!(P)` Persistent send
 * `for (y <- chan){P}` Receive name y on chan
 * `for (@Q <- chan){P}` Receive Process Q (see pattern matching)
-* `for (x <- chan1; y <- chan2)` Receive x and y simultaneously
+* `for (x <- c1; y <- c2){P}` Receive x and y simultaneously
 * `for(y <= chan){P}` Persistent receive
 * `contract chan(y) = {P}` Alternate persistent receive
 * `for(y <! chan){P}` Peek at y on chan
