@@ -33,14 +33,14 @@
 如果你以前从来没有编程过，你可能有时候会遇到困难。
 但是如果你以前写过Python和Javascript，那么你应该已经具备应有的背景。
 
- 我不期望你能了解process calculi,熟悉掌握其它的语言或者理解RChain社区里面讨论的所有数学理论。
+ 我不期望你能了解process calculi，熟悉掌握其它的语言或者理解RChain社区里面讨论的所有数学理论。
 
 
 ## 其它资源
 * [Mike Stay的Rholang教程](https://developer.rchain.coop/tutorial/)
 * [核心团队的教程](https://github.com/rchain/rchain/blob/master/docs/rholang/rholangtut.md)
 * 每周4西雅图时间早上7点我会在zoom上有专门的工作时间。
-* 通过[我的网站](https://joshyorndorff.com/contact)练习我.
+* 通过[我的网站](https://joshyorndorff.com/contact)联系我.
 
 ## 作者和许可证
 在RChain合作社支持下，主要由Joshy Orndorff撰写，Julianne Coxe的插图。
