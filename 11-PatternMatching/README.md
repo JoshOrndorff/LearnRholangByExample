@@ -73,9 +73,9 @@ Write a series of contracts that calculate the area of a rectangle. In the most 
 ## Advanced pattern matching
 You can do cool things with pattern matching like `for(@{x!(P)} <- y){ Q }` which will only reduce if the process sent on channel `x` matches the pattern of a single send. Then in the process Q you will have bound the variables `x`, the channel, and `P`, the process being sent
 
-[matching.rho](matching.rho)
+[sendASend.rho](sendASend.rho)
 
-Will `x!("hello") | for ({P | Q} <- x){Nil}` cause a comm event?
+Will `x!("hello") | for ({"hello" | "world"} <- x){Nil}` cause a comm event?
 - [ ] Yes because the send and receive are on the same channel
 - [ ] Yes because the send and receive are on the same channel AND the pattern matches
 - [ ] No because the send and receive are on different channels
