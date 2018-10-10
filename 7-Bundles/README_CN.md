@@ -41,7 +41,7 @@ Alice可以通过让粉丝请求她的粉丝邮箱地址来节省邮资。然后
 
 ![A single "thrower" throws a ball for one of many catchers to catch](jackpot.png)
 
-我以前小时候玩一个游戏叫。一个人扔一个球然后说出一个数字。其他的人都会尝试去抓住那个球，无论谁抓住了那个球就可以获得那个数字的分数。
+我以前小时候玩一个游戏叫Jackpot。一个人扔一个球然后说出一个数字。其他的人都会尝试去抓住那个球，无论谁抓住了那个球就可以获得那个数字的分数。
 
 玩jackpot只是跟发送粉丝邮件正好相反。以前很多粉丝都发送邮件到明星。现在有一个发送者，发送给许多收件人中的一个。
 
@@ -51,7 +51,7 @@ Alice可以通过让粉丝请求她的粉丝邮箱地址来节省邮资。然后
 - [ ] Bill因为他抓住球的代码最前。
 - [ ] Bill因为他抓住球的代码离抛球代码最近。
 - [ ] Paige因为他抓住球的代码最后面。
-- [x] 我们不知道。这是不决定的。
+- [x] 我们不知道。这是不确定的。
 
 
 ### 练习
@@ -69,7 +69,7 @@ Alice可以通过让粉丝请求她的粉丝邮箱地址来节省邮资。然后
 
 ## 欺骗性的抛投
 
-注意任何一个人都可以过来抛投一个假分数的球来把整个游戏弄乱。这就跟Eve去透Alice粉丝信件的情况相反。
+注意任何一个人都可以过来抛投一个假分数的球来把整个游戏弄乱。这就跟Eve去偷Alice粉丝信件的情况相反。
 
 Eve应该怎么样在代码中扔一个100分的欺骗的球？
 - [ ] for (imposter <- throw){imposter!(100)}
@@ -77,19 +77,19 @@ Eve应该怎么样在代码中扔一个100分的欺骗的球？
 - [ ] @"throw"!("100")
 
 
-我们通过确定公众只能从抛投通道中进行读的操作，不能进行写入。
+我们通过确定公众只能从抛投通道中进行读的操作来解决这个问题，公众不能进行写入。
 
 [jackpotPublish.rho](jackpotPublish.rho)
 
-像以前一样，这个代码要求游戏主持人为所有从他获取bundle的人支付费用。它可以重构让玩家需要订阅这个游戏就像Alice和她的粉丝邮箱。
+像以前一样，这个代码要求游戏主持人为所有从他获取bundle的人支付费用。我们可以重构代码让玩家需要订阅这个游戏就像Alice和她的粉丝邮箱。
 
 ## 公钥加密
 
 ![This bundle is sealed within the blockchain world, but totaly openable to anyone outside. Remember that just because data is off limits within the blockchain, doesn't mean it's truly private.](privateNames.png)
 
-在某些方面上，只读的bundles就跟[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptography))的签名特性一样. jackpot里面抓球的人这里要确定抛投人身份因为他可以在抛投通道发送，这种情况就像加密签名。
+在某些方面上，只读的bundles就跟[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptography))的签名特性一样。 jackpot里面抓球的人要确定抛投人身份因为只有他可以在抛投通道发送，这种情况就像加密签名。
 
-在某些方面上，只写的bundles就跟公钥加密的特性一样。只有Alice可以接受她粉丝邮箱通道里的信息。一个 **非常重要的不同** 是这里发送的信息在区块链中是100%透明的！所以即使只写的bundle对于不可伪造names是一种十分有效的通信方法，他们不是策划抢劫和逃避政府监控的好方法。 **一定要小心注意!**
+在某些方面上，只写的bundles就跟公钥加密的特性一样。只有Alice可以接受她粉丝邮箱通道里的信息。一个 **非常重要的不同** 是这里发送的信息在区块链中是100%透明的！所以即使只写的bundle对于不可伪造names是一种十分有效的通信方法，但是他们不是策划抢劫和逃避政府监控的好方法。 **一定要小心注意!**
 
 ## 更多Bundles
 

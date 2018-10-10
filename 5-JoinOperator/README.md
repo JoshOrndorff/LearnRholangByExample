@@ -45,7 +45,7 @@ What code would Alice need to "par in" to retract her launch command.
 - [x] `for (x <- @"AliceLaunch"){Nil}`
 
 
-The concept of joins is framed as the dining philosophers problem, and [https://developer.rchain.coop/tutorial/#dining-philosophers-and-deadlock"](explored further) in the concise rholang tutorial.
+The concept of joins is framed as the dining philosophers problem, and [explored further](https://developer.rchain.coop/tutorial/#dining-philosophers-and-deadlock") in the concise rholang tutorial.
 
 
 
