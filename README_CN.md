@@ -3,26 +3,26 @@
 通过例子和实践来学习rho语言。下面的例子和练习都很值得去运行、阅读、修改和完善。修改练习和教程中任何你感到有意思的代码，这样能够获得最好的学习效果。该教程包含了rho语言最常见以及最重要的特性，足以让开发者快速入门。
 
 ## 目录
-* [Rholang备忘录](cheatSheet/)
-* [课程1 -- 开发环境](0-DeveloperEnvironment/)
+* [Rholang备忘录](cheatSheet/README_CN.md)
+* [课程1 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
 
 ### 单元 1
 
-* [课程1 -- 发送与标准输出(stdout)](1-SendingAndStandardOut/)
-* [课程2 -- 接收](2-Receiving/)
-* [课程3 -- 传音筒、"name"和“process”](3-TelephoneNamesAndProcesses/)
-* [课程4 -- 持续发送与窥探](4-PersistentSendAndPeek/)
-* [课程5 -- Join操作](5-JoinOperator/)
+* [课程1 -- 发送与标准输出(stdout)](1-SendingAndStandardOut/README_CN.md)
+* [课程2 -- 接收](2-Receiving/README_CN.md)
+* [课程3 -- 传音筒、"name"和“process”](3-TelephoneNamesAndProcesses/README_CN.md)
+* [课程4 -- 持续发送与窥探](4-PersistentSendAndPeek/README_CN.md)
+* [课程5 -- Join操作](5-JoinOperator/README_CN.md)
 
 ### 单元 2
-* [课程6 -- 不可伪造的Names和Acks](6-UnforgeableNamesAndAcks/)
-* [课程7 -- Bundles](7-Bundles/)
-* [课程8 -- 状态通道和方法](8-StateChannelsAndMethods/)
-* [课程9 -- 对象功能](9-ObjectCapabilities/)
-* [课程10 -- 更多语法](10-MoreSyntax/)
+* [课程6 -- 不可伪造的Names和Acks](6-UnforgeableNamesAndAcks/README_CN.md)
+* [课程7 -- Bundles](7-Bundles/README_CN.md)
+* [课程8 -- 状态通道和方法](8-StateChannelsAndMethods/README_CN.md)
+* [课程9 -- 对象功能](9-ObjectCapabilities/README_CN.md)
+* [课程10 -- 更多语法](10-MoreSyntax/README_CN.md)
 
 ### 单元 3
-* [课程11 -- 模式匹配](11-PatternMatching/)
+* [课程11 -- 模式匹配](11-PatternMatching/README_CN.md)
 
 ### 还在准备中的课程
 * [课程12 -- 数据结构](12-DataStructures/)
