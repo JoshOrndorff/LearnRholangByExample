@@ -39,8 +39,8 @@
 ## 其它资源
 * [Mike Stay的Rholang教程](https://developer.rchain.coop/tutorial/)
 * [核心团队的教程](https://github.com/rchain/rchain/blob/master/docs/rholang/rholangtut.md)
-* 每周4西雅图时间早上7点我会在zoom上有专门的工作时间。
-* 通过[我的网站](https://joshyorndorff.com/contact)联系我.
+* 每周4西雅图时间早上7点我会在zoom上有专门的工作时间
+* 通过[我的网站](https://joshyorndorff.com/contact)联系我
 
 ## 作者和许可证
 在RChain合作社支持下，主要由Joshy Orndorff撰写，Julianne Coxe的插图。
