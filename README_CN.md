@@ -4,7 +4,7 @@
 
 ## 目录
 * [Rholang备忘录](cheatSheet/README_CN.md)(未翻译)
-* [课程1 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
+* [课程0 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
 
 ### 单元 1
 
