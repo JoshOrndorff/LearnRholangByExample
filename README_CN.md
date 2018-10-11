@@ -3,7 +3,7 @@
 通过例子和实践来学习rho语言。下面的例子和练习都很值得去运行、阅读、修改和完善。修改练习和教程中任何你感到有意思的代码，这样能够获得最好的学习效果。该教程包含了rho语言最常见以及最重要的特性，足以让开发者快速入门。
 
 ## 目录
-* [Rholang备忘录](cheatSheet/README_CN.md)
+* [Rholang备忘录](cheatSheet/README_CN.md)(未翻译)
 * [课程1 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
 
 ### 单元 1
@@ -25,8 +25,8 @@
 * [课程11 -- 模式匹配](11-PatternMatching/README_CN.md)
 
 ### 还在准备中的课程
-* [课程12 -- 数据结构](12-DataStructures/)
-* [课程13 -- 迭代](13-Iteration/)
+* [课程12 -- 数据结构](12-DataStructures/)(未翻译)
+* [课程13 -- 迭代](13-Iteration/)(未翻译)
 
 ## 目标人群
 这个教程适用于新手，指导他们从头开始学习rholang。
