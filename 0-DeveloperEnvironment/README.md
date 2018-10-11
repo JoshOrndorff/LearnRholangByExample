@@ -15,7 +15,7 @@ Once RNode is installed, you can run a basic standalone node
 $ rnode run -s -n
 ```
 
-In a separate terminal, you can execute one line of rholang at a time in the REPL (run execute print loop).
+In a separate terminal, you can execute one line of rholang at a time in the REPL (read execute print loop).
 ```
 $ rnode repl
 
