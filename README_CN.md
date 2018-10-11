@@ -3,7 +3,7 @@
 通过例子和实践来学习rho语言。下面的例子和练习都很值得去运行、阅读、修改和完善。修改练习和教程中任何你感到有意思的代码，这样能够获得最好的学习效果。该教程包含了rho语言最常见以及最重要的特性，足以让开发者快速入门。
 
 ## 目录
-* [Rholang备忘录](cheatSheet/README_CN.md)(未翻译)
+* [Rholang备忘录](cheatSheet)(未翻译)
 * [课程0 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
 
 ### 单元 1
