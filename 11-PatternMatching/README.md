@@ -94,7 +94,7 @@ To match both of two patterns you use the "intersection" operator, `/\`. In this
 [intersection.rho](intersection.rho)
 
 ### Exercise
-The union example here is pretty basic. Expand it so it can math more languages and more words. Also write tests that show what happens when only the default pattern is matched.
+The union example here is pretty basic. Expand it so it can match more languages and more words. Also write tests that show what happens when only the default pattern is matched.
 
 The logical connectives discussed in this section have some subtle behavior related to binding that is beyond the scope of this tutorial. I encourage you to experiment with example programs, and refer to the Rholang manual when it becomes available.
 
