@@ -62,7 +62,7 @@ So far all of our factory methods have required us to pass in names on which to 
 Another technique is to allow the factory to create the necessary unforgeable names and send them back to the caller. I call this the a "full service" factory. If you don't require the flexibility of passing in arbitrary names, a full service factory is often less hassle.
 
 ### Exercise
-Convert the savings account from byoc factory to to full service factory.
+Convert one idiom to the other.
 
 Now that you've converted the savings account, is it still possible for Sarah to make her deposit capability public?
 - [ ] No; she can no longer pass in a public name
@@ -86,3 +86,4 @@ There are many common Object Capability design patterns. Many of the are explain
 
 ### Exercise
 We will encounter many of these patterns as we work through the upcoming examples, but I encourage you to implement one or two of them in rholang right now.
+g
