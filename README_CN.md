@@ -45,4 +45,6 @@
 ## 作者和许可证
 在RChain合作社支持下，主要由Joshy Orndorff撰写，Julianne Coxe的插图。
 
+中文版由Will和yyh1102翻译。
+
 在Apache 2.0 证书下发布。
