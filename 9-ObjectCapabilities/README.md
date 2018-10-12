@@ -86,4 +86,3 @@ There are many common Object Capability design patterns. Many of the are explain
 
 ### Exercise
 We will encounter many of these patterns as we work through the upcoming examples, but I encourage you to implement one or two of them in rholang right now.
-g
