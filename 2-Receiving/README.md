@@ -72,7 +72,7 @@ Luckily it's possible to deploy code once, and have it run <em>every</em> time i
 
 
 ### Exercise
-Order a second drink from the coffee shop
+Order more drinks from the coffee shop
 
 ### Exercise
 Change the acknowledgement message
