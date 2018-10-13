@@ -120,8 +120,7 @@ In this example we trust the shop to only _send_ on the ack channel, but notice 
 Bob also wants to order a pizza and give a unforgeable ack channel. Where should he create his unforgeable channel?
 - [x] On his own line, after the alice code
 - [ ] On the same line the Alice did
-- [ ] On the very first l
-ine of the program
+- [ ] On the very first line of the program
 
 ## `stdoutAck` and `stderrAck`
 
