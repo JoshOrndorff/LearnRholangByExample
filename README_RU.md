@@ -11,19 +11,19 @@
 * [урок 1 -- Отправка сообщений и стандартный OUT](1-SendingAndStandardOut/README_RU.md)
 * [урок 2 -- Получение сообщений](2-Receiving/README_RU.md)
 * [урок 3 -- Сломанный телефон, Имена и Процессы](3-TelephoneNamesAndProcesses/README_RU.md)
-* [урок 4 -- Персистивная отправка и Подглядки](4-PersistentSendAndPeek/)
-* [урок 5 -- Оператор Объединения](5-JoinOperator/)
+* [урок 4 -- Персистивная отправка и Подглядки](4-PersistentSendAndPeek/README_RU.md)
+* [урок 5 -- Оператор Объединения](5-JoinOperator/README_RU.md)
 
 ### Модуль 2
-* [урок 6 -- Unforgeable Names and Acks](6-UnforgeableNamesAndAcks/)
-* [урок 7 -- Bundles](7-Bundles/)
-* [урок 8 -- State Channels And Methods](8-StateChannelsAndMethods/)
-* [урок 9 -- Object Capabilities](9-ObjectCapabilities/)
-* [урок 10 -- More Syntax](10-MoreSyntax/)
+* [урок 6 -- Неподделаевымые имена и Подтверждения](6-UnforgeableNamesAndAcks/)
+* [урок 7 -- Связки](7-Bundles/)
+* [урок 8 -- Каналы состояний и Методы](8-StateChannelsAndMethods/)
+* [урок 9 -- Объектные возможности](9-ObjectCapabilities/)
+* [урок 10 -- Опять синтаксис](10-MoreSyntax/)
 
 ### Модуль 3
-* [урок 11 --Pattern Matching](11-PatternMatching/)
-* [урок 12 -- Data Structures](12-DataStructures/)
+* [урок 11 --Сопоставление паттернов](11-PatternMatching/)
+* [урок 12 -- Структуры данных](12-DataStructures/)
 
 ### В работе
 * [урок 13 -- Итерации](13-Iteration/)
