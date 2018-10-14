@@ -51,4 +51,4 @@ Storage Contents:
 Some of RNode's output comes in the same terminal that you run the code in. But other output comes directly from the node (the first terminal). So be sure to check both places until you're familiar with what output comes from where.
 
 ## Cryptofex IDE
-An up-and-coming integrated development environment called [cryptofex](https://cryptofex.io/) just entered alpha. Cryptofex may eventually be the preferred way of developing rholang, but at the moment it is quite young software.
+An up-and-coming integrated development environment called [cryptofex](https://cryptofex.io/) just entered alpha. Cryptofex may eventually be the preferred way of developing rholang, but at the moment it is quite young software. Cryptofex offers rholand syntax hightlighting and is capable of evaluating aApps on Rchain integrated node. The IDE also creates environment for creating and tesing smart-contracts on the general Etherium network, private test-nets and standalone EVM.
