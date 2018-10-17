@@ -7,7 +7,7 @@
 
 So far every channel we've sent on has been a public name like `@"pizzaShop"`. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it too (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.
 
-What code would a bad pizza shop have to write to intercept orders?`
+What code would a bad pizza shop have to write to intercept orders?
 - [ ] `contract evilPizzaShop(interceptedMessage) = {Nil}`
 - [ ] `@"evilPizzaShop"!("pizzaShop")`
 - [ ] `@"pizzaShop"!("intercept")`
