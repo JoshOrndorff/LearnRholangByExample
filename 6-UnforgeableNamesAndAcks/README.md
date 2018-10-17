@@ -66,7 +66,7 @@ First notice that `pizzaShop` is a name even though it doesn't start with `@`. T
 
 Second, notice that while this technique does prevent other pizza shops from consuming orders, it also prevents new customers from ordering. We'll solve this problem in the lesson on bundles.
 
-What happens when you try to order a pizza fron outside of the `new` restriction.
+What happens when you try to order a pizza from outside of the `new` restriction.
 - [ ] The order works fine
 - [ ] The order works but takes much longer
 - [x] Error about top-level free variables
