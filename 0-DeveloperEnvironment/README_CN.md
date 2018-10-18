@@ -59,3 +59,5 @@ Storage Contents:
 ## Cryptofex IDE
 一个叫做[cryptofex](https://cryptofex.io/) 的开发环境已经进入了alpha版本。
 Cryptofex可能最后最好的开发rholang的地方，但是现在还是很早期的软件。
+Cryptofex提供rholang语法高亮特性并且可以在RChain集成节点上检测dApps。
+IDE同时也提供环境创建和测试在以太网上，私人测试网上和单独模式的EVM上的智能合约。
