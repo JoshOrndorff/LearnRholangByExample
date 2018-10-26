@@ -5,6 +5,7 @@ new pizzaShop in {
     ack!("Order Received.")
   }
   |
+  
   // Order a pizza and send a private ack channel.
   new alice in {
     pizzaShop!("One medium veggie pizza", *alice)
