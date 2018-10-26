@@ -1,11 +1,11 @@
-new stdout(`rho:io:stdout`) in {
+new aliceLaunch, bobLaunch, stdout(`rho:io:stdout`) in {
   // Listen for both launch commands
-  for (x <- @"AliceLaunch"; y <- @"BobLaunch"){
+  for (x <- aliceLaunch; y <- bobLaunch){
     stdout!("Launching the rocket")
   }
   |
   // When ready, Engineers send their commands
-  @"AliceLaunch"!("launch")
+  aliceLaunch!("launch")
   |
-  @"BobLaunch"!("launch")
+  bobLaunch!("launch")
 }

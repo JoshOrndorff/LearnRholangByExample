@@ -6,7 +6,6 @@
 ![The game of telephone is perfect to simulate message forwarding in rholang.](telephone.png)
 
 
-
 We've previously learned how to send a message to grandma or a pizza shop. But so far all those recipients have done is acknowledge the message by printing to standard output.
 
 Now let's make them do something more interesting by passing the message along like in a child's telephone game
@@ -26,14 +25,14 @@ That telephone game was fun, but it's always better the have more players. Go ah
 
 
 ### Exercise
-If you've ever actually played telephone, you know that the message rarely arrives in tact. Bob decided to mix it up by passing along a false message. Change the program so Bob passes along a different message regardless of what he receives.
+If you've ever actually played telephone, you know that the message rarely arrives in tact. Change the program so Bob passes along a different message regardless of what he receives.
 
 
 ## WTH is That `*`?
 
 ![Opposites attract](inverse.png)
 
-Did you notice the `*` in `@"Bob"!(*message)`? In rholang there are two kinds of things, "names" and "processes". There are also ways to convert between the two.
+Did you notice the `*` in `bobb!(*message)`? In rholang there are two kinds of things, "channels" and "processes". There are also ways to convert between the two.
 
 <!-- TODO: Maybe an illustration of arrows labeled * and @ would be better here? -->
 
@@ -41,16 +40,15 @@ A "process" is any piece of rholang code such as our telephone game, or our pizz
 
  - `stdout!("Sup Rholang?")` A common send
  - `Nil` The smallest possible process. It literally means "do nothing".
- - `for(msg <- @"phone"){Nil}` A common receive that does nothing when a message arrives.
+ - `for(msg <- phone){Nil}` A common receive that does nothing when a message arrives.
  - `"Hello World"` Another small process that also does nothing. These are called "Ground Terms".
 
 
-A name is something that can be used as a channel to send messages over. In most programming languages, names are totally separate things that exist on their own. But in rholang, names come from "quoting processes" by putting the `@` sign before a process. Here are some example names.
+A channel (also frequently called a "name") is something that can be to send messages over. In rholang, names come from "quoting processes" by putting the `@` sign before a process. Here are some example names.
 
  - `@"Hello World"` Made by quoting the ground term "Hello World".
  - `@Nil` The smallest possible name. Made by quoting the smallest possible process.
- - `@(@"Alice"!("I like rholang, pass it on."))` Made by quoting a process from our telephone game
-
+ - `@(alice!("I like rholang, pass it on."))` Made by quoting a process from our telephone game
 
 
 
@@ -61,9 +59,9 @@ A name is something that can be used as a channel to send messages over. In most
 
 We can package processes up to make names by quoting them with the `@` symbol. We can also turn names back into processes by "unquoting" them with the `*` symbol.
 
-The big thing to remember is in rholang we <strong>send processes and receive names</strong>. That's important so I'll say it again. You always <strong>send a process</strong> and on the other end, you <strong>receive a name</strong>.
+The big thing to remember is in rholang we **send processes and receive names**. That's important so I'll say it again. You always **send a process** and on the other end, you **receive a name**.
 
-When Alice receives our message with `for(message <- @"Alice")` she is receiving, so `message` becomes a name. When she later sends to Bob she has to send a process, so she uses `*` to turn `message` back into a process with `@"Bob"!(*message)`
+When Alice receives our message with `for(message <- alice)` she is receiving, so `message` becomes a name. When she later sends to Bob she has to send a process, so she uses `*` to turn `message` back into a process with `bob!(*message)`
 
 
 
@@ -81,7 +79,7 @@ What do we receive?
 
 
 
-  What is `@"registration"`
+  What is `registration` from the code `new registration in {...}`
 - [ ] process
 - [x] name
 - [ ] invalid syntax
@@ -122,7 +120,7 @@ What is `@@Nil`?
 - [x] `*@"BobsPhone"`
 - [ ] `@"BobsPhone"`
 - [ ] `*"BobsPhone"`
-- [ ] `@*BobsPhone`
+- [ ] `@*"BobsPhone"`
 - [ ] `stdout!("BobsPhone")`
 
 
@@ -131,6 +129,6 @@ What is `@@Nil`?
 
 ![This telephone game has a fork](telephoneFork.png)
 
-Instead of a linear telephone game where each player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Elise.
+Instead of a linear telephone game where each player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Dawn.
 
-Each branch can be as long as you want, but at the end of each branch, print the message to stdout.
+Each branch can be as long as you want, but at the end of each branch, print the message to `stdout`.

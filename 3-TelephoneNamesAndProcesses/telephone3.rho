@@ -1,18 +1,18 @@
-new stdout(`rho:io:stdout`) in {
+new alice, bob, stdout(`rho:io:stdout`) in {
   // Start the game by sending a message to Alice
-  @"Alice"!("How to program: Change stuff and see what happens.")
+  alice!("How to program: Change stuff and see what happens.")
   |
 
   // Concurrently, Alice listens for the message
-  for (message <- @"Alice") {
+  for (message <- alice) {
 
     // When she receives the message she'll pass it on to Bob
-    @"Bob"!(*message)
+    bob!(*message)
   }
   |
 
   // Concurrently, Bob will listens for the message
-  for (message <- @"Bob") {
+  for (message <- bobb) {
     // Bob is the last player, so he'll announce the message
     stdout!(*message)
   }

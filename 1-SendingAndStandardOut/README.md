@@ -3,21 +3,14 @@
 ## Say Hello
 
 !["Person waiving hello"](helloWorld.png)
- 
+
 
 There is a long-standing tradition in programming that your first program should say "Hello World". Here's the simplest rholang code to put that text on the screen.
 
 [hello.rho](hello.rho)
 
-
-
 ### Exercise
 Make the program print "Rholang rocks!" instead of "Hello World".
-
-### Exercise
-Try to change "stdout" to something else. Any results?.
-* Try this funny channel name `@"someChannel"`.
-* We're casual here. Make the program say "Sup World" on the screen.
 
 
 ## WTH is stdout?
@@ -28,20 +21,20 @@ The heart of rholang is communicating on channels. Channels are communication li
 
 ![Redo this diagram!](sendSyntax.png)
 
-`stdout` is a special channel that is used to send text to "standard out" which usually just means your computer screen. Because it's special, we had to have that first line of code.
+We created the channel `stdout` on the first line of the program with `new stdout`. You'll create lots of channels as you learn rholang. We also gave our channel a special power by including `(rho:io:stdout)`. More on that later, but for now just know that you need that part in parentheses to make text actually appear on the screen.
 
 
 ## Using other channels
 
 ![Sent messages wait to be received here in "message purgatory"... JK, it's called the "tuplespace"](mailboxes.png)
 
-You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen.
+You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen because we won't add any special powers to them.
 
 [tupleSpace.rho](tupleSpace.rho)
 
-So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone to receive or "consume" them. We'll learn how to consume messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
+So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone (or some process) to receive them. We'll learn how to receive messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
-Make sure your message is sitting in the tuplespace. You should see some text like this.
+Make sure your message is sitting in the tuplespace. You should see some text like this depending on which developer environment you use.
 
 ```
 Storage Contents:
@@ -79,23 +72,23 @@ What will `stdout!("Programming!")` print to the screen?
 - [ ] Nothing
 
 
-What channel does `@"what"!("Up")` send a message on?
-- [ ] `@"Up"`
-- [x] `@"what"`
+What channel does `what!("Up")` send a message on?
+- [ ] `Up`
+- [x] `what`
 - [ ] `what`
+- [ ] `stdout`
 
 
 Which does rholang do first in
 ```
-@"stdout"!("Dogs")
+stdout!("Dogs")
 |
-@"stdout"!("Cats")
+stdout!("Cats")
 ```
 - [ ] prints "Dogs"
 - [ ] prints "Cats"
 - [x] Neither. They are concurrent
 
 
-PS. There is also a special channel called `stderr`. Check out what happens when you send to it.
-
-[what's the difference?](https://en.wikipedia.org/wiki/Standard_streams)
+### Exercise
+There is also a special channel called `rho:io:stderr`. Check out what happens when you send to it. ([what's the difference?](https://en.wikipedia.org/wiki/Standard_streams))

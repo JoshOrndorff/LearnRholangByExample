@@ -1,7 +1,9 @@
-// ATC sends the info
-@"airportInfo"!!("No wind; Runway 11")
-|
-// Pilot receives the info
-for (info <- @"airportInfo") {
-  Nil // Pilot just listens, doesn't do anything
+new airportInfo, stdout(`rho:io:stdout`) in {
+  // ATC sends the info
+  airportInfo!!("No wind; Runway 11")
+  |
+  // Pilot receives the info
+  for (info <- airportInfo) {
+    stdout!(*info)
+  }
 }

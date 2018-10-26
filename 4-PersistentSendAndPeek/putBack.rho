@@ -1,13 +1,12 @@
-// REMINDER: Peek is not yet implemented
-
 new airportInfo, stdout(`rho:io:stdout`) in {
   // ATC sends the info
   airportInfo!("No wind; Runway 11")
   |
 
   // Pilot receives the info
-  for (info <! airportInfo) {
+  for (info <- airportInfo) {
     stdout!(*info)
+    // TODO Pilot MUST put the info back
   }
   |
 

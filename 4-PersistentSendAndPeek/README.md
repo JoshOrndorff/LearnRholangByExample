@@ -21,9 +21,9 @@ Confirm for yourself that the original send is still in the tuplespace.
 ### Exercise
 Modify the above code so that a second pilot also receives the information. Still, the send persists.
 
-By the way, did you notice that we don't need `new stdout(...) in {}` when we don't actually use `stdout`.
+By the way, did you notice that we don't need `new stdout(...) in {}` when we don't actually print anything to the screen `stdout`?
 
-How many comms happen in `for (x <- y) {Nil} | y!!(Nil)`
+How many comm events happen in `for (x <- y) {Nil} | y!!(Nil)`
 - [x] `1`
 - [ ] `many`
 - [ ] `0`
@@ -31,14 +31,14 @@ How many comms happen in `for (x <- y) {Nil} | y!!(Nil)`
 
 ## Double Checking a Message
 
-Persistent sends and receives are very useful as we just showed. But often normal sends and receives are perfectly good too. Imagine that I send my grandmother a letter, and she receives it.
+Persistent sends and receives are very useful as we just showed. But often normal sends and receives are perfectly good too. Imagine that the air traffic controllers want to update the airport information when the weather changes. If they use a persistent send, they cannot make updates.
 
-[grandma.rho](grandma.rho)
+A better solution is to use a normal send and require each pilot who receives the message to put it back on the channel when they are done.
 
-Now Imagine that I want to double check that I sent her the correct time. I could simply consume the message, but then it wouldn't be around for her to read anymore.
+[putBack.rho](putBack.rho)
 
 ### Exercise
-Using what you already know, you can achieve this by consuming the message, checking it yourself, and then sending the same message back to the old channel.
+Using what you already know, you can you can complete the code for an honest pilot to return the info to the `airportInfo` channel.
 
 Give that a try on your own first. The solution is listed below.
 
@@ -49,22 +49,15 @@ How many comms happen in `for (x <= y) {Nil} | y!!(Nil)`
 - [ ] `0`
 
 
-## Answer to Exercise
-
-[grandmaCheck.rho](grandmaCheck.rho)
-
 
 ## Peek Syntax
+One problem with the code above is that a forgetful pilot may not actually put the information back on the `airportInfo` channel causing problems for other pilots who need it. A better solution would be to not actually _receive_ the message off of the channel in the first place.
 
-![Maybe I'll just peak at Grandma's letter through the envelope.](letterPeak.png)
-
+![Peeking at a message allows you to read it without consuming it.](letterPeek.png)
 
 Rholang will have a special syntax for this sort of thing eventually. It isn't available right now, but I'll show you the syntax just so you're ready. To "peek" at what's on a channel without consuming it, use the `<!` operator.
 
 [peek.rho](peek.rho)
-
-If you've ever written spreadsheet macros, or even used a spreadsheet. Accessing data without consuming it should be familiar. Think of it as `for (value <! A1) { ... }`
-
 
 
 Which syntax is used to peek at a message?
@@ -78,3 +71,6 @@ How many comms happen in `for (x <! y) {Nil} | y!!(Nil)`
 - [x] `1`
 - [ ] `many`
 - [ ] `0`
+
+## Security warning
+We've solved the problem of forgetful pilots removing the message and forgeting to put it back by teaching them to use peek instead. But this still doesn't solve the problem of malicios pilots intentionally taking the data. In reality we need to _enforce_ that nobody can leave `airportInfo` blank. We'll see how to do that in lesson 6.
