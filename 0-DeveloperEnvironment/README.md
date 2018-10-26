@@ -1,6 +1,6 @@
 # Setting up Your Developer Environment
 
-In order to run the rholang snippets in this tutorial, you will need some kind of development environment. This is not an exhaustive guide to rholang development tools or stacks. Rather it shows a few common basic development environments to get you started.
+In order to run the rholang snippets in this tutorial, you will need some kind of development environment. This is not an exhaustive guide to rholang development tools or stacks. Rather, it shows a few common basic development environments to get you started.
 
 ## RChain Cloud
 Members of the RChain community provide a public web-based [online rholang interpreter](http://rchain.cloud) ([mirror](rchaincloud.inblock.io)). This tool is the easiest way to get started and does not require installing any software.
@@ -11,7 +11,7 @@ Pyrofex is developing an up-and-coming integrated development environment called
 WARNING: As of October 2018, Cryptofex does not report the correct line numbers when you make syntax errors. This can be quite frustrating.
 
 ## Local Node
-The tried and true way to run rholang code is by starting up your own local RNode and using its rholang interpreter. First you'll have to [install RNode](https://rchain.atlassian.net/wiki/spaces/CORE/pages/428376065/User+guide+for+running+RNode) for your platform.
+The tried and true way to run rholang code is to start up your own local RNode and use its rholang interpreter. First, you'll have to [install RNode](https://rchain.atlassian.net/wiki/spaces/CORE/pages/428376065/User+guide+for+running+RNode) for your platform.
 
 For novice learners there are step-by-step guides on setting up a node using [AWS](https://blog.rchain.coop/running-rnode-0-5-3-on-amazon-ec2/) or [Docker](https://blog.rchain.coop/running-rnodev-0-6-x-with-docker/).
 
