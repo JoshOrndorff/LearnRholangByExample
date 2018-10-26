@@ -1,12 +1,12 @@
 # Setting up Your Developer Environment
 
-In order to run the rholang snippets in this tutorial, you will need some kind of development environment. This is not an exhaustive guide to rholang development tools or stacks. Rather it shows a few common basic development environments to get you started.
+In order to run the rholang snippets in this tutorial, you will need some kind of development environment. This is not an exhaustive guide to rholang development tools or stacks. Rather, it shows a few common basic development environments to get you started.
 
 ## Online Interpreter
-Members of the RChain community provide a public web-based [online rholang interpreter](http://rchain.cloud). This tool is very promising and a very eaasy way to get started. It is also early in development and not always stable.
+Members of the RChain community provide a public web-based [online rholang interpreter](http://rchain.cloud). This tool is very promising and a very easy way to get started. It is also early in development and not always stable.
 
 ## Local Node
-The tried and true way to run rholang code is by starting up your own local RNode and using its rholang interpreter. First you'll have to [install RNode](https://rchain.atlassian.net/wiki/spaces/CORE/pages/428376065/User+guide+for+running+RNode) for your platform.
+The tried and true way to run rholang code is to start up your own local RNode and use its rholang interpreter. First, you'll have to [install RNode](https://rchain.atlassian.net/wiki/spaces/CORE/pages/428376065/User+guide+for+running+RNode) for your platform.
 
 For novice learners there are step-by-step guides on setting up a node using [AWS](https://blog.rchain.coop/running-rnode-0-5-3-on-amazon-ec2/) or [Docker](https://blog.rchain.coop/running-rnodev-0-6-x-with-docker/).
 
@@ -51,4 +51,4 @@ Storage Contents:
 Some of RNode's output comes in the same terminal that you run the code in. But other output comes directly from the node (the first terminal). So be sure to check both places until you're familiar with what output comes from where.
 
 ## Cryptofex IDE
-An up-and-coming integrated development environment called [cryptofex](https://cryptofex.io/) just entered alpha. Cryptofex may eventually be the preferred way of developing rholang, but at the moment it is quite young software.Cryptofex offers rholang syntax hightlighting and is capable of evaluating dApps on Rchain integrated node. The IDE also creates environment for creating and tesing smart-contracts on the general Ethereum network, private test-nets and standalone EVM.
+An up-and-coming Integrated Development Environment called [cryptofex](https://cryptofex.io/) just entered alpha. Cryptofex may eventually be the preferred way of developing rholang, but at the moment it is quite young software. Cryptofex offers rholang syntax highlighting and is capable of evaluating dApps on Rchain integrated node. The IDE also creates environment for creating and testing smart contracts on the general Ethereum network, private test-nets and standalone EVM.
