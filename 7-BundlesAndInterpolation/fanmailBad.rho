@@ -1,0 +1,10 @@
+new alice, stdout(`rho:io:stdout`) in {
+  // Alice reads fan mail
+  for (mail <- alice) {
+    stdout!("Alice received a fanmail")
+  }
+  |
+
+  // Bob sends fan mail
+  alice!("Dear Alice, you're #TheBest")
+}
