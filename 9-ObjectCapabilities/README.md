@@ -47,10 +47,10 @@ Our current savings account allows negative balances, but probably it shouldn't.
 Try to write the code Eve would need to par in to steal Sarah's funds. I bet you can't think of any. That's because only Sarah has access to the unforgeable names that control the account.
 
 
-If Sarah wanted to allow anyone to deposit into her bank account, but not check or withdraw, how should she create her account?
-- [ ] `openAccount!(10, *"sarahDeposit", *sarahWithdraw, *sarahCheck)`
-- [x] `openAccount!(10, @"sarahDeposit", *sarahWithdraw, *sarahCheck)`
-- [ ] `openAccount!(10, @"sarahDeposit", @"sarahWithdraw", @"sarahCheck")`
+If Sarah wanted to allow her friend Stephanie to deposit into her bank account, but not check or withdraw, what code should she run?
+- [ ] `stephanie!(*sarahWithdraw)`
+- [x] `stephanie!(*sarahDeposit)`
+- [ ] `sarahWithdraw!("enable", *stephanie)`
 - [ ] `openAccount!(10, *sarahDeposit, @"sarahWithdraw", @"sarahCheck")`
 
 

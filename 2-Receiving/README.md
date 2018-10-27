@@ -95,4 +95,4 @@ Which of these things is not like the other?
 Which send will produce a comm event with `for (message <- grandmasSnapChat){Nil}`?
 - [ ] `for(grandmasSnapChat)!("Hi Grandma")`
 - [x] `grandmasSnapChat!("Glad you're snapping Grandma")`
-- [ ] `for("Here's a snap for you g'ma" <- @"grandmasSnapChat")`
+- [ ] `for("Here's a snap for you g'ma" <- grandmasSnapChat)`

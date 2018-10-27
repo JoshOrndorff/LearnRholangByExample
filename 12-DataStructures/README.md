@@ -62,12 +62,12 @@ Lists are a lot like tuples, but they are made with square brackets instead of p
 Implement the body of the following running log contract. The user will call the contract every time they go for a run passing in the distance that they ran. The contract will keep track of all the runs in a list. You may also write methods to get all the run data, or get the total distance the user has run.
 
 ```rholang
-new runsCh in {
+new logRun, runsCh in {
 
   // No runs to start with
   runsCh!([])|
 
-  contract @"running log"(distance) = {
+  contract logRun(distance) = {
     // Your code here
   }
 }
@@ -160,6 +160,6 @@ new alice, bob, key1, key2, stdout(`rho:io:stdout`) in {
 What tuple is used to build the compound name in `contract @(*self, "getVal") = { Nil }`?
 - [ ] `self`
 - [ ] `"getval"`
-- [x] `(*self, getVal)`
+- [x] `(*self, "getVal")`
 - [ ] `@(*self, "getVal")`
 - [ ] `@"getVal"`

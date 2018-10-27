@@ -31,18 +31,18 @@ We always send ____ and receive ____.
 - [ ] names, processes
 - [ ] no such restriction
 
-TODO: Another standing at a mailbox drawing. Maybe mix it up with the kind of mailbox that mounts on the front of your house or a mail slot or something. "Awww man, bills again? I wanted love letters."
+<!-- TODO: Another standing at a mailbox drawing. Maybe mix it up with the kind of mailbox that mounts on the front of your house or a mail slot or something. "Awww man, bills again? I wanted love letters." -->
 
 That was just a nice refresher from last unit. Hope your memory is holding up so far. If you've been writing your own rholang code, you may have found yourself really wishing you could receive processes directly so you didn't have to type all those `*`s. This is a common situation, and luckily rholang has a nice solution. We do always have to receive names, but we can bind them to name syntax like `@myValue`. Since `@myValue` is a name, `myValue` must be a process.
 
 This syntax allows us to do things like
-`for (@number <- @"someChan"){@"double"!(2 * number)}``
+`for (@number <- someChan){double!(2 * number)}``
 
-What code could be parred with the previous code to leave the number `24` on `@"double"`?
+What code could be parred with the previous code to leave the number `24` on `double`?
 - [ ] @number!(12)
-- [x] @"someChan"!(12)
+- [x] someChan!(12)
 - [ ] @number!(24)
-- [ ] @"double"!(48)
+- [ ] double!(48)
 
 ### Exercise
 Revisit the telephone game from lesson 3 and show that we could have used the `@message` pattern so `message` would be a process.
@@ -117,7 +117,7 @@ What would `stdout!((not not true) or false)` output?
 - [ ] neither; that's invalid syntax
 
 ### Exercise
-Write a contract that tells a caller whether they are eligible to vote. In order to vote you must be a certain age and of a certain country. You can pick the age and country. To use the contract, I would par in `@"canIVote!("Nigeria", 30)"`.
+Write a contract that tells a caller whether they are eligible to vote. In order to vote you must be a certain age and of a certain country. You can pick the age and country. To use the contract, I would par in `canIVote!("Nigeria", 30)"`.
 
 ### Exercise
-The contract above only works for one specific country. Use what we learned about factories to enable creating many of these eligibility checkers. To create a new checker for Canada, where the voting age is 18 par in `@"checkerFactory"!(canadaChecker, "Canada", 18)`. Then a 41-year-old Estonian would check whether he can vote in Canada with `canadaChecker!("Estonia", 41)`. Spoiler alert: He cannot vote in Canada.
+The contract above only works for one specific country. Use what we learned about factories to enable creating many of these eligibility checkers. To create a new checker for Canada, where the voting age is 18 par in `checkerFactory!(canadaChecker, "Canada", 18)`. Then a 41-year-old Estonian would check whether he can vote in Canada with `canadaChecker!("Estonia", 41)`. Spoiler alert: He cannot vote in Canada.

@@ -42,10 +42,10 @@ State whether `x` is bound or free in each of the following code snippets.
 - [ ] Free
 - [ ] Neither
 
-`for (y <- @"x"){Nil}`
+`for (y <- x){Nil}`
 - [ ] Bound
-- [ ] Free
-- [x] Neither
+- [x] Free
+- [ ] Neither
 
 ## The `new` Operator
 `for` and `contract` are perfect for binding variables inside of continuations. It turns out that the `new` operator also binds variables. What does it bind them to? Brand new channels that we can use to send messages on.

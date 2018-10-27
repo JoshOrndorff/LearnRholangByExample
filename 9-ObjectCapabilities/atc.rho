@@ -28,10 +28,10 @@ new stationFactory, stdout(`rho:io:stdout`) in {
 
   // Controllers create new station with private set capability
   // and public get capability
-  new set in {
-    stationFactory!("Weather is nice", "airportInfo", *set)
+  new airportInfo, set in {
+    stationFactory!("Weather is nice", *airportInfo, *set)
   }
   |
   // Listener tunes in to receive latest message
-  @"airportInfo"!(*stdout)
+  airportInfo!(*stdout)
 }
