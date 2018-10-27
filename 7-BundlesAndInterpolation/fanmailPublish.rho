@@ -1,6 +1,3 @@
-// These channels are basically public names within
-// the file like rho:pubkey:whatever
-
 new alice, bob, eve, stdout(`rho:io:stdout`) in {
 
   // Alice gets a lot of fan mail, so she

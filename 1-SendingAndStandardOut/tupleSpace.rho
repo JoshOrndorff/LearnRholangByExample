@@ -1,1 +1,3 @@
-@"RandoChannel"!("This won't be on the screen")
+new randoChannel in {
+  randoChannel!("This won't be on the screen")
+}

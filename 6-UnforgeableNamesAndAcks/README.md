@@ -1,29 +1,19 @@
 # Unforgeable Names and Acks
 
-## Making Channels "Private"
+## Bound and Free Variables
 
-![A competing pizza shop steals orders because the channel isn't secure.](stealing.png)
+We've learned how to receive messages with `for` and `contract`. Both of these constructs "bind" variables. A variable is considered bound if has an actual value (a channel or a process) attached to it.
 
+Consider this real-world example. My sister's name is Sarah. When I speak to my family members about "Sarah" they know who I am talking to because they also know my sister. So "Sarah" is a bound variable. It is bound to the person who is my sister. But if I walk up to a random person on the street and talk about "Sarah" they may understand the general point of the story, but they do not know who it is about. Because for them "Sarah" is not bound to any person. For the random stranger, "Sarah" is a "free variable."
 
-So far every channel we've sent on has been a public name like `@"pizzaShop"`. Anyone can send a message to this channel (which is good for business) but anyone can receive a message on it too (which is terrible for business). Imagine if competitors could consume pizza orders so that the pizza shop never received them.
-
-What code would a bad pizza shop have to write to intercept orders?
-- [ ] `contract evilPizzaShop(interceptedMessage) = {Nil}`
-- [ ] `@"evilPizzaShop"!("pizzaShop")`
-- [ ] `@"pizzaShop"!("intercept")`
-- [x] `for (interceptedMessage <- @"pizzaShop"){...}`
-
-## Bound and Free Names
-
-We learned how to receive messages with `for` and `contract` last time. Both of these constructs "bind" names. For example, order is a bound name within the coffee shop code.
+Getting back to rholang, `order` is initially a free variable, but it gets bound to whatever message comes in on the `coffeeShop` channel.
 
 [bound1.rho](bound1.rho)
 
-The same is true when we use contracts.
+The same is true when we use `contract`s.
 
 [bound2.rho](bound2.rho)
 
-A name is considered bound if it only exists inside a specific process and can't be accessed from outside. So the name order is bound in the coffee code. On the other hand, any name that can be accessed from elsewhere is a "free" name. `@"coffeeShop"` is a free name in the above examples.
 
 State whether `x` is bound or free in each of the following code snippets.
 
@@ -58,13 +48,9 @@ State whether `x` is bound or free in each of the following code snippets.
 - [x] Neither
 
 ## The `new` Operator
-`for` and `contract` are perfect for binding names inside of continuations. But what if we want to create a bound name to send messages on? For example, our pizza shop would prefer not to have its orders intercepted. We solve this with the `new` operator.
+`for` and `contract` are perfect for binding variables inside of continuations. It turns out that the `new` operator also binds variables. What does it bind them to? Brand new channels that we can use to send messages on.
 
 [newPizzaShop.rho](newPizzaShop.rho)
-
-First notice that `pizzaShop` is a name even though it doesn't start with `@`. That's because the `new` operator created it as a name directly rather than by quoting some written-down process. Whenever you create a `new` name, it is always a bound name.
-
-Second, notice that while this technique does prevent other pizza shops from consuming orders, it also prevents new customers from ordering. We'll solve this problem in the lesson on bundles.
 
 What happens when you try to order a pizza from outside of the `new` restriction.
 - [ ] The order works fine
@@ -77,18 +63,15 @@ We learned that all names quote processes. So what process does the `pizzaShop` 
 - [ ] It doesn't quote anything
 - [x] "Some Unforgeable hex code"
 
+In rholang channels created with `new` don't give access to the underlying process that they quote. You can think of them as being "pure channels" if you like.
+
 ## Private vs Unforgeable
 
 ![Although the messages can no longer be stolen, they can still be eavesdropped on. You've been warned.](eavesdropping.png)
 
-`new` is known as the restriction operator because it restricts use of the bound names that it creates to within it curly braces or "lexical scope". Within the world of the rholang these new names really are only visible within the correct scope, but remember that human programmers can look in to that world from the outside. That is especially true when working in a blockchain context.
+`new` is known as the restriction operator because it restricts use of the bound names that it creates to within its curly braces or "lexical scope". Within the world of the rholang these new names really are only visible within the correct scope, but remember that human programmers can look in to that world from the outside. That is especially true when working in a blockchain context.
 
-So while a competing pizza shop can no longer _consume_ pizza orders intended for our shop, they can still read the orders with a block explorer. Occasionally programmers call `new` names "private", but a better term is "unforgeable", which explains the answer to the previous question.
-
-We've previously used `new` to prevent tuplespace pollution. Why did using unforgeable names prevent us from having to clear the tuplespace after each contract run?
-- [ ] Because `new` makes free names
-- [x] Because `new` creates unforgeable names that can't be accessed by outside code
-- [ ] Because `new` automatically clears the tuplespace
+So while a competing pizza shops (from outside the curly braces) can not _consume_ pizza orders intended for our shop, they can still read the orders with a block explorer. Occasionally programmers call `new` names "private", but a better term is "unforgeable", which explains the answer to the previous question.
 
 ## Acknowledgement Channels
 
@@ -105,21 +88,20 @@ Why don't the acknowledgements in the previous example show up on the screen?
 - [ ] The orders were not received correctly
 - [x] The confirmation was not sent to `stdout`
 
-### Exercise
-The previous example causes tuplespace pollution on the channels `@"Alice"` and `@"Bob"`. Fix it so that Alice and Bob both have unforgeable names.
+
 
 ## Sending Names Gives Permission
-We just saw how the customer can give the shop an ack channel to receive order confirmation. It turns out we can do even better. With our previous code, anyone could contact the customer on the ack channel. That means anyone could send a forged ack making the customer think the order was placed when really it wasn't. Really Alice and Bob should keep their unforgeable names under tight control. Because giving someone that name gives them the capability to contact you.
+We just saw how the customer can give the shop an ack channel to receive order confirmation. It turns out we can do even better. With our previous code, Bob could contact Alice on her ack channel. That means Bob could send a forged ack making Alice think the order was placed when really it wasn't. Really Alice and Bob should keep their unforgeable names under tight control. Because giving someone that name gives them the capability to contact you.
 
 [privateAck.rho](privateAck.rho)
 
-The solution is to create a new unforgeable name, and give it to the pizza shop so that only they can call you back. Even though the pizza shop is _outside_ of the `new alice`, it can still send on the channel because alice gave it the channels name. This is a wonderful way to delegate priveledges.
+The solution is to create a new unforgeable name, and give it to the pizza shop so that only they can call you back. Even though the pizza shop is _outside_ of the `new alice`, it can still send on the channel because Alice gave it the channel's name. This is a wonderful way to delegate privileges.
 
 In this example we trust the shop to only _send_ on the ack channel, but notice that it could also receive if it wanted to. We'll learn how to give out only some of those permissions in the next lesson on bundles.
 
 Bob also wants to order a pizza and give a unforgeable ack channel. Where should he create his unforgeable channel?
 - [x] On his own line, after the alice code
-- [ ] On the same line the Alice did
+- [ ] On the same line Alice did
 - [ ] On the very first line of the program
 
 ## `stdoutAck` and `stderrAck`
@@ -132,7 +114,7 @@ By the way, did you ever notice the handful of stuff that always starts in a fre
 
 
 ### Exercise
-`stdout!("1")|stdout!("2")|stdout!("3")`
+`stdout!("1") | stdout!("2") | stdout!("3")`
 Notice that this program does not print the numbers in any particular order. The calls happen concurrently. Imagine we really need these lines to print in order. Modify the code to use ack channels and ensure that the numbers get printed in order.
 
 ### Exercise
@@ -170,7 +152,7 @@ If `pizzzaShop` is a name, then what is `@pizzaShop`?
 
 
 
-Why did the pizzaShopAck code send `"bob"` as an ack channel instead of `@"bob"`?
+Why did the pizzaAck code send `*bob` as an ack channel instead of `bob`?
 - [ ] No reason; it's just a style choice.
-- [x] Because @"bob" is a name, but we have to send processes.
+- [x] Because `bob` is a channel, but we have to send processes.
 - [ ] That's special syntax for ack channels.

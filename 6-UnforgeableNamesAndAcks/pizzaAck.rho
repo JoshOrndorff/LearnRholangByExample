@@ -1,4 +1,4 @@
-new pizzaShop in {
+new alice, bob, pizzaShop in {
 
   // Now we take an order and an ack channel
   contract pizzaShop(order, ack) = {
@@ -6,8 +6,9 @@ new pizzaShop in {
     ack!("Order Received.")
   }
   |
+
   // Known customers can order because pizzaShop is bound here.
-  pizzaShop!("Extra bacon please", "alice")
+  pizzaShop!("Extra bacon please", *alice)
   |
-  pizzaShop!("Hawaiian Pizza to go", "bob")
+  pizzaShop!("Hawaiian Pizza to go", *bob)
 }

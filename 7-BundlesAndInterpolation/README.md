@@ -4,11 +4,11 @@
 
 ![Alice's fans love her and want to send her lots of mail .](Alice.png)
 
-Alice is a rising celebrity who receives mail from her fans. They used to send mail directly to her on a public name.
+Alice is a rising celebrity who receives mail from her fans. They used to send mail directly to her.
 
 [fanmailBad.rho](fanmailBad.rho)
 
-But as she became more popular, her jealous competitor Eve began stealing her mail.
+But as she became more popular, her jealous competitor Eve began stealing her mail. (Imagine that Eve can run code inside the first set of curly braces.)
 
 ### Exercise
 Write the code for a competitor to steal the mail  <!-- Answer in fanmailEve.rho -->
@@ -34,7 +34,7 @@ Here's the answer:
 [fanmailAsk.rho](fanmailAsk.rho)
 
 
-Astute readers will notice that Eve can now just intercept messages asking for the fanmail address. Good observation. As a bonus exercise, you could write Eve's new code. (hint: it's the same as the old code). The solution to this problem involves public key cryptography and the registry. We'll learn about that in unit 4.
+Astute readers will notice that Eve can now just intercept messages asking for the fanmail address. Good observation. As a bonus exercise, you could write Eve's new code. (hint: it's the same as the old code). The solution to this problem involves public key cryptography and the registry. We'll learn about that later on.
 
 ### Exercise
 Our pizza shop back in lesson 2 had a similar problem to Alice. Rework that code so they can easily take on new customers.
@@ -60,14 +60,25 @@ Who will catch the ball in the jackpot code?
 Exercise: Use stdoutAck to display how many points each person actually gets when they catch the ball.
 <!-- solution in jackpotNicePrinting.rho -->
 
-Most programming languages will allow you to join or "concatenate" two strings together, and rholang is no exception. We can `stdout!("Hello " ++ "world")`, but we can't concatenate a string with an int. That's why we had to use that `stdoutAck` trick. Another option is to print a list  `stdout!(["Bill caught it. Points earned: ", *points])`. We'll go into more detail about both techniques in future lessons.
 
-How is this game in rholang different than the real game where one ball is throw repeatedly?
+
+How is this game in rholang different than the real game where one ball is thrown repeatedly?
 - [ ] It is a very accurate simulation
-- [x] In rholang all balls are thrown at once and caught in any order
+- [x] In rholang all balls are thrown concurrently and caught in any order
 - [ ] In rholang the balls are caught in the reverse order from what they are thrown.
 - [ ] In rholang Bill makes all his catches, then Paige makes all her catches.
 
+
+## Side Bar: String Operations
+Most programming languages will allow you to join or "concatenate" two strings together, and rholang is no exception. We can `stdout!("Hello " ++ "world")`, but we can't concatenate a string with an int.
+
+One solution is to use `stdoutAck` andsend acknowledgements. Another option is to print a list  `stdout!(["Bill caught it. Points earned: ", *points])`. We'll go into more detail about both techniques in future lessons.
+
+A final option is to use string interpolation. String interpolation allows you to put placeholders into your strings and replace them with actual values using a map.
+
+[interpolation.rho](interpolation.rho)
+
+You can learn more about how the map that gets sets in lesson 12 on data structures.
 
 ## Imposter throws
 
@@ -87,7 +98,7 @@ Like before, this code requires the game host to pay for everyone who get's the 
 
 ## Public Key Crypto
 
-![This bundle is sealed within the blockchain world, but totaly openable to anyone outside. Remember that just because data is off limits within the blockchain, doesn't mean it's truly private.](privateNames.png)
+![This bundle is sealed within the blockchain world, but totally openable to anyone outside. Remember that just because data is off limits within the blockchain, doesn't mean it's truly private.](privateNames.png)
 
 In some ways, read-only bundles duplicate the signing features of [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography). The jackpot catchers here are sure that the balls came from the thrower because only he can send on the throw channel, which is a lot like cryptographic signing.
 

@@ -1,19 +1,19 @@
-new stdout(`rho:io:stdout`) in {
-  // Use the rnode repl to test your code
+new p1, p2, stdout(`rho:io:stdout`) in {
   // Send messages like in both orders
-  // @"P1"!("Send any message")
-  // @"P2"!("Hope I win")
+  p1!("Send any message") |
+  p2!("Hope I win") |
 
   // When Player one wins
-  for (m2 <- @"P2"){
-    for (m1 <- @"P1"){
+  for (m2 <- p2){
+    for (m1 <- p1){
       stdout!("Player one wins!")
     }
   }
   |
+  
   // When player two wins
-  for (m1 <- @"P1"){
-    for (m2 <- @"P2"){
+  for (m1 <- p1){
+    for (m2 <- p2){
       stdout!("Player two wins!")
     }
   }

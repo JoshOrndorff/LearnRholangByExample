@@ -1,4 +1,5 @@
 # Join Operator
+
 ## Multiple data sources
 
 ![In general, the winner of this pushup competition can't be determined until both participants are finished.](pushups.png)
@@ -8,16 +9,16 @@ Occasionally a computation can only be made once data is retrieved (messages are
 Rholang has the join operator for exactly this situation. To perform a join, just use the `;` character.
 
 ```
-for (p1Pushups <- @"player1"; p2Pushups <- @"player2") {
-  @"stdout"!("The winner is...")
+for (p1Pushups <- player1; p2Pushups <- player2) {
+  stdout!("The winner is...")
 }
 ```
 
-
+When you use the join operator, neither message will be received until both messages are available.
 
 ## Rocket Launch
 
-A space exploration company wants to make sure their rocket only launches when both of two flight engineers, Alice and Bob, give the launch command. As an example, Bob would give the go ahead by sending `BobLaunch!("launch")`. When both engineers give the command, the rocket can be launched.
+A space exploration company wants to make sure their rocket only launches when both of two flight engineers, Alice and Bob, give the launch command. As an example, Bob would give the go ahead by sending `bobLaunch!("launch")`. When both engineers give the command, the rocket can be launched.
 
 ### Exercise
 Consider how this code might be written using the join operator that we just discussed.
@@ -31,21 +32,21 @@ One may have been tempted to solve the rocket problem by first receiving one lau
 
 The problem here is when Alice okay's the launch, but Bob hasn't yet. Alice should be able to change her mind, but she cannot. Imagine if she suddenly noticed a problem with the rocket, or received some bad news and wanted to abort the launch.
 
-![No use in grabbing just one set of mail. Might as well wait until the second set](join.png)
-
 When using a join, she can still change her mind because the `for` won't consume her launch message until Bob's message also appears and is ready to be consumed.
+
+![No use in grabbing just one set of mail. Might as well wait until the second set](join.png)
 
 ## Launch Solution
 
 [launch.rho](launch.rho)
 
 What code would Alice need to "par in" to retract her launch command.
-- [ ] `@"AliceCancel"!("cancelZ")`
-- [ ] `@"AliceLaunch"!("cancel")`
-- [x] `for (x <- @"AliceLaunch"){Nil}`
+- [ ] `aliceCancel!("cancel")`
+- [ ] `aliceLaunch!("cancel")`
+- [x] `for (x <- aliceLaunch){ Nil }`
 
 
-The concept of joins is framed as the dining philosophers problem, and [explored further](https://developer.rchain.coop/tutorial/#dining-philosophers-and-deadlock") in the concise rholang tutorial.
+I've explored the concept of joins in the context of the famous dining philosophers problem in [this blog post](https://www.rchain.coop/blog/rholang-vs-the-dining-philosophers/).
 
 
 
@@ -71,12 +72,12 @@ There is a game where two players will each send a message on separate channels.
 
 
 
-Solution to the patience game
+## Solution to the patience game
 In this case we actually don't want to use join because we care which player went first. Hope I didn't trick you ;)
 
 [patienceSolution.rho](patienceSolution.rho)
 
-Like the comment says, you should send the messages in both orders to make sure of who wins. The easiest way to do that right now is probably interactively in the REPL as discussed in lesson zero. Another option is to have one player signal the other for when to go as shown below. We'll explore this concept further in the next unit.
+Like the comment says, you should send the messages in both orders to make sure of who wins. The easiest way to do that right now is to have one player signal the other for when to go as shown below. We'll explore this concept further in the next lesson.
 
 [P1First.rho](P1First.rho)
 

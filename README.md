@@ -18,7 +18,7 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 
 ### Unit 2
 * [lesson 6 -- Unforgeable Names and Acks](6-UnforgeableNamesAndAcks/)
-* [lesson 7 -- Bundles](7-Bundles/)
+* [lesson 7 -- Bundlesand Interpolation](7-BundlesAndInterpolation/)
 * [lesson 8 -- State Channels And Methods](8-StateChannelsAndMethods/)
 * [lesson 9 -- Object Capabilities](9-ObjectCapabilities/)
 * [lesson 10 -- More Syntax](10-MoreSyntax/)

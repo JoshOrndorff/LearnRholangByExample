@@ -62,3 +62,7 @@ sumlist
 Write a contract that takes in two integers that represent a minimum and a maximum.
 
 Exercise: group forwarder. I, the king, send messages to the forwarder who copies them to all the recipients. Rather than just having kill switch, I have the ability to change group subscription.
+
+
+
+Idea: [head ... tail]
