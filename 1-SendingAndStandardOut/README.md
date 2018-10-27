@@ -1,9 +1,8 @@
 # Sending and Standard Out
 
-## Say Hello
-
 !["Person waiving hello"](helloWorld.png)
 
+## Say Hello
 
 There is a long-standing tradition in programming that your first program should say "Hello World". Here's the simplest rholang code to put that text on the screen.
 
@@ -21,24 +20,24 @@ The heart of rholang is communicating on channels. Channels are communication li
 
 ![Redo this diagram!](sendSyntax.png)
 
-We created the channel `stdout` on the first line of the program with `new stdout`. You'll create lots of channels as you learn rholang. We also gave our channel a special power by including `(rho:io:stdout)`. More on that later, but for now just know that you need that part in parentheses to make text actually appear on the screen.
+We created the channel `stdout` on the first line of the program with `new stdout`. You'll create lots of channels as you learn rholang. We also gave our channel a special power by including `(rho:io:stdout)`. More on that later - For now, just know that you need that part in parentheses to make text actually appear on the screen.
 
 
 ## Using other channels
 
 ![Sent messages wait to be received here in "message purgatory"... JK, it's called the "tuplespace"](mailboxes.png)
 
-You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen because we won't add any special powers to them.
+You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen because we won't give them any special powers. Check this out:
 
 [tupleSpace.rho](tupleSpace.rho)
 
-So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone (or some process) to receive them. We'll learn how to receive messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
+So where do other channels go? Nowhere! Not yet, anyway. The messages just sit there waiting for someone (or some process) to receive them. We'll learn how to receive messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
-Make sure your message is sitting in the tuplespace. You should see some text like this depending on which developer environment you use.
+Make sure your message from `randoChannel` is sitting in the tuplespace. You should see some text like this, depending on which developer environment you're using:
 
 ```
 Storage Contents:
- @{"RandoChannel"}!("This won't be on the screen") | for( x0, x1 <= @{Unforgeable(0x01)} ) { Nil } | for( x0, x1, x2, x3 <= @{"secp256k1Verify"} ) { Nil } | for( x0, x1 <= @{"sha256Hash"} ) { Nil } | for( x0, x1 <= @{Unforgeable(0x03)} ) { Nil } | for( x0, x1, x2, x3 <= @{"ed25519Verify"} ) { Nil } | for( x0, x1 <= @{"blake2b256Hash"} ) { Nil } | for( x0 <= @{Unforgeable(0x02)} ) { Nil } | for( x0 <= @{Unforgeable(0x00)} ) { Nil } | for( x0, x1 <= @{"keccak256Hash"} ) { Nil }
+ @{"randoChannel"}!("This won't be on the screen") | for( x0, x1 <= @{Unforgeable(0x01)} ) { Nil } | for( x0, x1, x2, x3 <= @{"secp256k1Verify"} ) { Nil } | for( x0, x1 <= @{"sha256Hash"} ) { Nil } | for( x0, x1 <= @{Unforgeable(0x03)} ) { Nil } | for( x0, x1, x2, x3 <= @{"ed25519Verify"} ) { Nil } | for( x0, x1 <= @{"blake2b256Hash"} ) { Nil } | for( x0 <= @{Unforgeable(0x02)} ) { Nil } | for( x0 <= @{Unforgeable(0x00)} ) { Nil } | for( x0, x1 <= @{"keccak256Hash"} ) { Nil }
 ```
 
 
@@ -46,21 +45,19 @@ Storage Contents:
 ## Doing two things at once
 ![Rather than following an ordered list, all ingredients are added concurrently.  Looks delicions](cooking.png)
 
-In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently," or all at once.
+In rholang we don't tell the computer to do one thing, then another, then a third. Rather, we tell it all the tasks to do, and it does them "concurrently," or all at once.
 
 [parallel.rho](parallel.rho)
 
 The `|` is pronounced "parallel", or "par" for short.
 
 
-### Exercise
-Send the message "1 large pepperoni please" on a channel called "pizza shop".
-
-### Exercise
-Send "Hi Mom" on the channel "Mom's Phone".
-
-### Exercise
-Print two messages, "Rick" and "Morty", on the screen in one program.
+### Exercises
+ - Send the message "1 large pepperoni please" on a channel called "pizza shop".
+ 
+ - Send "Hi Mom" on the channel "Mom's Phone".
+ 
+ - Print two messages, "Rick" and "Morty", on the screen in one program.
 
 
 
