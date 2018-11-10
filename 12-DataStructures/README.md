@@ -146,10 +146,10 @@ In this example, Alice and Bob each have one unforgeable name (that I've called 
 ```
 new alice, bob, key1, key2, stdout(`rho:io:stdout`) in {
 
-  @alice!(*key1)|
-  @bob!(*key2)|
+  alice!(*key1)|
+  bob!(*key2)|
 
-  contract @(key1, key2) = {
+  contract @(*key1, *key2)(_) = {
     stdout!("Congratulations, Alice and Bob, you've cooperated.")
   }
 }
@@ -157,7 +157,7 @@ new alice, bob, key1, key2, stdout(`rho:io:stdout`) in {
 
 
 
-What tuple is used to build the compound name in `contract @(*self, "getVal") = { Nil }`?
+What tuple is used to build the compound name in `contract @(*self, "getVal")(_) = { Nil }`?
 - [ ] `self`
 - [ ] `"getval"`
 - [x] `(*self, "getVal")`
