@@ -26,9 +26,11 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 ### Unit 3
 * [lesson 11 --Pattern Matching](11-PatternMatching/)
 * [lesson 12 -- Data Structures](12-DataStructures/)
+* [lesson 13 -- Iteration](13-Iteration/) (incomplete)
+* lesson 14 (not yet begun)
+* lesson 15 -- Going Off Chain](15-GoingOffChain/) (incomplete)
 
 ### Coming Soon
-* [lesson 13 -- Iteration](13-Iteration/)
 
 ## Target Audience
 This tutorial aims to be novice-friendly and introduce rholang from the ground

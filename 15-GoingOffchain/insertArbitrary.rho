@@ -1,0 +1,19 @@
+new doubler,
+  uriChan,
+  insertArbitrary(`rho:registry:insertArbitrary`),
+  stdout(`rho:io:stdout`) in {
+
+   // This is a silly contract that we'll register
+  contract doubler(@n /\ Int, return) = {
+    return!(2 * n)
+  } |
+
+  // Tell the registry that we want to register
+  // give URI back on uriChan
+  insertArbitrary!(bundle+{*doubler}  , *uriChan) |
+ 
+  // Wait for URI response
+  for(@uri <- uriChan) {
+    stdout!(uri)
+  }
+}
