@@ -28,7 +28,7 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 * [lesson 12 -- Data Structures](12-DataStructures/)
 * [lesson 13 -- Iteration](13-Iteration/) (incomplete)
 * lesson 14 (not yet begun)
-* lesson 15 -- Going Off Chain](15-GoingOffChain/) (incomplete)
+* [lesson 15 -- Going Off Chain](15-GoingOffChain/) (incomplete)
 
 ### Coming Soon
 
