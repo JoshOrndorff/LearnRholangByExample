@@ -30,7 +30,6 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 * lesson 14 (not yet begun)
 * [lesson 15 -- Going Off Chain](15-GoingOffChain/) (incomplete)
 
-### Coming Soon
 
 ## Target Audience
 This tutorial aims to be novice-friendly and introduce rholang from the ground
