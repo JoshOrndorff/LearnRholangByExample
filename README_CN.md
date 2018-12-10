@@ -4,21 +4,21 @@
 
 ## 目录
 * [Rholang备忘录](cheatSheet)(未翻译)
-* [课程0 -- 开发环境](0-DeveloperEnvironment/README_CN.md)
+* [课程0 -- 开发环境](00-DeveloperEnvironment/README_CN.md)
 
 ### 单元 1
 
-* [课程1 -- 发送与标准输出(stdout)](1-SendingAndStandardOut/README_CN.md)
-* [课程2 -- 接收](2-Receiving/README_CN.md)
-* [课程3 -- 传音筒、"name"和“process”](3-TelephoneNamesAndProcesses/README_CN.md)
-* [课程4 -- 持续发送与窥探](4-PersistentSendAndPeek/README_CN.md)
-* [课程5 -- Join操作](5-JoinOperator/README_CN.md)
+* [课程1 -- 发送与标准输出(stdout)](01-SendingAndStandardOut/README_CN.md)
+* [课程2 -- 接收](02-Receiving/README_CN.md)
+* [课程3 -- 传音筒、"name"和“process”](03-TelephoneNamesAndProcesses/README_CN.md)
+* [课程4 -- 持续发送与窥探](04-PersistentSendAndPeek/README_CN.md)
+* [课程5 -- Join操作](05-JoinOperator/README_CN.md)
 
 ### 单元 2
-* [课程6 -- 不可伪造的Names和Acks](6-UnforgeableNamesAndAcks/README_CN.md)
-* [课程7 -- Bundles](7-Bundles/README_CN.md)
-* [课程8 -- 状态通道和方法](8-StateChannelsAndMethods/README_CN.md)
-* [课程9 -- 对象功能](9-ObjectCapabilities/README_CN.md)
+* [课程6 -- 不可伪造的Names和Acks](06-UnforgeableNamesAndAcks/README_CN.md)
+* [课程7 -- Bundles](07-Bundles/README_CN.md)
+* [课程8 -- 状态通道和方法](08-StateChannelsAndMethods/README_CN.md)
+* [课程9 -- 对象功能](09-ObjectCapabilities/README_CN.md)
 * [课程10 -- 更多语法](10-MoreSyntax/README_CN.md)
 
 ### 单元 3

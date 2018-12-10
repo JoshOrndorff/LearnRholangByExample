@@ -10,17 +10,17 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 
 ### Unit 1
 
-* [lesson 1 -- Sending and Standard Out](1-SendingAndStandardOut/)
-* [lesson 2 -- Receiving](2-Receiving/)
-* [lesson 3 -- Telephone, Names, and Processes](3-TelephoneNamesAndProcesses/)
-* [lesson 4 -- Persistent Send and Peek](4-PersistentSendAndPeek/)
-* [lesson 5 -- The Join Operator](5-JoinOperator/)
+* [lesson 1 -- Sending and Standard Out](01-SendingAndStandardOut/)
+* [lesson 2 -- Receiving](02-Receiving/)
+* [lesson 3 -- Telephone, Names, and Processes](03-TelephoneNamesAndProcesses/)
+* [lesson 4 -- Persistent Send and Peek](04-PersistentSendAndPeek/)
+* [lesson 5 -- The Join Operator](05-JoinOperator/)
 
 ### Unit 2
-* [lesson 6 -- Unforgeable Names and Acks](6-UnforgeableNamesAndAcks/)
-* [lesson 7 -- Bundles and Interpolation](7-BundlesAndInterpolation/)
-* [lesson 8 -- State Channels And Methods](8-StateChannelsAndMethods/)
-* [lesson 9 -- Object Capabilities](9-ObjectCapabilities/)
+* [lesson 6 -- Unforgeable Names and Acks](06-UnforgeableNamesAndAcks/)
+* [lesson 7 -- Bundles and Interpolation](07-BundlesAndInterpolation/)
+* [lesson 8 -- State Channels And Methods](08-StateChannelsAndMethods/)
+* [lesson 9 -- Object Capabilities](09-ObjectCapabilities/)
 * [lesson 10 -- More Syntax](10-MoreSyntax/)
 
 ### Unit 3

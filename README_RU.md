@@ -4,21 +4,21 @@
 
 ## Содержание
 * [Шпаргалка по ро](cheatSheet/README_RU.md)
-* [Урок 0 -- Среда разработки](0-DeveloperEnvironment/README_RU.md)
+* [Урок 0 -- Среда разработки](00-DeveloperEnvironment/README_RU.md)
 
 ### Модуль 1
 
-* [урок 1 -- Отправка сообщений и стандартный OUT](1-SendingAndStandardOut/README_RU.md)
-* [урок 2 -- Получение сообщений](2-Receiving/README_RU.md)
-* [урок 3 -- Сломанный телефон, Имена и Процессы](3-TelephoneNamesAndProcesses/README_RU.md)
-* [урок 4 -- Персистивная отправка и Подглядки](4-PersistentSendAndPeek/README_RU.md)
-* [урок 5 -- Оператор Объединения](5-JoinOperator/README_RU.md)
+* [урок 1 -- Отправка сообщений и стандартный OUT](01-SendingAndStandardOut/README_RU.md)
+* [урок 2 -- Получение сообщений](02-Receiving/README_RU.md)
+* [урок 3 -- Сломанный телефон, Имена и Процессы](03-TelephoneNamesAndProcesses/README_RU.md)
+* [урок 4 -- Персистивная отправка и Подглядки](04-PersistentSendAndPeek/README_RU.md)
+* [урок 5 -- Оператор Объединения](05-JoinOperator/README_RU.md)
 
 ### Модуль 2
-* [урок 6 -- Неподделаевымые имена и Подтверждения](6-UnforgeableNamesAndAcks/)
-* [урок 7 -- Связки](7-Bundles/)
-* [урок 8 -- Каналы состояний и Методы](8-StateChannelsAndMethods/)
-* [урок 9 -- Объектные возможности](9-ObjectCapabilities/)
+* [урок 6 -- Неподделаевымые имена и Подтверждения](06-UnforgeableNamesAndAcks/)
+* [урок 7 -- Связки](07-Bundles/)
+* [урок 8 -- Каналы состояний и Методы](08-StateChannelsAndMethods/)
+* [урок 9 -- Объектные возможности](09-ObjectCapabilities/)
 * [урок 10 -- Опять синтаксис](10-MoreSyntax/)
 
 ### Модуль 3
