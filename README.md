@@ -37,7 +37,9 @@ up. If you've never ever programmed before, you may struggle at times, but
 if you know how to write a little python or javascript, you've got all the
 background I've assumed.
 
- I'm not expecting you to be familiar with process calculi, be a master of any other languages, or  understand all the theoretical math discussed in the RChain community.
+ I'm not expecting you to be familiar with process calculi, be a master of any other languages, or  understand all the theoretical math discussed in the RChain community.   
+ 
+Let's enjoy Code :)
 
 
 ## Additional Resources
