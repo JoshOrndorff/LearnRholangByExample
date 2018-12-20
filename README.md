@@ -43,7 +43,6 @@ background I've assumed.
 ## Additional Resources
 * [Mike Stay's Rholang Tutorial](https://developer.rchain.coop/tutorial/)
 * [The Core team's tutorial](https://github.com/rchain/rchain/blob/master/docs/rholang/rholangtut.md)
-* I hold office hours in https://zoom.us/j/6853551826 Thursday 7:00AM Seattle time
 * Contact me through [my website](https://joshyorndorff.com/contact).
 
 ## Author and License

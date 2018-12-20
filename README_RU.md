@@ -34,7 +34,6 @@
 ## Дополнительная информация
 * [Mike Stay's Rholang Tutorial](https://developer.rchain.coop/tutorial/)
 * [The Core team's tutorial](https://github.com/rchain/rchain/blob/master/docs/rholang/rholangtut.md)
-* Рабочие встречи про "ро" в [Zoom](https://zoom.us/j/6853551826) по четвергам 7:00AM по Сиэтлу ( 17:00 по Москве )
 * С автором можно связаться через [его вебсайт](https://joshyorndorff.com/contact).
 
 ## Автор и лицензия
