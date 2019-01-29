@@ -6,7 +6,7 @@ Learn rholang by example and experimentation. The examples and exercises are mea
 
 ## Table of Contents
 * [Rholang Cheat Sheet](cheatSheet/)
-* [lesson 0 -- Developer Environment](0-DeveloperEnvironment/)
+* [lesson 0 -- Developer Environment](00-DeveloperEnvironment/)
 
 ### Unit 1
 
