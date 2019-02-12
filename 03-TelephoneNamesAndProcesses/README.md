@@ -32,7 +32,7 @@ If you've ever actually played telephone, you know that the message rarely arriv
 
 ![Opposites attract](inverse.png)
 
-Did you notice the `*` in `bobb!(*message)`? In rholang there are two kinds of things, "channels" and "processes". There are also ways to convert between the two.
+Did you notice the `*` in `bob!(*message)`? In rholang there are two kinds of things, "channels" and "processes". There are also ways to convert between the two.
 
 <!-- TODO: Maybe an illustration of arrows labeled * and @ would be better here? -->
 
