@@ -12,7 +12,7 @@ new alice, bob, stdout(`rho:io:stdout`) in {
   |
 
   // Concurrently, Bob will listens for the message
-  for (message <- bobb) {
+  for (message <- bob) {
     // Bob is the last player, so he'll announce the message
     stdout!(*message)
   }
