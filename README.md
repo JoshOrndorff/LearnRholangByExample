@@ -37,16 +37,16 @@ up. If you've never ever programmed before, you may struggle at times, but
 if you know how to write a little python or javascript, you've got all the
 background I've assumed.
 
- I'm not expecting you to be familiar with process calculi, be a master of any other languages, or  understand all the theoretical math discussed in the RChain community.
+ You don't need to be familiar with process calculi, be a master of any other languages, or understand the underlying math.
 
 
 ## Additional Resources
-* [Mike Stay's Rholang Tutorial](https://developer.rchain.coop/tutorial/)
 * [The Core team's tutorial](https://github.com/rchain/rchain/blob/master/docs/rholang/rholangtut.md)
 * Contact me through [my website](https://joshyorndorff.com/contact).
 
 ## Author and License
-Primarily written by Joshy Orndorff in support of the RChain cooperative.
+Written by Joshy Orndorff.
+
 Illustrations by Julianne Coxe.
 
 Released under the Apache 2.0 license.
