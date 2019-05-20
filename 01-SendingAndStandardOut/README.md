@@ -7,7 +7,7 @@
 
 There is a long-standing tradition in programming that your first program should say "Hello World". Here's the simplest rholang code to put that text on the screen.
 
-[hello.rho](hello.rho)
+[hello.rho](hello.rho ':include :type=code')
 
 ### Exercise
 Make the program print "Rholang rocks!" instead of "Hello World".
@@ -30,7 +30,7 @@ We created the channel `stdout` on the first line of the program with `new stdou
 
 You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen because we won't add any special powers to them.
 
-[tupleSpace.rho](tupleSpace.rho)
+[tupleSpace.rho](tupleSpace.rho ':include :type=code')
 
 So where do the other channels go then? Nowhere! Not yet anyway. The messages just sit there waiting for someone (or some process) to receive them. We'll learn how to receive messages in the next lesson. The place where messages sit in the meantime is called the "tuplespace".
 
@@ -48,7 +48,7 @@ Storage Contents:
 
 In rholang we don't tell the computer to do one thing, then another, then a third. Rather we tell it all the things to do, and it does them "concurrently," or all at once.
 
-[parallel.rho](parallel.rho)
+[parallel.rho](parallel.rho ':include :type=code')
 
 The `|` is pronounced "parallel", or "par" for short.
 
