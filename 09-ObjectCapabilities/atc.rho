@@ -30,8 +30,8 @@ new stationFactory, stdout(`rho:io:stdout`) in {
   // and public get capability
   new airportInfo, set in {
     stationFactory!("Weather is nice", *airportInfo, *set)
+    |
+    // Listener tunes in to receive latest message
+    airportInfo!(*stdout)
   }
-  |
-  // Listener tunes in to receive latest message
-  airportInfo!(*stdout)
 }
