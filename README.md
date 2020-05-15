@@ -2,7 +2,7 @@
 
 Learn rholang by example and experimentation. The examples and exercises are meant to be run, read, modified and completed. For best results, change anything and everything you are curious about. This tutorial is a tour of the most common and important features of rholang and a fast starting point for motivated learners.
 
-[中文教程](README_CN.md)   [версия на русском](README_RU.md)
+[中文教程](README_CN.md)   [версия на русском](README_RU.md) [한국어](README_KR.md)
 
 ## Table of Contents
 * [Rholang Cheat Sheet](cheatSheet/)
@@ -37,7 +37,9 @@ up. If you've never ever programmed before, you may struggle at times, but
 if you know how to write a little python or javascript, you've got all the
 background I've assumed.
 
- I'm not expecting you to be familiar with process calculi, be a master of any other languages, or  understand all the theoretical math discussed in the RChain community.
+ I'm not expecting you to be familiar with process calculi, be a master of any other languages, or  understand all the theoretical math discussed in the RChain community.   
+ 
+Let's enjoy Code :)
 
 
 ## Additional Resources
