@@ -21,7 +21,7 @@ The heart of rholang is communicating on channels. Channels are communication li
 
 ![Redo this diagram!](sendSyntax.png)
 
-We created the channel `result` on the first line of the program with `new result`. You'll create lots of channels as you learn rholang. We also gave our channel a special power by including `(rho:io:result)`. More on that later, but for now just know that you need that part in parentheses to make text actually appear on the screen.
+We created the channel `result` on the first line of the program with `new result`. You'll create lots of channels as you learn rholang. The first new channel defined will be returned as the result of an explore deploy. More on that later, but for now just know that you need that the first channel name will give you a result of an explore. For an actual deploy onto the blockchain the value retuned will be on a special deployId channel.
 
 
 ## Using other channels

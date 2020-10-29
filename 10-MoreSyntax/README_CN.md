@@ -14,7 +14,7 @@
 
 [greeter.rho](greeter.rho)
 
-代码 `stdout!("I" ++ "<3" ++ "rholang")` 会输出什么?
+代码 `result!("I" ++ "<3" ++ "rholang")` 会输出什么?
 - [ ] I <3 rholang
 - [ ] ["I", "<3", "rholang"]
 - [x] I<3rholang
@@ -47,7 +47,7 @@
 ### 练习
 重看一下第三课中传音筒的游戏，那个展示我们已经使用了`@message`的语法模式，所以`message`是一个"process"
 
-我们应该把 `for(@x <- @y){stdout!(...)}`  中 ... 替换为什么来让程序是正确的？
+我们应该把 `for(@x <- @y){result!(...)}`  中 ... 替换为什么来让程序是正确的？
 - [ ] `@x`
 - [x] `x`
 - [ ] `*x`
@@ -103,17 +103,17 @@ Rholang也有传统的布尔操作符， AND, OR, 和 NOT。语法是
 * 当 `a`是假的 ，`not a` 是真的
 
 
-`stdout!(true and true)` 会输出什么？?
+`result!(true and true)` 会输出什么？?
 - [x] true
 - [ ] false
 - [ ] 都不是; 非法语法
 
-`stdout!(not true)` 会输出什么?
+`result!(not true)` 会输出什么?
 - [ ] true
 - [x] false
 - [ ] 都不是; 非法语法
 
-`stdout!((not not true) or false)` 会输出什么?
+`result!((not not true) or false)` 会输出什么?
 - [x] true
 - [ ] false
 - [ ] 都不是; 非法语法
