@@ -1,6 +1,5 @@
 new result in {
-
-  printStuff!({"noun": person, "adverb": sideways}) |
+  printStuff!({"noun": "person", "adverb": "sideways"}) |
   
   contract printStuff(map) = {
     result!("The ${noun} jumped ${adverb}" %% *map)
