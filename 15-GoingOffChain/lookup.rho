@@ -1,6 +1,5 @@
-new doublerCh,
-  lookup(`rho:registry:lookup`),
-  stdout(`rho:io:stdout`) in {
+new result, doublerCh,
+  lookup(`rho:registry:lookup`) in {
   
   // Ask the registry to lookup the URI and send the contract back on doublerCh
   lookup!(`rho:id:fos1m8yaki3s8g1ytzkr6boucnhab6nafoco8ww63xqj5k8aa1xfza`, *doublerCh) |
@@ -8,7 +7,7 @@ new doublerCh,
   // Wait to receive the answer back from the registry
   for( doubler <- doublerCh) {
     
-    // Double a number and send the answer to stdout
-    doubler!(7, *stdout)
+    // Double a number and send the answer to result
+    doubler!(7, *result)
   }
 }

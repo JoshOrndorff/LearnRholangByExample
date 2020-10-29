@@ -1,4 +1,4 @@
-new capitalOf, print(`rho:io:stdout`) in {
+new print, capitalOf in {
   new mapCh in {
 
     // Use a persistent send instead of peeking later

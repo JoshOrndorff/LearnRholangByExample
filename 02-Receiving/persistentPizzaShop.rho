@@ -1,6 +1,6 @@
-new pizzaShop, stdout(`rho:io:stdout`) in {
+new result, pizzaShop in {
   for (order <= pizzaShop) {
-    stdout!("Pizza Order Received")
+    result!("Pizza Order Received")
   }
   |
   pizzaShop!("one hot chocolate")

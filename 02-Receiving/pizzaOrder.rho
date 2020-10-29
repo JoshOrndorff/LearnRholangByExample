@@ -1,7 +1,7 @@
-new pizzaShop, stdout(`rho:io:stdout`) in {
+new result, pizzaShop in {
   pizzaShop!("2 medium pies")
   |
   for(order <- pizzaShop){
-    stdout!("Order Received.")
+    result!("Order Received.")
   }
 }

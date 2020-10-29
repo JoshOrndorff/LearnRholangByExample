@@ -1,7 +1,7 @@
-new alice, stdout(`rho:io:stdout`) in {
+new result, alice in {
   // Alice reads fan mail
   for (mail <- alice) {
-    stdout!("Alice received a fanmail")
+    result!("Alice received a fanmail")
   }
   |
 

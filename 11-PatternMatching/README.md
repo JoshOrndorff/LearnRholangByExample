@@ -93,7 +93,7 @@ To match both of two patterns you use the "intersection" operator, `/\`. In this
 
 [intersection.rho](intersection.rho)
 
-Notice I called my stdout channel `print` that time. You can call those names anything you'd like. Although it's generally good to be consistent so as not to confuse anyone. From here on I'll stick with `stdout`.
+Notice I called my result channel `print` that time. You can call those names anything you'd like. Although it's generally good to be consistent so as not to confuse anyone. From here on I'll stick with `result`.
 
 ### Exercise
 The union example here is pretty basic. Expand it so it can match more languages and more words. Also write tests that show what happens when only the default pattern is matched.

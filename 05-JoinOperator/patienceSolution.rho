@@ -1,4 +1,4 @@
-new p1, p2, stdout(`rho:io:stdout`) in {
+new result, p1, p2 in {
   // Send messages like in both orders
   p1!("Send any message") |
   p2!("Hope I win") |
@@ -6,7 +6,7 @@ new p1, p2, stdout(`rho:io:stdout`) in {
   // When Player one wins
   for (m2 <- p2){
     for (m1 <- p1){
-      stdout!("Player one wins!")
+      result!("Player one wins!")
     }
   }
   |
@@ -14,7 +14,7 @@ new p1, p2, stdout(`rho:io:stdout`) in {
   // When player two wins
   for (m1 <- p1){
     for (m2 <- p2){
-      stdout!("Player two wins!")
+      result!("Player two wins!")
     }
   }
 }

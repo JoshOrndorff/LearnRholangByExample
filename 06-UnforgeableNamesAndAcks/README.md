@@ -58,7 +58,7 @@ What happens when you try to order a pizza from outside of the `new` restriction
 - [x] Error about top-level free variables
 - [ ] The code runs, but no order is received
 
-We learned that all names quote processes. So what process does the `pizzaShop` name quote? Try printing the process to `stdout` to see
+We learned that all names quote processes. So what process does the `pizzaShop` name quote? Try printing the process to `result` to see
 - [ ] It quotes "pizzaShop"
 - [ ] It doesn't quote anything
 - [x] "Some Unforgeable hex code"
@@ -86,7 +86,7 @@ To do that the pizza shop needs to know how to contact the customer. So the cust
 Why don't the acknowledgements in the previous example show up on the screen?
 - [ ] There is a bug in the code
 - [ ] The orders were not received correctly
-- [x] The confirmation was not sent to `stdout`
+- [x] The confirmation was not sent to `result`
 
 
 
@@ -108,13 +108,13 @@ Bob also wants to order a pizza and give a unforgeable ack channel. Where should
 
 Now that you understand ack channels, you should know about two other ways to print to the screen. They are channels called `stdoutAck` and `stderrAck`. They work just like their cousins from lesson 1, but they take an ack channel.
 
-[stdoutAck.rho](stdoutAck.rho)
+[stdoutAck.rho](resultAck.rho)
 
 By the way, did you ever notice the handful of stuff that always starts in a fresh tuplespace? Four of those things are the built-in receives for the screen-printing channels. The others are for cryptography. We'll discuss them later.
 
 
 ### Exercise
-`stdout!("1") | stdout!("2") | stdout!("3")`
+`result!("1") | result!("2") | result!("3")`
 Notice that this program does not print the numbers in any particular order. The calls happen concurrently. Imagine we really need these lines to print in order. Modify the code to use ack channels and ensure that the numbers get printed in order.
 
 ### Exercise
@@ -124,7 +124,7 @@ new myChan in {
   myChan!("Hi There")
 }
 |
-for (msg <- myChan) {stdout!(*msg)}
+for (msg <- myChan) {result!(*msg)}
 ```
 
 If your prediction for the previous exercise was wrong, modify the program so it actually does what you predicted it would.

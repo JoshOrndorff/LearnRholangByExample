@@ -1,11 +1,11 @@
 // REMINDER: This is the BAD way to solve the problem.
 
-new aliceLaunch, bobLaunch, stdout(`rho:io:stdout`) in {
+new result, aliceLaunch, bobLaunch in {
 
   // Listen for Alice's then Bob's launch commands
   for (x <- aliceLaunch){
     for (y <- bobLaunch){
-      stdout!("Launching the rocket")
+      result!("Launching the rocket")
     }
   }
   |

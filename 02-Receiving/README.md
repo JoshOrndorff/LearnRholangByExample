@@ -19,7 +19,7 @@ BTW, lines that start with `//` are called comments. They're just there for huma
 
 ![Pizza shop can receive messages on its channel.](pizza.png)
 
-The following code sends a message on a channel for a pizza shop and the pizza shop receives it. The pizza shop acknowledges receiving the message by printing to `stdout`.
+The following code sends a message on a channel for a pizza shop and the pizza shop receives it. The pizza shop acknowledges receiving the message by printing to `result`.
 
 [pizzaOrder](pizzaOrder.rho)
 

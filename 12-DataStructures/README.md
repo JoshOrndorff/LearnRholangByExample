@@ -144,13 +144,13 @@ We've learned about several interesting data structures in this lesson. Data str
 
 In this example, Alice and Bob each have one unforgeable name (that I've called key). The keys may be useful on their own (for things not shown in the snippet), but only when used together, can the contract shown be called. This is known as "rights amplification".
 ```
-new alice, bob, key1, key2, stdout(`rho:io:stdout`) in {
+new result, alice, bob, key1, key2 in {
 
   alice!(*key1)|
   bob!(*key2)|
 
   contract @(*key1, *key2)(_) = {
-    stdout!("Congratulations, Alice and Bob, you've cooperated.")
+    result!("Congratulations, Alice and Bob, you've cooperated.")
   }
 }
 ```

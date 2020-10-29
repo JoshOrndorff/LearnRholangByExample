@@ -77,9 +77,9 @@ Storage Contents:
 
 ## Тест
 
-Что выведет на экран фраза `stdout!("Programming!")` ?
+Что выведет на экран фраза `result!("Programming!")` ?
 - [x] Programming!
-- [ ] stdout!
+- [ ] result!
 - [ ] Ничего
 
 

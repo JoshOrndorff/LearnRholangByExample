@@ -14,7 +14,7 @@ The final binary operator you should know is `++` which is used for "concatenati
 
 [greeter.rho](greeter.rho)
 
-What would the code `stdout!("I" ++ "<3" ++ "rholang")` output?
+What would the code `result!("I" ++ "<3" ++ "rholang")` output?
 - [ ] I <3 rholang
 - [ ] ["I", "<3", "rholang"]
 - [x] I<3rholang
@@ -47,7 +47,7 @@ What code could be parred with the previous code to leave the number `24` on `do
 ### Exercise
 Revisit the telephone game from lesson 3 and show that we could have used the `@message` pattern so `message` would be a process.
 
-What should replace the ... in `for(@x <- @y){stdout!(...)}` to make the program valid?
+What should replace the ... in `for(@x <- @y){result!(...)}` to make the program valid?
 - [ ] `@x`
 - [x] `x`
 - [ ] `*x`
@@ -101,17 +101,17 @@ Rholang also has the classic Boolean operators AND, OR, and NOT. The syntax is
 * `a or b` true when either `a` or `b` is true
 * `not a` true when `a` is false
 
-What would `stdout!(true and true)` output?
+What would `result!(true and true)` output?
 - [x] true
 - [ ] false
 - [ ] neither; that's invalid syntax
 
-What would `stdout!(not true)` output?
+What would `result!(not true)` output?
 - [ ] true
 - [x] false
 - [ ] neither; that's invalid syntax
 
-What would `stdout!((not not true) or false)` output?
+What would `result!((not not true) or false)` output?
 - [x] true
 - [ ] false
 - [ ] neither; that's invalid syntax

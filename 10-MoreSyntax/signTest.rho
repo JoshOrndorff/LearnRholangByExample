@@ -1,9 +1,9 @@
-new stdout(`rho:io:stdout`) in {
+new result in {
   for (@balance <= @"signTest") {
     if (balance > 0) {
-      stdout!("Account in good standing.")
+      result!("Account in good standing.")
     } else {
-      stdout!("Account overdrawn.")
+      result!("Account overdrawn.")
     }
   }
 }

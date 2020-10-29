@@ -39,7 +39,7 @@
 
 "processes"可以是rholang中任何一个代码片段，例如我们的传话筒游戏，或者是披萨店订单程序。“process”可以是上百行的大程序，也可以只有几行。它们甚至可以是用于表示值的代码。下面是一些“process”的例子。
 
- - `stdout!("Sup Rholang?")` 一个常见的发送操作。
+ - `result!("Sup Rholang?")` 一个常见的发送操作。
  - `Nil` 最小的“process”。如字面意思，它不做任何事。
  - `for(msg <- @"phone"){Nil}` 一个常见的接收操作，在消息到达时它不会做任何事。
  - `"Hello World"` 另一个不做任何事请的小“process”。被称为"基础术语"。
@@ -123,7 +123,7 @@ Aice通过`for(message <- @"Alice")`接收我们的消息，所以， `message` 
 - [ ] `@"BobsPhone"`
 - [ ] `*"BobsPhone"`
 - [ ] `@*BobsPhone`
-- [ ] `stdout!("BobsPhone")`
+- [ ] `result!("BobsPhone")`
 
 
 

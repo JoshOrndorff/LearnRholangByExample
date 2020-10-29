@@ -58,7 +58,7 @@ Alice可以通过让粉丝请求她的粉丝邮箱地址来节省邮资。然后
 练习: 当他们抓住球的时候，使用stdoutAck来显示每个人实际上的分数。
 <!-- solution in jackpotNicePrinting.rho -->
 
-大多数程序语言都允许你组合或者"串联"两个字符串在一起,当然Rholang也不例外了。我们可以 `stdout!("Hello " ++ "world")`, 但是我们不能串联一个字符串和一个整型。那就是为什么我们要用`stdoutAck`这个方法。另一个方法就是打印一个列表 `stdout!(["Bill caught it. Points earned: ", *points])`。我们将在未来课程讨论更多关于这方面的细节。
+大多数程序语言都允许你组合或者"串联"两个字符串在一起,当然Rholang也不例外了。我们可以 `result!("Hello " ++ "world")`, 但是我们不能串联一个字符串和一个整型。那就是为什么我们要用`stdoutAck`这个方法。另一个方法就是打印一个列表 `stdout!(["Bill caught it. Points earned: ", *points])`。我们将在未来课程讨论更多关于这方面的细节。
 
 在rholang里的这个游戏与现实中一个球不断重复抛有什么区别?
 - [ ] 是相当准确的模拟

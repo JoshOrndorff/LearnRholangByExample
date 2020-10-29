@@ -1,8 +1,8 @@
-new wordLength, stdout(`rho:io:stdout`) in {
+new result, wordLength in {
   contract wordLength(@word) = {
-    stdout!("How many characters in " ++ word)|
-    stdout!(word.length())|
-    stdout!("Shorter version: " ++ word.slice(0, 5))
+    result!("How many characters in " ++ word)|
+    result!(word.length())|
+    result!("Shorter version: " ++ word.slice(0, 5))
   }
   |
   wordLength!("Cantaloupe")

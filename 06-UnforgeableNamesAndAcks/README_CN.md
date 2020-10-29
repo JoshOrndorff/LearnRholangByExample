@@ -132,7 +132,7 @@ Bob也想要订一份披萨，给出一个不可伪造的ack通道。我们应�
 
 
 ### 练习
-`stdout!("1")|stdout!("2")|stdout!("3")`
+`result!("1")|stdout!("2")|stdout!("3")`
 注意这段程序不会按照一定的顺序打印出数字。他们是同时发生的。想象我们现在真的要按照顺序打印几行。修改代码，使用ack通道来保证数字按顺序打印出来。
 
 ### 练习
@@ -142,7 +142,7 @@ new myChan in {
   myChan!("Hi There")
 }
 |
-for (msg <- myChan) {stdout!(*msg)}
+for (msg <- myChan) {result!(*msg)}
 ```
 
 如果你对上面的程序预测失败，修改程序，让程序按照你的想法运行。

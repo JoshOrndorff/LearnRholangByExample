@@ -1,10 +1,10 @@
-new grandma, stdout(`rho:io:stdout`) in {
+new result, grandma in {
   // I send the message
   grandma!("Meet at the mall at 4:00")
   |
   // I double check the message
   for (msg <- grandma){
-    stdout!("Double checking the message")
+    result!("Double checking the message")
     |
     // Put a copy back on the channel for grandma
     grandma!(*msg)
@@ -12,6 +12,6 @@ new grandma, stdout(`rho:io:stdout`) in {
   |
   // Grandma receives it
   for (msg <- grandma){
-    stdout!("I got your message")
+    result!("I got your message")
   }
 }

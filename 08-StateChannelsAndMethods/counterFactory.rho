@@ -1,4 +1,4 @@
-new counterFactory, stdout(`rho:io:stdout`) in {
+new result, counterFactory in {
   contract counterFactory(increase, reset) = {
     new currentCount in {
       // Start the counter at zero

@@ -10,7 +10,7 @@ Rholang has the join operator for exactly this situation. To perform a join, jus
 
 ```
 for (p1Pushups <- player1; p2Pushups <- player2) {
-  stdout!("The winner is...")
+  result!("The winner is...")
 }
 ```
 

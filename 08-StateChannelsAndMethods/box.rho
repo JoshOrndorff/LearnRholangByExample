@@ -1,4 +1,4 @@
-new stdout(`rho:io:stdout`), boxCh in {
+new result, boxCh in {
   // To save data we just put it in the box
   boxCh!(42)
   |
@@ -6,6 +6,6 @@ new stdout(`rho:io:stdout`), boxCh in {
   // Then to get data back out
   for (data <- boxCh) {
     // Do whatever you want with the data here.
-    stdout!(*data)
+    result!(*data)
   }
 }

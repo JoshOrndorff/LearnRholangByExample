@@ -1,4 +1,4 @@
-new getInspectionChannel, log(`rho:io:stdout`), missile in {
+new log, getInspectionChannel, missile in {
 
   contract @(*missile, "launch")(_) = {
     log!("launching...")

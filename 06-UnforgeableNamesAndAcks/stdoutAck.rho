@@ -1,10 +1,9 @@
-new myAckChannel,
-    stdout(`rho:io:stdout`),
+new result, myAckChannel,
     stdoutAck(`rho:io:stdoutAck`) in {
     
   stdoutAck!("Print some words.", *myAckChannel)
   |
   for (acknowledgement <- myAckChannel) {
-    stdout!("Received an acknowledgement.")
+    result!("Received an acknowledgement.")
   }
 }

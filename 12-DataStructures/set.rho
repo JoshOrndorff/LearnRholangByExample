@@ -1,46 +1,46 @@
-new sCh, stdout(`rho:io:stdout`) in {
+new result, sCh in {
 
   sCh!!(Set(3, 4, 5))|
 
   // Test toByteArray
   for (@s <- sCh){
-    stdout!(["Test toByteArray. Got: ", s.toByteArray()])
+    result!(["Test toByteArray. Got: ", s.toByteArray()])
   }
   |
 
   // Test Add
   for (@s <- sCh){
-    stdout!(["Test add. Expected Set(3, 4, 5, 6), Got: ", s.add(6)])
+    result!(["Test add. Expected Set(3, 4, 5, 6), Got: ", s.add(6)])
   }
   |
 
   // Test Diff
   for (@s <- sCh){
-    stdout!(["Test diff. Expected: Set(5) Got: ", s.diff(Set(3, 4))])
+    result!(["Test diff. Expected: Set(5) Got: ", s.diff(Set(3, 4))])
   }
   |
 
   // Test Union
   for (@s <- sCh){
-    stdout!(["Test union. Expected: Set(1, 2, 3, 4, 5). Got: ", s.union(Set(1, 2))])
+    result!(["Test union. Expected: Set(1, 2, 3, 4, 5). Got: ", s.union(Set(1, 2))])
   }
   |
 
   // Test Delete
   for (@s <- sCh){
-    stdout!(["Test delete. Expected: Set(3, 4). Got: ", s.delete(5)])
+    result!(["Test delete. Expected: Set(3, 4). Got: ", s.delete(5)])
   }
   |
 
   // Test Contains
   for (@s <- sCh){
-    stdout!(["Test contains. Expected: true. Got:", s.contains(5)])|
-    stdout!(["Test contains. Expected: false. Got: ", s.contains(6)])
+    result!(["Test contains. Expected: true. Got:", s.contains(5)])|
+    result!(["Test contains. Expected: false. Got: ", s.contains(6)])
   }
   |
 
   // Test Size
   for (@s <- sCh){
-    stdout!("Test size. Expected 3. Got: ${ans}" %% {"ans": s.size()})
+    result!("Test size. Expected 3. Got: ${ans}" %% {"ans": s.size()})
   }
 }

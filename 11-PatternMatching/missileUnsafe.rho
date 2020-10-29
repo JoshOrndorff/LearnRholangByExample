@@ -1,4 +1,4 @@
-new log(`rho:io:stdout`), missile in {
+new log, missile in {
 
   contract @(*missile, "launch")(_) = {
     log!("launching...")

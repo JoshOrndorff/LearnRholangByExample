@@ -72,9 +72,9 @@ Storage Contents:
 
 ## 小测试
 
-`stdout!("Programming!")` 将在屏幕上输出什么？
+`result!("Programming!")` 将在屏幕上输出什么？
 - [x] Programming!
-- [ ] stdout!
+- [ ] result!
 - [ ] Nothing
 
 

@@ -1,4 +1,4 @@
-new alice, bob, eve, stdout(`rho:io:stdout`) in {
+new result, alice, bob, eve in {
 
   // Alice get a lot of fan mail, so she
   // creates a new write only bundle and publishes it.
@@ -12,7 +12,7 @@ new alice, bob, eve, stdout(`rho:io:stdout`) in {
 
     // Alice also reads fan mail
     for (mail <- aliceFanMail) {
-      stdout!("Alice received a fanmail")
+      result!("Alice received a fanmail")
     }
   }
   |
@@ -33,7 +33,7 @@ new alice, bob, eve, stdout(`rho:io:stdout`) in {
     alice!(*return) |
     for (aliceFanMail <- return) {
       for (@stolenMail <= aliceFanMail) {
-        stdout!(["Eve stole a message: ", stolenMail])
+        result!(["Eve stole a message: ", stolenMail])
       }
     }
   }

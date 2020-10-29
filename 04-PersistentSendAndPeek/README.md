@@ -21,7 +21,7 @@ Confirm for yourself that the original send is still in the tuplespace.
 ### Exercise
 Modify the above code so that a second pilot also receives the information. Still, the send persists.
 
-By the way, did you notice that we don't need `new stdout(...) in {}` when we don't actually print anything to the screen `stdout`?
+By the way, did you notice that we don't need `new result(...) in {}` when we don't actually print anything to the screen `result`?
 
 How many comm events happen in `for (x <- y) {Nil} | y!!(Nil)`
 - [x] `1`
@@ -55,13 +55,13 @@ One problem with the code above is that a forgetful pilot may not actually put t
 
 ![Peeking at a message allows you to read it without consuming it.](letterPeek.png)
 
-Rholang will have a special syntax for this sort of thing eventually. It isn't available right now, but I'll show you the syntax just so you're ready. To "peek" at what's on a channel without consuming it, use the `<!` operator.
+To "peek" at what's on a channel without consuming it, use the `<<-` operator.
 
 [peek.rho](peek.rho)
 
 
 Which syntax is used to peek at a message?
-- [x] `for (x <! y){...}`
+- [x] `for (x <<- y){...}`
 - [ ] `for (x <= y){...}`
 - [ ] `x!!(y)`
 
