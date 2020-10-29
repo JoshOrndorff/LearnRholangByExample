@@ -17,6 +17,6 @@
   "license": "ISC",
   "dependencies": {
     "fs": "0.0.1-security",
-    "marked": "^0.5.0"
+    "marked": "^0.5.2"
   }
 }

@@ -21,7 +21,7 @@ Confirm for yourself that the original send is still in the tuplespace.
 ### Exercise
 Modify the above code so that a second pilot also receives the information. Still, the send persists.
 
-By the way, did you notice that we don't need `new stdout(...) in {}` when we don't actually print anything to the screen `stdout`?
+By the way, did you notice that we don't need `new result(...) in {}` when we don't actually print anything to the screen `result`?
 
 How many comm events happen in `for (x <- y) {Nil} | y!!(Nil)`
 - [x] `1`
