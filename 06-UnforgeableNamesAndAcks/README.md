@@ -104,11 +104,11 @@ Bob also wants to order a pizza and give a unforgeable ack channel. Where should
 - [ ] On the same line Alice did
 - [ ] On the very first line of the program
 
-## `resultAck` and `stderrAck`
+## `stdoutAck` and `stderrAck`
 
-Now that you understand ack channels, you should know about two other ways to print to the screen. They are channels called `resultAck` and `stderrAck`. They work just like their cousins from lesson 1, but they take an ack channel.
+Now that you understand ack channels, you should know about two other ways to print to the screen. They are channels called `stdoutAck` and `stderrAck`. They work just like their cousins from lesson 1, but they take an ack channel.
 
-[resultAck.rho](resultAck.rho)
+[stdoutAck.rho](resultAck.rho)
 
 By the way, did you ever notice the handful of stuff that always starts in a fresh tuplespace? Four of those things are the built-in receives for the screen-printing channels. The others are for cryptography. We'll discuss them later.
 
