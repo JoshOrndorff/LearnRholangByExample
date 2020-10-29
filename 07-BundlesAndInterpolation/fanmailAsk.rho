@@ -1,4 +1,4 @@
-new result, alice, bob, eve, result in {
+new result, alice, bob, eve in {
 
   // Alice get a lot of fan mail, so she
   // creates a new write only bundle and publishes it.

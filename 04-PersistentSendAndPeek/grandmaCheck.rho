@@ -1,4 +1,4 @@
-new result, grandma, result in {
+new result, grandma in {
   // I send the message
   grandma!("Meet at the mall at 4:00")
   |

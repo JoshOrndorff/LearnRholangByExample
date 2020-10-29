@@ -1,4 +1,4 @@
-new result, alice, result in {
+new result, alice in {
   // Alice reads fan mail
   for (mail <- alice) {
     result!("Alice received a fanmail")

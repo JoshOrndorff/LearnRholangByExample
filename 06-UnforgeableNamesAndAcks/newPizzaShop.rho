@@ -1,4 +1,4 @@
-new result, pizzaShop, result in {
+new result, pizzaShop in {
 
   // Same contract as before
   contract pizzaShop(order) = {

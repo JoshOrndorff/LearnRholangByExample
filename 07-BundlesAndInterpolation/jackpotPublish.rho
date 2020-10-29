@@ -1,4 +1,4 @@
-new result, gameCh, result in {
+new result, gameCh in {
   new throw in {
 
     //Give out read-only access

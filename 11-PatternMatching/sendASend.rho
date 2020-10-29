@@ -1,4 +1,4 @@
-new result, patternMatcher, result in {
+new result, patternMatcher in {
 
   for (x <= patternMatcher) {
    match *x {

@@ -1,4 +1,4 @@
-new result, lCh, result in {
+new result, lCh in {
 
   // Make a new list, l
   lCh!!([3, 4, 5])|

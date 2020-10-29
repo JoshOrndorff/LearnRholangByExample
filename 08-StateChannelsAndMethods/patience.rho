@@ -1,4 +1,4 @@
-new result, P1, P2, result in {
+new result, P1, P2 in {
 
   // active gets its own scope so players can't change its value.
   new active in {

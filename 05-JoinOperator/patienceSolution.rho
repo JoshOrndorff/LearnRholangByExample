@@ -1,4 +1,4 @@
-new result, p1, p2, result in {
+new result, p1, p2 in {
   // Send messages like in both orders
   p1!("Send any message") |
   p2!("Hope I win") |

@@ -1,4 +1,4 @@
-new result, airportInfo, result in {
+new result, airportInfo in {
   // ATC sends the info
   airportInfo!("No wind; Runway 11")
   |

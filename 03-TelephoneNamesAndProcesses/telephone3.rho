@@ -1,4 +1,4 @@
-new result, alice, bob, result in {
+new result, alice, bob in {
   // Start the game by sending a message to Alice
   alice!("How to program: Change stuff and see what happens.")
   |

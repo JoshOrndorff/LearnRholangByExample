@@ -1,4 +1,4 @@
-new result, sCh, result in {
+new result, sCh in {
 
   sCh!!(Set(3, 4, 5))|
 

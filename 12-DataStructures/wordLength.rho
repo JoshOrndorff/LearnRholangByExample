@@ -1,4 +1,4 @@
-new result, wordLength, result in {
+new result, wordLength in {
   contract wordLength(@word) = {
     result!("How many characters in " ++ word)|
     result!(word.length())|

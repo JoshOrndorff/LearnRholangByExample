@@ -1,4 +1,4 @@
-new result, aliceLaunch, bobLaunch, result in {
+new result, aliceLaunch, bobLaunch in {
   // Listen for both launch commands
   for (x <- aliceLaunch; y <- bobLaunch){
     result!("Launching the rocket")

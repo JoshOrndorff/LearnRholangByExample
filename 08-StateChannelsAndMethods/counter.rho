@@ -1,4 +1,4 @@
-new result, currentCount, increase, reset, check, result in {
+new result, currentCount, increase, reset, check in {
   
   // Starting the counter at 0
   currentCount!(0) |

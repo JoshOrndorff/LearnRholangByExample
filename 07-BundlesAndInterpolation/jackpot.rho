@@ -1,4 +1,4 @@
-new result, throw, result in {
+new result, throw in {
   // Throw the ball worth five points
   throw!(5)
   |
