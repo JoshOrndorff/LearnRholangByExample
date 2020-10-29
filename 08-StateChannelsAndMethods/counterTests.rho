@@ -4,12 +4,12 @@ new result, ack in {
   increase!(*ack)           | for(_ <- ack) {
 
   check!(*ack)              | for(count <- ack) {
-  resultAck!(*count, *ack)  | for(_ <- ack) {
+  stdoutAck!(*count, *ack)  | for(_ <- ack) {
 
   increase!(*ack)           | for(_ <- ack) {
 
   check!(*ack)              | for(count <- ack) {
-  resultAck!(*count, *ack)  | for(_ <- ack) {
+  stdoutAck!(*count, *ack)  | for(_ <- ack) {
 
   reset!(*ack)              | for(count <- ack) {
 

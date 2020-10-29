@@ -1,6 +1,6 @@
 for (points <= @throw){
   new ack in {
-    resultAck!("Bill caught it. Points earned: ", *ack)
+    stdoutAck!("Bill caught it. Points earned: ", *ack)
     |
     for( _ <- ack){
       result!(*points)
