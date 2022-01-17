@@ -36,7 +36,7 @@ Storage Contents:
  @{"world"}!("hello") | for( x0, x1 <= @{Unforgeable(0x01)} ) { Nil } | for( x0, x1, x2, x3 <= @{"secp256k1Verify"} ) { Nil } | for( x0, x1 <= @{"sha256Hash"} ) { Nil } | for( x0, x1 <= @{Unforgeable(0x03)} ) { Nil } | for( x0, x1, x2, x3 <= @{"ed25519Verify"} ) { Nil } | for( x0, x1 <= @{"blake2b256Hash"} ) { Nil } | for( x0 <= @{Unforgeable(0x02)} ) { Nil } | for( x0 <= @{Unforgeable(0x00)} ) { Nil } | for( x0, x1 <= @{"keccak256Hash"} ) { Nil }
 ```
 
-Когда вы захотите запускать более длинные сегменты кода (а это случится очень скоро), то можно выполнять код в несколько срочек в режиме eval. Не забудьте указать путь к файлу с кодом с расширением `.rho`.
+Когда вы захотите запускать более длинные сегменты кода (а это случится очень скоро), то можно выполнять код в несколько строчек в режиме eval. Не забудьте указать путь к файлу с кодом с расширением `.rho`.
 
 ```
 $ rnode eval intersection.rho
