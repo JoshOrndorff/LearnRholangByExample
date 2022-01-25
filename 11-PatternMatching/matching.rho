@@ -1,12 +1,12 @@
-new patternMatcher, stdout(`rho:io:stdout`) in {
+new result, patternMatcher in {
 
   for (x <= patternMatcher) {
    match *x {
-    Nil       => stdout!("Got the stopped process")
-    "hello"   => stdout!("Got the string hello")
-    [x, y]    => stdout!("Got a two-element list")
-    Int       => stdout!("Got an integer")
-    _         => stdout!("Got something else")
+    Nil       => result!("Got the stopped process")
+    "hello"   => result!("Got the string hello")
+    [x, y]    => result!("Got a two-element list")
+    Int       => result!("Got an integer")
+    _         => result!("Got something else")
    }
   }
   |

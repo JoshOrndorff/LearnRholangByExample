@@ -1,4 +1,4 @@
-new mCh, print(`rho:io:stdout`) in {
+new print, mCh in {
 
   mCh!!({"a": 3, "b": 4, "c": 5})|
 

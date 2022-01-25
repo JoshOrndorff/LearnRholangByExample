@@ -1,4 +1,4 @@
-new print(`rho:io:stdout`), register in {
+new print, register in {
 
   for (@{{@"name"!(_) | _} /\ {@"age"!(_) | _}} <= register){
     print!("Both name and age were in the data")

@@ -1,4 +1,4 @@
-new P1, P2, stdout(`rho:io:stdout`) in {
+new result, P1, P2 in {
 
   // active gets its own scope so players can't change its value.
   new active in {
@@ -6,13 +6,13 @@ new P1, P2, stdout(`rho:io:stdout`) in {
     |
     for(_ <- active; _ <- P1) {
       for( _ <- P2) {
-        stdout!("P2 Wins")
+        result!("P2 Wins")
       }
     }
     |
     for(_ <- active; _ <- P2) {
       for (_ <- P1) {
-        stdout!("P1 Wins")
+        result!("P1 Wins")
       }
     }
   }

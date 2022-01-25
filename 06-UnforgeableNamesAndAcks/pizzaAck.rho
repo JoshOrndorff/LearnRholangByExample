@@ -1,8 +1,8 @@
-new alice, bob, pizzaShop in {
+new result, alice, bob, pizzaShop in {
 
   // Now we take an order and an ack channel
   contract pizzaShop(order, ack) = {
-    // Instead of acknowledging via stdout, we use ack
+    // Instead of acknowledging via result, we use ack
     ack!("Order Received.")
   }
   |

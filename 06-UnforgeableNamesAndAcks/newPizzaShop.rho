@@ -1,8 +1,8 @@
-new pizzaShop, stdout(`rho:io:stdout`) in {
+new result, pizzaShop in {
 
   // Same contract as before
   contract pizzaShop(order) = {
-    stdout!("Order Received.")
+    result!("Order Received.")
   }
   |
   // Known customers can order because pizzaShop is bound here.

@@ -1,4 +1,4 @@
-new gameCh, stdout(`rho:io:stdout`) in {
+new result, gameCh in {
   new throw in {
 
     //Give out read-only access
@@ -13,7 +13,7 @@ new gameCh, stdout(`rho:io:stdout`) in {
   // Bill and Paige join the game
   for (throw <- gameCh){
     for (points <= throw){
-      stdout!(["Bill caught it. Points: ", *points])
+      result!(["Bill caught it. Points: ", *points])
     }
   }
   |

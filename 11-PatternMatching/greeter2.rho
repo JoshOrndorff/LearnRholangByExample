@@ -1,5 +1,5 @@
 
-new greeter in {
+new result, greeter in {
   contract greeter(name, return) = {
     return!("Hello there, " ++ *name)
   }
@@ -9,8 +9,6 @@ new greeter in {
     return!("Hello there, world")
   }
   |
-  new stdout(`rho:io:stdout`) in {
-    greeter!("Joshy", *stdout)|
-    greeter!("Tom", *stdout)
-  }
+    greeter!("Joshy", *result)|
+    greeter!("Tom", *result)
 }

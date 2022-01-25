@@ -1,5 +1,5 @@
-new chan1, stdout(`rho:io:stdout`) in {
-  stdout!("I'm on the screen")
+new result, chan1 in {
+  result!("I'm on the screen")
   |
   chan1!("I'm in the tuplespace")
 }

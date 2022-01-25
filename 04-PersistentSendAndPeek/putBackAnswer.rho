@@ -1,11 +1,11 @@
-new airportInfo, stdout(`rho:io:stdout`) in {
+new result, airportInfo in {
   // ATC sends the info
   airportInfo!("No wind; Runway 11")
   |
 
   // Pilot receives the info
   for (info <- airportInfo) {
-    stdout!(*info) |
+    result!(*info) |
     airportInfo!(*info) // Putting the message back for other pilots
   }
   |

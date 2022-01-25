@@ -70,9 +70,9 @@ How is this game in rholang different than the real game where one ball is throw
 
 
 ## Side Bar: String Operations
-Most programming languages will allow you to join or "concatenate" two strings together, and rholang is no exception. We can `stdout!("Hello " ++ "world")`, but we can't concatenate a string with an int.
+Most programming languages will allow you to join or "concatenate" two strings together, and rholang is no exception. We can `result!("Hello " ++ "world")`, but we can't concatenate a string with an int.
 
-One solution is to use `stdoutAck` andsend acknowledgements. Another option is to print a list  `stdout!(["Bill caught it. Points earned: ", *points])`. We'll go into more detail about both techniques in future lessons.
+One solution is to use `stdoutAck` andsend acknowledgements. Another option is to print a list  `result!(["Bill caught it. Points earned: ", *points])`. We'll go into more detail about both techniques in future lessons.
 
 A final option is to use string interpolation. String interpolation allows you to put placeholders into your strings and replace them with actual values using a map.
 

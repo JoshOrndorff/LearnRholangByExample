@@ -1,8 +1,7 @@
-new stdout(`rho:io:stdout`), printStuff in {
-
+new result in {
   printStuff!({"noun": "person", "adverb": "sideways"}) |
   
   contract printStuff(map) = {
-    stdout!("The ${noun} jumped ${adverb}" %% *map)
+    result!("The ${noun} jumped ${adverb}" %% *map)
   }
 }

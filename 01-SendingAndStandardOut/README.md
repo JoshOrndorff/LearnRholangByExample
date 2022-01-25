@@ -13,7 +13,7 @@ There is a long-standing tradition in programming that your first program should
 Make the program print "Rholang rocks!" instead of "Hello World".
 
 
-## WTH is stdout?
+## WTH is result?
 
 ![Channels are like mailboxes for sending messages](mailbox.png)
 
@@ -21,14 +21,14 @@ The heart of rholang is communicating on channels. Channels are communication li
 
 ![Redo this diagram!](sendSyntax.png)
 
-We created the channel `stdout` on the first line of the program with `new stdout`. You'll create lots of channels as you learn rholang. We also gave our channel a special power by including `(rho:io:stdout)`. More on that later, but for now just know that you need that part in parentheses to make text actually appear on the screen.
+We created the channel `result` on the first line of the program with `new result`. You'll create lots of channels as you learn rholang. The first new channel defined will be returned as the result of an explore deploy. More on that later, but for now just know that you need that the first channel name will give you a result of an explore. For an actual deploy onto the blockchain the value retuned will be on a special deployId channel.
 
 
 ## Using other channels
 
 ![Sent messages wait to be received here in "message purgatory"... JK, it's called the "tuplespace"](mailboxes.png)
 
-You can actually send messages on lots of channels, not just `stdout`. But unlike `stdout` they won't display on the screen because we won't add any special powers to them.
+You can actually send messages on lots of channels, not just `result`. But unlike `result` they won't display on the screen because we won't add any special powers to them.
 
 [tupleSpace.rho](tupleSpace.rho)
 
@@ -66,9 +66,9 @@ Print two messages, "Rick" and "Morty", on the screen in one program.
 
 ## Quiz
 
-What will `stdout!("Programming!")` print to the screen?
+What will `result!("Programming!")` print to the screen?
 - [x] Programming!
-- [ ] stdout!
+- [ ] result!
 - [ ] Nothing
 
 
@@ -76,14 +76,14 @@ What channel does `what!("Up")` send a message on?
 - [ ] `Up`
 - [x] `what`
 - [ ] `what`
-- [ ] `stdout`
+- [ ] `result`
 
 
 Which does rholang do first in
 ```
-stdout!("Dogs")
+result!("Dogs")
 |
-stdout!("Cats")
+result!("Cats")
 ```
 - [ ] prints "Dogs"
 - [ ] prints "Cats"

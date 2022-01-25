@@ -1,28 +1,28 @@
-new lCh, stdout(`rho:io:stdout`) in {
+new result, lCh in {
 
   // Make a new list, l
   lCh!!([3, 4, 5])|
 
   // Test nth
   for (@l <- lCh){
-    stdout!("Test nth. Expected: 5. Got: ${ans}" %% {"ans": l.nth(2)})
+    result!("Test nth. Expected: 5. Got: ${ans}" %% {"ans": l.nth(2)})
   }
   |
 
   // Test toByteArray
   for (@l <- lCh){
-    stdout!(["Test toByteArray. Got: ", l.toByteArray()])
+    result!(["Test toByteArray. Got: ", l.toByteArray()])
   }
   |
 
   // Test slice
   for (@l <- lCh){
-    stdout!(["Test slice. Expected: [4, 5]. Got: ", l.slice(1, 3)])
+    result!(["Test slice. Expected: [4, 5]. Got: ", l.slice(1, 3)])
   }
   |
 
   // Test length
   for (@l <- lCh){
-    stdout!("Test length. Expected: 3. Got: '${ans}" %% {"ans": l.length()})
+    result!("Test length. Expected: 3. Got: '${ans}" %% {"ans": l.length()})
   }
 }

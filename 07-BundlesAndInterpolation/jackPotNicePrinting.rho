@@ -3,7 +3,7 @@ for (points <= @throw){
     stdoutAck!("Bill caught it. Points earned: ", *ack)
     |
     for( _ <- ack){
-      stdout!(*points)
+      result!(*points)
     }
   }
 }

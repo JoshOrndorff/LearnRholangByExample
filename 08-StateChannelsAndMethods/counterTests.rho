@@ -1,4 +1,4 @@
-new ack in {
+new result, ack in {
   // This gets deeply nested because it's sequential.
   // This indentation style keeps it readable
   increase!(*ack)           | for(_ <- ack) {
@@ -14,7 +14,7 @@ new ack in {
   reset!(*ack)              | for(count <- ack) {
 
   check!(*ack)              | for(count <- ack) {
-  stdout!(*count)
+  result!(*count)
 
   }}}}}}}}
 }

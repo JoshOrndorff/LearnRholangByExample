@@ -1,11 +1,11 @@
-new patternMatcher, stdout(`rho:io:stdout`) in {
+new result, patternMatcher in {
 
   for (x <= patternMatcher) {
    match *x {
-    Nil               => stdout!("Got the stopped process")
-    {_!(_)}           => stdout!("Got a send")
-    {for(@0 <- _){_}} => stdout!("Got a receive on @0")
-    _                 => stdout!("Got something else")
+    Nil               => result!("Got the stopped process")
+    {_!(_)}           => result!("Got a send")
+    {for(@0 <- _){_}} => result!("Got a receive on @0")
+    _                 => result!("Got something else")
    }
   }
   |

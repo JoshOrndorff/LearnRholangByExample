@@ -1,4 +1,4 @@
-new c2f, f2c in {
+new result, c2f, f2c in {
 
   /**
    * Converts Celcius temperatures to Farenheit. The conversion
@@ -14,11 +14,9 @@ new c2f, f2c in {
   }
   |
 
-  new stdout(`rho:io:stdout`) in {
     // 0 C should be 32 F
-    c2f!(0, *stdout)
+    c2f!(0, *result)
     |
     // 100 C should be 212 F
-    c2f!(100, *stdout)
-  }
+    c2f!(100, *result)
 }

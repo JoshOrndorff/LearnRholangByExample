@@ -1,4 +1,4 @@
-new tCh, print(`rho:io:stdout`) in {
+new print, tCh in {
 
   tCh!!((3, 4, 5))|
 

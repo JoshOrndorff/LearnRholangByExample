@@ -16,7 +16,7 @@ As the message says, you learn most when you experiment. So be sure to change th
 
 ### Exercise
 
-That telephone game was fun, but it's always better the have more players. Go ahead and add a third player called Charlie. Instead of printing to `stdout`, bob will send the message along to Charlie. Then Charlie will print it to the screen. The More the Merrier!
+That telephone game was fun, but it's always better the have more players. Go ahead and add a third player called Charlie. Instead of printing to `result`, bob will send the message along to Charlie. Then Charlie will print it to the screen. The More the Merrier!
 
 
 
@@ -38,7 +38,7 @@ Did you notice the `*` in `bob!(*message)`? In rholang there are two kinds of th
 
 A "process" is any piece of rholang code such as our telephone game, or our pizza shop order program. Processes can be big hundred-line programs or small on-liners. They can even be tiny pieces of code that are just values.  Here are some example processes.
 
- - `stdout!("Sup Rholang?")` A common send
+ - `result!("Sup Rholang?")` A common send
  - `Nil` The smallest possible process. It literally means "do nothing".
  - `for(msg <- phone){Nil}` A common receive that does nothing when a message arrives.
  - `"Hello World"` Another small process that also does nothing. These are called "Ground Terms".
@@ -121,7 +121,7 @@ What is `@@Nil`?
 - [ ] `@"BobsPhone"`
 - [ ] `*"BobsPhone"`
 - [ ] `@*"BobsPhone"`
-- [ ] `stdout!("BobsPhone")`
+- [ ] `result!("BobsPhone")`
 
 
 
@@ -131,4 +131,4 @@ What is `@@Nil`?
 
 Instead of a linear telephone game where each player passes the message to the next, let's add a branch in the game. So now Bob will send to Charlie like before, but Bob will also send to Dawn.
 
-Each branch can be as long as you want, but at the end of each branch, print the message to `stdout`.
+Each branch can be as long as you want, but at the end of each branch, print the message to `result`.

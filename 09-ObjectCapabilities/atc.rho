@@ -1,5 +1,5 @@
 
-new stationFactory, stdout(`rho:io:stdout`) in {
+new result, stationFactory in {
   contract stationFactory(initialMessage, getInfo, setInfo) = {
     new currentMessage in {
       // Populate the initial message
@@ -33,5 +33,5 @@ new stationFactory, stdout(`rho:io:stdout`) in {
   }
   |
   // Listener tunes in to receive latest message
-  airportInfo!(*stdout)
+  airportInfo!(*result)
 }
