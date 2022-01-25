@@ -55,13 +55,13 @@ One problem with the code above is that a forgetful pilot may not actually put t
 
 ![Peeking at a message allows you to read it without consuming it.](letterPeek.png)
 
-Rholang will have a special syntax for this sort of thing eventually. It isn't available right now, but I'll show you the syntax just so you're ready. To "peek" at what's on a channel without consuming it, use the `<!` operator.
+To "peek" at what's on a channel without consuming it, use the `<<-` operator.
 
 [peek.rho](peek.rho)
 
 
 Which syntax is used to peek at a message?
-- [x] `for (x <! y){...}`
+- [x] `for (x <<- y){...}`
 - [ ] `for (x <= y){...}`
 - [ ] `x!!(y)`
 
